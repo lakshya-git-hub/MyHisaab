@@ -1396,6 +1396,7 @@ footer {
         flex-direction: column; /* Stack links vertically */
         gap: 20px;
         align-items: flex-start;
+        display: none; /* Explicitly hide by default on mobile */
          /* Initial display state handled by :not(.active) and .active rules */
     }
 
@@ -1657,6 +1658,7 @@ footer {
         flex-direction: column; /* Stack links vertically */
         gap: 20px;
         align-items: flex-start;
+        display: none; /* Explicitly hide by default on mobile */
          /* Initial display state handled by :not(.active) and .active rules */
     }
 
