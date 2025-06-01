@@ -1,0 +1,2087 @@
+/* Base Styles */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Poppins:wght@400;600;700&family=DM+Sans:wght@400;500;700&display=swap');
+
+:root {
+    --primary: #ffc107; /* Golden/Yellow primary */
+    --primary-dark: #ffa000;
+    --primary-light: #ffcd38;
+    --accent-blue: #0078FF; /* Electric Blue Accent */
+    --accent-orange: #FFA500; /* Orange Accent */
+    --accent-purple: #7367f0; /* Purple Accent */
+    --dark-bg: #121212; /* Very Dark Background */
+    --dark-surface: #1e1e1e; /* Dark Surface */
+    --dark-surface-light: #2c2c2c;
+    --dark-text: #e0e0e0; /* Light text on dark */
+    --dark-secondary-text: #a0a0a0;
+    --dark-border: #333333; /* Subtle Dark Border */
+    --white: #ffffff;
+    --black: #000000;
+    --success: #81c784;
+    --warning: #ffb74d;
+    --danger: #e57373;
+    --info: #64b5f6;
+    --font-primary: 'Inter', sans-serif; /* Using Inter as primary */
+    --font-secondary: 'Poppins', sans-serif; /* Using Poppins for headings */
+    --shadow-sm: 0 2px 5px rgba(0, 0, 0, 0.3);
+    --shadow-md: 0 5px 15px rgba(0, 0, 0, 0.4);
+    --shadow-lg: 0 10px 30px rgba(0, 0, 0, 0.5);
+    --transition: all 0.3s ease-in-out;
+    --section-gradient-dark: linear-gradient(180deg, rgba(18,18,18,1) 0%, rgba(30,30,30,1) 100%);
+    --section-gradient-light: linear-gradient(180deg, rgba(30,30,30,1) 0%, rgba(18,18,18,1) 100%);
+    --golden-gradient: linear-gradient(45deg, var(--primary), var(--primary-dark));
+    --grid-color: rgba(255, 255, 255, 0.05); /* Keep subtle grid if needed */
+
+    /* Light Theme Colors */
+    --light-bg: #ffffff;
+    --light-surface: #f5f5f5;
+    --light-border: #e0e0e0;
+    --light-text: #111111;
+    --light-text-secondary: #333333;
+    --light-accent: #2563eb;
+    --light-accent-hover: #1d4ed8;
+    --light-glow: rgba(37, 99, 235, 0.3);
+    --light-card-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    
+    /* Dark Theme Colors (existing) */
+    --dark-bg: #0a0a0a;
+    --dark-surface: #111111;
+    --dark-border: #333333;
+    --dark-text: #ffffff;
+    --dark-text-secondary: #a0a0a0;
+    --dark-accent: #ffc107;
+    --dark-accent-hover: #ffb300;
+    --dark-glow: rgba(255, 193, 7, 0.3);
+    --dark-card-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+}
+
+/* Light Theme Styles */
+[data-theme="light"] {
+    --bg: var(--light-bg);
+    --surface: var(--light-surface);
+    --border: var(--light-border);
+    --text: var(--light-text);
+    --text-secondary: var(--light-text-secondary);
+    --accent: var(--light-accent);
+    --accent-hover: var(--light-accent-hover);
+    --glow: var(--light-glow);
+    --card-shadow: var(--light-card-shadow);
+}
+
+/* Dark Theme Styles */
+[data-theme="dark"] {
+    --bg: var(--dark-bg);
+    --surface: var(--dark-surface);
+    --border: var(--dark-border);
+    --text: var(--dark-text);
+    --text-secondary: var(--dark-text-secondary);
+    --accent: var(--dark-accent);
+    --accent-hover: var(--dark-accent-hover);
+    --glow: var(--dark-glow);
+    --card-shadow: var(--dark-card-shadow);
+}
+
+/* Theme Transition */
+* {
+    transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--font-primary);
+    background-color: var(--bg);
+    color: var(--text);
+    line-height: 1.6;
+    position: relative;
+    overflow-x: hidden;
+}
+
+/* Subtle glowing background effects */
+body::before,
+body::after {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: -2; /* Place glows below all content, including potentially the loader */
+}
+
+/* Bluish-purple glow on the left */
+body::before {
+    background: radial-gradient(circle at 10% 50%, rgba(62, 63, 137, 0.4) 0%, transparent 50%); /* Adjust color and position */
+    /* Responsive adjustments */
+    @media (max-width: 768px) {
+        background: radial-gradient(circle at 50% 20%, rgba(62, 63, 137, 0.4) 0%, transparent 60%); /* Adjust for smaller screens */
+    }
+}
+
+/* Golden-yellow glow on the right */
+body::after {
+    background: radial-gradient(circle at 90% 50%, rgba(229, 180, 0, 0.4) 0%, transparent 50%); /* Adjust color and position */
+    /* Responsive adjustments */
+    @media (max-width: 768px) {
+        background: radial-gradient(circle at 50% 80%, rgba(229, 180, 0, 0.4) 0%, transparent 60%); /* Adjust for smaller screens */
+    }
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-secondary);
+    font-weight: 700; /* Bold headings */
+    line-height: 1.2;
+    color: var(--text);
+}
+
+a {
+    text-decoration: none;
+    color: var(--primary);
+}
+
+a:hover {
+    color: var(--primary-light);
+}
+
+ul {
+    list-style: none;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+.container {
+    width: 100%;
+    max-width: 1200px; /* Standard container width */
+    margin: 0 auto;
+    padding: 0 20px; /* Horizontal padding */
+}
+
+section {
+    padding: 80px 0; /* Standard section padding */
+}
+
+/* General Styles for Elements with Rounded Corners and Shadows */
+.card, .item, .module {
+    border-radius: 12px; /* Consistent rounded corners */
+    box-shadow: var(--shadow-md); /* Soft shadows */
+    background-color: var(--surface);
+    border: 1px solid var(--border);
+    box-shadow: var(--card-shadow);
+}
+
+/* Section Badge */
+.section-badge {
+    display: inline-block;
+    background-color: var(--surface);
+    color: var(--accent);
+    padding: 6px 15px; /* Adjust padding */
+    border-radius: 15px; /* Adjust border radius */
+    font-size: 0.85rem; /* Slightly adjust font size */
+    font-weight: 500;
+    margin-bottom: 10px; /* Adjust margin */
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    position: relative;
+    overflow: hidden;
+    z-index: 0;
+    /* Remove background and animation properties */
+    background: none;
+    animation: none;
+}
+
+.section-badge::before {
+    content: '';
+    position: absolute;
+    top: -4px;
+    left: -4px;
+    width: calc(100% + 8px);
+    height: calc(100% + 8px);
+    background: linear-gradient(to right, transparent 0%, var(--accent) 60%, transparent 100%);
+    background-size: 250% 100%;
+    border-radius: inherit;
+    z-index: -1;
+    animation: borderFlow 3s linear infinite;
+    display: block;
+}
+
+/* Remove animated background from primary buttons */
+.primary-cta,
+.featured-btn {
+    /* Revert background and animation properties */
+    background-color: var(--accent);
+    color: var(--bg);
+    background: none; /* Ensure no gradient background */
+    background-size: auto;
+    animation: none;
+    transition: var(--transition); /* Restore transition */
+}
+
+.primary-cta:hover {
+    background-color: var(--accent-hover);
+}
+
+.featured-btn:hover {
+     background-color: var(--accent-hover);
+}
+
+/* Remove keyframes for gradient flow animation if it's no longer used */
+@keyframes gradientFlow {
+    /* Removed */
+}
+
+/* Keep borderFlow if it's still needed elsewhere */
+@keyframes borderFlow {
+    0% {
+        background-position: 200% 0;
+    }
+    100% {
+        background-position: -200% 0;
+    }
+}
+
+.section-title {
+    font-size: 3rem;
+    margin-bottom: 15px;
+    text-align: center;
+    color: var(--text);
+}
+
+.section-title span {
+    color: var(--primary);
+}
+
+.section-subtitle {
+    color: var(--text-secondary);
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto 60px;
+    font-size: 1.1rem;
+}
+
+.btn {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 12px 24px;
+    border-radius: 6px;
+    font-weight: 500;
+    text-align: center;
+    transition: var(--transition);
+    cursor: pointer;
+    border: 1px solid var(--border);
+    font-family: var(--font-primary);
+    overflow: hidden;
+    background-color: var(--surface);
+    color: var(--text);
+    z-index: 1;
+}
+
+.btn:hover {
+    background-color: var(--accent);
+    color: var(--bg);
+}
+
+.primary-cta {
+    background: linear-gradient(45deg, var(--primary), var(--primary-dark));
+    color: var(--bg);
+    font-weight: 600;
+    padding: 15px 30px;
+    border-radius: 8px;
+    border: none;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.3s ease;
+    animation: goldenGlow 2s infinite;
+}
+
+.primary-cta::before {
+    content: '';
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    right: -2px;
+    bottom: -2px;
+    background: linear-gradient(45deg, 
+        var(--primary), 
+        var(--primary-dark), 
+        var(--primary-light), 
+        var(--primary));
+    background-size: 400% 400%;
+    z-index: -1;
+    animation: gradientBorder 3s ease infinite;
+    border-radius: 10px;
+}
+
+.primary-cta:hover {
+    transform: translateY(-2px);
+    animation: goldenGlow 1s infinite;
+}
+
+@keyframes gradientBorder {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+.featured-btn {
+     background-color: var(--primary);
+     color: var(--bg);
+}
+
+.featured-btn:hover {
+     background-color: var(--accent-hover);
+}
+
+/* Announcement Bar */
+.announcement-bar {
+    /* Base styles applied to both announcement bars */
+    text-align: center;
+    position: relative;
+    width: 100%;
+}
+
+.top-announcement-bar {
+    background-color: var(--primary); /* Solid golden background */
+    color: var(--bg); /* Dark text color */
+    padding: 8px 0; /* Standard padding */
+    font-size: 0.85rem; /* Slightly adjust font size */
+    font-weight: 500;
+    z-index: 1001; /* Ensure it's above the sticky header */
+}
+
+.hero-announcement-bar {
+    background: none; /* No background on outer div */
+    color: inherit; /* Inherit color from parent (hero section) */
+    padding: 0; /* No padding on outer div */
+    font-size: 0.9rem; /* Adjust font size */
+    font-weight: 400; /* Adjust font weight */
+    z-index: 1; /* Ensure it's above the hero background, but below the navbar */
+    margin-bottom: 30px; /* Add space between announcement bar and title */
+}
+
+.hero-announcement-bar .announcement-content {
+    display: inline-flex; /* Arrange items in a row */
+    align-items: center; /* Vertically align items */
+    background-color: #1a1a1a; /* Dark background for the inner bar */
+    padding: 6px 15px; /* Padding inside the inner bar */
+    border-radius: 20px; /* More rounded corners */
+    border: 1px solid rgba(255, 193, 7, 0.3); /* Subtle golden border */
+    box-shadow: 0 0 8px rgba(255, 193, 7, 0.2); /* Subtle golden glow */
+    gap: 10px; /* Space between items */
+    color: #ffc107; /* Golden text color */
+    font-weight: 500; /* Adjust font weight */
+}
+
+.hero-announcement-bar .announcement-content i {
+    color: #ffc107; /* Golden color for the icon */
+    font-size: 1rem; /* Adjust icon size */
+}
+
+.hero-announcement-bar .announcement-content .separator {
+    width: 1px; /* Width of the separator */
+    height: 15px; /* Height of the separator */
+    background-color: rgba(255, 255, 255, 0.3); /* Light grey separator color */
+    margin: 0 5px; /* Space around the separator */
+}
+
+/* Header (Sticky Navbar) */
+.navbar {
+    position: sticky; /* Make the header sticky */
+    top: 0; /* Stick to the top */
+    left: 0;
+    width: 100%;
+    background-color: var(--surface);
+    backdrop-filter: blur(8px); /* Add more prominent blur */
+    padding: 15px 0; /* Adjust padding */
+    z-index: 1000; /* Ensure it's above other content */
+    border-bottom: 1px solid var(--border); /* Subtle dark border at the bottom */
+    transition: all 0.3s ease-in-out;
+    /* Remove previous scrolled state styles as they might be handled by JS */
+}
+
+/* Remove previous scrolled state styles if they are still present */
+.navbar.scrolled {
+    box-shadow: var(--shadow-md); /* Add shadow when scrolled */
+}
+
+.navbar .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-family: var(--font-secondary); /* Use heading font */
+    font-size: 1.8rem;
+    font-weight: 700; /* Bold font weight */
+    color: var(--text); /* White color */
+    position: relative;
+    text-decoration: none;
+}
+
+.logo span {
+    color: var(--primary); /* Golden dot */
+}
+
+.nav-links ul {
+    display: flex;
+    gap: 30px; /* Increase gap slightly */
+}
+
+.nav-links ul li a {
+    font-weight: 500;
+    transition: all 0.3s ease-in-out;
+    position: relative;
+    padding: 5px 0;
+    color: var(--text-secondary); /* Secondary text color */
+    text-decoration: none;
+}
+
+.nav-links ul li a::before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background-color: var(--accent); /* Golden color */
+    transform: scaleX(0);
+    transform-origin: right;
+    transition: transform 0.3s ease;
+}
+
+.nav-links ul li a:hover {
+    color: var(--text); /* White hover color */
+}
+
+.nav-links ul li a:hover::before {
+    transform: scaleX(1);
+    transform-origin: left;
+}
+
+.auth-buttons {
+    display: flex;
+    gap: 15px; /* Keep gap */
+    align-items: center;
+}
+
+.login-btn {
+    font-weight: 500;
+    transition: all 0.3s ease-in-out;
+    color: var(--text-secondary); /* Secondary text color */
+    text-decoration: none;
+}
+
+.login-btn:hover {
+    color: var(--text); /* White hover color */
+}
+
+/* Styling for the CTA button in the header */
+.navbar .primary-cta {
+     padding: 10px 20px; /* Adjust padding */
+     font-weight: 600; /* Slightly bolder font weight */
+     border-radius: 6px; /* Rounded corners */
+     background: linear-gradient(45deg, var(--primary), var(--primary-dark)); /* Golden gradient background */
+     color: var(--bg); /* Dark text color */
+     text-decoration: none;
+     position: relative; /* Needed for potential glow effect */
+     overflow: hidden; /* Needed for potential glow effect */
+     /* Add subtle glow effect - can be refined */
+     box-shadow: 0 0 10px rgba(255, 193, 7, 0.5); /* Soft initial glow */
+     transition: all 0.3s ease-in-out;
+}
+
+.navbar .primary-cta:hover {
+     background: linear-gradient(45deg, var(--primary-light), var(--primary)); /* Slightly lighter gradient on hover */
+     box-shadow: 0 0 15px rgba(255, 193, 7, 0.8); /* More pronounced glow on hover */
+}
+
+/* Hamburger for Mobile */
+.hamburger {
+    display: none;
+    background: none;
+    border: none;
+    color: #ffffff; /* White color */
+    font-size: 1.5rem;
+    cursor: pointer;
+    z-index: 1001;
+}
+
+.hamburger.active {
+    color: var(--primary); /* Golden active color */
+}
+
+/* Hero Section */
+.hero {
+    position: relative;
+    padding: 40px 0; /* Reduce top/bottom padding even further */
+    overflow: hidden;
+    background-color: transparent; /* Make hero background transparent */
+    background-image: 
+        linear-gradient(to right, rgba(255, 255, 255, 0.04) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(255, 255, 255, 0.04) 1px, transparent 1px);
+    background-size: 40px 40px; /* Adjust grid size */
+    text-align: center; /* Center text content */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center; /* Vertically center content if hero is viewport height */
+    min-height: auto; /* Allow height to be determined by content and padding */
+}
+
+.hero .container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    z-index: 1; /* Ensure content is above potential background effects */
+    max-width: 1000px; /* Increase max-width of container slightly in hero */
+}
+
+/* Remove previous hero-promo, hero-subtitle, hero-cta-button styles if they exist */
+.hero-promo, .hero-cta-button {
+    display: none;
+}
+
+.hero-subtitle {
+    font-size: 1.2rem; /* Adjust font size */
+    color: var(--text-secondary); /* Light grey color */
+    margin-bottom: 40px; /* Space between subtitle and button */
+    text-align: center; /* Center the text */
+    max-width: 700px; /* Limit width */
+    margin-left: auto;
+    margin-right: auto;
+    line-height: 1.5;
+}
+
+.hero-title {
+    font-size: 5rem; /* Increase font size significantly */
+    margin-bottom: 25px; /* Adjust margin */
+    line-height: 1.15;
+    color: var(--text); /* White color */
+    max-width: 1000px; /* Match container width */
+    margin-left: auto;
+    margin-right: auto;
+    font-weight: 700; /* Ensure bold font weight */
+}
+
+.hero-title span {
+    color: #ffc107; /* Golden color for the dot */
+}
+
+/* Styling for the new 'Explore Divisions' button in the hero */
+.hero .primary-cta {
+     margin-top: 30px; /* Increase margin above the button */
+     padding: 18px 35px; /* Increase button padding */
+     font-size: 1.1rem; /* Increase button font size */
+     font-weight: 600;
+     border-radius: 8px; /* More rounded corners */
+     background-color: var(--bg); /* White background */
+     color: #333333; /* Dark grey text */
+     box-shadow: var(--shadow-md); /* Add shadow */
+     transition: var(--transition);
+}
+
+.hero .primary-cta:hover {
+     background-color: #f0f0f0; /* Slightly darker white on hover */
+     /* Inherits .primary-cta base styles for background, color, glow, transition */
+}
+
+.hero-graphic-placeholder {
+    width: 100%;
+    max-width: 900px; /* Adjust max-width for the graphic */
+    margin: 80px auto 0; /* Increase margin above and center */
+    border-radius: 12px; /* Rounded corners */
+    overflow: hidden;
+    position: relative;
+    box-shadow: 0 0 15px rgba(255, 193, 7, 0.5); /* Add a default golden glow */
+    background-color: var(--dark-surface-light); /* Placeholder background */
+    border: 1px solid var(--border); /* Subtle border */
+    animation: goldenGlow 4s infinite alternate; /* Apply the golden glow animation */
+}
+
+.hero-graphic-placeholder img {
+    display: block;
+    width: 100%;
+    height: auto;
+    opacity: 0.8; /* Make placeholder image slightly more opaque */
+    border-radius: 12px; /* Match container border radius */
+}
+
+/* Dashboard Preview Section - Remove styles as per new structure */
+.dashboard-preview-section {
+    display: none;
+}
+
+/* Divisions Section */
+.divisions {
+     background-color: transparent; /* Make divisions background transparent */
+     padding: 80px 0; /* Adjust padding */
+     text-align: center; /* Center content within the section */
+}
+
+.divisions .container {
+    /* Ensure container properties are suitable for centering and grid */
+    text-align: center; /* Center text content within container */
+}
+
+.divisions .section-badge {
+    /* Inherits base .section-badge styles */
+    margin-bottom: 20px; /* Adjust margin below badge */
+}
+
+.divisions .section-title {
+    /* Inherits base .section-title styles */
+    margin-bottom: 15px; /* Adjust margin below title */
+}
+
+.divisions .section-subtitle {
+    /* Inherits base .section-subtitle styles */
+    margin-bottom: 40px; /* Adjust margin below subtitle */
+}
+
+.divisions-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* Adjust minmax for cards to allow more flexibility */
+    gap: 30px; /* Adjust gap between grid items */
+    margin-top: 40px; /* Adjust margin above the grid */
+    text-align: left; /* Align text left within grid items */
+}
+
+/* Remove glowing border animation for division items */
+@keyframes glowingBorder {
+    /* Removed */
+}
+
+.division-item {
+    /* Inherits .card styles for background, border, rounded corners, shadow */
+    padding: 30px; /* Padding inside the card */
+    display: flex; /* Use flexbox for internal layout */
+    flex-direction: column; /* Stack content vertically */
+    align-items: flex-start; /* Align items to the start */
+    transition: var(--transition); /* Add transition for hover effects */
+    position: relative; /* Needed for potential pseudo-elements */
+    overflow: hidden; /* Needed for potential overflow effects */
+    background: linear-gradient(180deg, #0a0a0f 0%, #1a1a1f 100%); /* Deep gradient background */
+    border: 1px solid rgba(255, 193, 7, 0.1); /* Very subtle golden border */
+    box-shadow: 0 0 10px rgba(255, 193, 7, 0.2); /* Subtle default golden glow */
+    z-index: 1; /* Ensure content is above pseudo-elements */
+}
+
+.division-item:hover {
+    transform: translateY(-5px); /* Keep the slight upward lift on hover */
+    animation: goldenGlow 1s infinite alternate; /* Apply the pulsing golden glow animation on hover */
+    box-shadow: 0 0 25px rgba(255, 193, 7, 0.6); /* More pronounced glow on hover */
+}
+
+.division-item i {
+    font-size: 3rem; /* Adjust icon size */
+    color: var(--primary); /* Golden color for icons */
+    margin-bottom: 20px; /* Adjust margin below icon */
+}
+
+.division-item .micro-headline {
+    font-size: 0.9rem; /* Smaller font size for micro-headline */
+    font-weight: 600;
+    color: var(--accent-blue); /* Accent color for micro-headline */
+    margin-bottom: 10px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.division-item h3 {
+    font-size: 1.8rem; /* Adjust font size */
+    margin-bottom: 15px; /* Adjust margin */
+    color: var(--text); /* White color */
+}
+
+.division-item h3 span {
+    color: var(--primary); /* Golden color for dot */
+}
+
+.division-item p {
+    color: var(--text-secondary); /* Secondary text color */
+    font-size: 1rem; /* Adjust font size */
+    line-height: 1.6;
+    margin-bottom: 25px; /* Margin below description */
+    flex-grow: 1; /* Allow description to take up available space */
+}
+
+.division-item .btn {
+    margin-top: auto; /* Push button to the bottom */
+    /* Inherits .btn styles */
+}
+
+/* Remove previous vertical separator lines if they exist */
+.divisions-grid .division-item:not(:last-child)::after {
+    content: none;
+}
+
+/* Integrations Section */
+.integrations {
+     background: transparent; /* Make integrations background transparent */
+     padding: 80px 0; /* Adjust padding */
+     text-align: center; /* Center content */
+}
+
+.integrations .container {
+    text-align: center; /* Center text within container */
+}
+
+.integrations .section-badge {
+    /* Inherits base .section-badge styles */
+    margin-bottom: 20px; /* Adjust margin */
+}
+
+.integrations .section-title {
+    /* Inherits base .section-title styles */
+    margin-bottom: 15px; /* Adjust margin */
+}
+
+.integrations .section-subtitle {
+    /* Inherits base .section-subtitle styles */
+    margin-bottom: 40px; /* Adjust margin */
+}
+
+.integration-diagram {
+    text-align: center;
+    margin: 60px auto; /* Center the block */
+    position: relative; /* Keep relative for potential future enhancements */
+    width: 100%;
+    max-width: 600px; /* Set max-width for the image container */
+    height: auto; /* Allow height to adjust */
+    display: block; /* Ensure it takes up its own line */
+    border-radius: 15px; /* Add rounded corners to the container */
+    overflow: hidden; /* Keep overflow hidden to respect border-radius */
+    /* Remove any animated border or pseudo-element styles */
+    border: none;
+    padding: 0;
+    background-color: transparent;
+    box-shadow: 0 0 15px rgba(255, 193, 7, 0.3); /* Add a static golden glow */
+}
+
+.integration-diagram:hover {
+    animation: goldenGlow 1s infinite alternate; /* Apply the pulsing golden glow animation on hover */
+}
+
+.integration-diagram img {
+    display: block; /* Ensure image is displayed */
+    max-width: 100%; /* Ensure image fits within container */
+    height: auto; /* Maintain aspect ratio */
+    margin: 0 auto; /* Center the image */
+    border: none; /* Remove any image border */
+}
+
+/* Remove any pseudo-element styles for animated border */
+.integration-diagram::before {
+    content: none;
+    display: none;
+}
+
+/* Remove keyframes specifically for the integration diagram animation if they exist */
+@keyframes borderAnimation {
+    /* Removed */
+}
+
+.integration-features-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* Arrange in 3 equal columns */
+    gap: 30px;
+    margin-top: 60px;
+}
+
+.integration-feature-item {
+    background-color: var(--surface); /* Default card background */
+    padding: 30px;
+    border-radius: 8px;
+    border: 1px solid var(--border);
+    text-align: center;
+    transition: var(--transition);
+    position: relative; /* Needed for pseudo-elements or complex hover effects */
+    overflow: hidden; /* Needed for background animations/gradients */
+    /* Set initial background for gradient hover */
+    background: var(--surface); /* Initial solid background */
+    box-shadow: 0 0 15px rgba(255, 193, 7, 0.3); /* Add a static golden glow */
+}
+
+.integration-feature-item:hover {
+    transform: translateY(-5px);
+    /* Enhance the golden glow on hover */
+    box-shadow: 0 0 25px rgba(255, 193, 7, 0.6),
+                0 0 40px rgba(255, 193, 7, 0.4),
+                0 0 60px rgba(255, 193, 7, 0.2);
+    /* Keep the initial solid background */
+    background: var(--surface);
+    /* Remove gradient animation on hover */
+    animation: none;
+    /* Apply the pulsing golden glow animation on hover */
+    animation: goldenGlow 1s infinite alternate;
+}
+
+/* New section for Feature Grid (Enhanced) */
+.features-enhanced {
+    background-color: transparent; /* Make feature grid background transparent */
+    padding: 80px 0; /* Standard section padding */
+    text-align: center; /* Center content */
+}
+
+.features-enhanced .container {
+    text-align: center; /* Center text within container */
+}
+
+/* Remove old integration feature item styles that might conflict */
+/* If .integration-feature-item is also used elsewhere with different styles, 
+   consider creating a new class for these enhanced feature cards */
+
+/* Define example keyframes for gradient shift animation */
+@keyframes gradientShift {
+    0% {
+        background-position: 0% 0%;
+    }
+    100% {
+        background-position: 100% 100%;
+    }
+}
+
+.integration-feature-item i {
+    font-size: 2.5rem;
+    color: var(--primary);
+    margin-bottom: 20px;
+}
+
+.integration-feature-item h3 {
+    font-size: 1.4rem;
+    margin-bottom: 10px;
+}
+
+.integration-feature-item p {
+    color: var(--text-secondary);
+    font-size: 0.95rem;
+}
+
+/* Pricing Section */
+.pricing {
+    background: transparent; /* Make pricing background transparent */
+}
+
+.pricing-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* Adjust minmax for cards */
+    gap: 30px;
+    margin-top: 60px;
+}
+
+.price-card {
+    background-color: var(--surface);
+    padding: 40px 30px;
+    border-radius: 8px;
+    border: 1px solid var(--border);
+    transition: var(--transition);
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2); /* Add subtle default shadow */
+}
+
+.price-card:hover {
+    animation: goldenGlow 1s infinite alternate; /* Apply the glowing animation on hover */
+}
+
+.price-card.featured {
+    border-color: var(--primary);
+    background: linear-gradient(180deg, var(--surface) 0%, rgba(255, 193, 7, 0.05) 100%);
+}
+
+.price-card h3 {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+    color: var(--text);
+}
+
+.price {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 10px;
+    color: var(--primary);
+}
+
+.price span {
+    font-size: 1rem;
+    font-weight: 400;
+    color: var(--text-secondary);
+}
+
+.price-card p {
+    color: var(--text-secondary);
+    margin-bottom: 25px;
+    font-size: 0.9rem;
+}
+
+.price-card ul {
+    margin-bottom: 30px;
+    text-align: left;
+    flex-grow: 1;
+}
+
+.price-card ul li {
+    margin-bottom: 15px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: var(--text);
+}
+
+.price-card ul li i {
+    color: var(--primary);
+}
+
+.price-card .btn {
+    margin-top: auto;
+    width: 100%;
+    justify-content: center;
+}
+
+/* Testimonials Section */
+.testimonials {
+    background: transparent; /* Make testimonials background transparent */
+    padding: 80px 0; /* Standard section padding */
+    text-align: center; /* Center content */
+}
+
+.testimonials .container {
+     text-align: center; /* Center text within container */
+}
+
+.testimonials .section-badge {
+    /* Inherits base .section-badge styles */
+     margin-bottom: 20px; /* Adjust margin below badge */
+}
+
+.testimonials .section-title {
+    /* Inherits base .section-title styles */
+    margin-bottom: 15px; /* Adjust margin below title */
+}
+
+.testimonials .section-subtitle {
+    /* Inherits base .section-subtitle styles */
+    margin-bottom: 40px; /* Adjust margin below subtitle */
+}
+
+/* Styles for the new testimonial container and cards */
+.testimonials-container {
+    /* Basic styles for the container, slider library will add more */
+    margin-top: 40px; /* Adjust margin above the container */
+    display: flex; /* Use flexbox for horizontal layout */
+    overflow-x: auto; /* Enable horizontal scrolling if needed */
+    -webkit-overflow-scrolling: touch; /* Smooth scrolling on touch devices */
+    gap: 30px; /* Space between testimonial cards */
+    padding-bottom: 20px; /* Add some padding for potential scrollbar */
+    /* Hide scrollbar for a cleaner look */
+    scrollbar-width: none; /* Firefox */
+    -ms-overflow-style: none;  /* Internet Explorer 10+ */
+}
+
+.testimonials-container::-webkit-scrollbar {
+    display: none; /* Safari and Chrome */
+}
+
+.testimonial-card {
+    /* Inherits .card styles for background, border, rounded corners, shadow */
+    padding: 30px; /* Padding inside the card */
+    display: flex; /* Use flexbox for internal layout */
+    flex-direction: column; /* Stack content vertically */
+    align-items: flex-start; /* Align items to the start */
+    text-align: left; /* Align text left within the card */
+    flex: 0 0 350px; /* Set a fixed width for cards and prevent shrinking */
+    max-width: 100%; /* Ensure cards don't exceed container width on small screens */
+}
+
+.testimonial-card:hover {
+    transform: translateY(-5px); /* Slight upward lift on hover */
+    box-shadow: var(--shadow-lg); /* More pronounced shadow on hover */
+}
+
+.author-info {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 20px;
+}
+
+.author-avatar {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background-color: var(--dark-surface-light); /* Placeholder background */
+    flex-shrink: 0; /* Prevent shrinking */
+    /* Add a subtle border or outline if desired */
+    /* border: 2px solid var(--primary); */
+}
+
+.author-details strong {
+    display: block;
+    font-weight: 600;
+    color: var(--text); /* White color for name */
+}
+
+.author-details span {
+    color: var(--text-secondary); /* Secondary text color for handle */
+    font-size: 0.9rem;
+}
+
+.testimonial-card blockquote {
+    font-size: 1rem;
+    font-style: italic;
+    color: var(--text); /* Light text color for quote */
+    line-height: 1.6;
+    margin: 0; /* Remove default blockquote margin */
+}
+
+/* Add CSS animation for continuous scrolling */
+@keyframes scrollTestimonials {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(calc(-350px * 5 - (30px * 5))); /* Scroll the width of the original 5 cards + 5 gaps */ }
+}
+
+.testimonials-container {
+    /* Existing styles */
+    /* Remove CSS animation, will be handled by JavaScript */
+    /* Consider adding animation-play-state: paused; on hover if needed */
+}
+
+/* Style for placeholder elements if needed */
+.brand-logo-placeholder, .video-thumbnail-placeholder {
+    /* Add styles if you want visible placeholders */
+    margin-top: 20px;
+    width: 100%; /* Example width */
+    height: 50px; /* Example height */
+    background-color: var(--dark-surface-light); /* Placeholder background */
+    border-radius: 8px;
+}
+
+/* Bottom CTA Section */
+.cta-section-bottom {
+    background-color: transparent; /* Make CTA background transparent */
+    text-align: center;
+    color: var(--surface);
+    padding: 80px 20px;
+    position: relative; /* Needed for positioning the pseudo-element */
+    overflow: hidden; /* Hide overflowing light effect */
+}
+
+/* Spotlight effect */
+.cta-section-bottom::before {
+    content: '';
+    position: absolute;
+    top: 0; /* Position at the very top */
+    left: 50%; /* Center horizontally */
+    transform: translateX(-50%); /* Adjust for exact centering */
+    width: 100%; /* Can adjust width to control spread */
+    max-width: 800px; /* Max width of the light source */
+    height: 300px; /* Height of the light effect */
+    background: radial-gradient(circle at center top, rgba(255, 193, 7, 0.6) 0%, transparent 70%); /* Yellow glow from top center */
+    pointer-events: none; /* Ensure clicks pass through */
+    z-index: 0; /* Place behind content */
+    animation: glowingSpotlight 4s ease-in-out infinite alternate; /* Apply glowing animation */
+}
+
+@keyframes glowingSpotlight {
+    0% {
+        opacity: 0.7; /* Start with slightly less opacity */
+        transform: translateX(-50%) scaleY(0.95); /* Subtle pulsation effect */
+    }
+    50% {
+        opacity: 1; /* Full opacity at peak glow */
+        transform: translateX(-50%) scaleY(1); /* Subtle pulsation effect */
+    }
+    100% {
+        opacity: 0.7; /* Return to lower opacity */
+        transform: translateX(-50%) scaleY(0.95); /* Subtle pulsation effect */
+    }
+}
+
+.cta-section-bottom h2 {
+    font-size: 3rem;
+    margin-bottom: 20px;
+    color: var(--text); /* Ensure headline is white */
+    font-weight: 700; /* Ensure headline is bold */
+    position: relative; /* Needed to ensure text is above pseudo-element */
+    z-index: 1; /* Ensure text is above the spotlight */
+}
+
+.cta-section-bottom p {
+    font-size: 1.1rem;
+    margin-bottom: 40px;
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+    color: var(--text-secondary); /* Adjust paragraph color for dark background */
+    position: relative; /* Needed to ensure text is above pseudo-element */
+    z-index: 1; /* Ensure text is above the spotlight */
+}
+
+.cta-section-bottom .btn {
+    background-color: var(--primary); /* Yellow background */
+    color: var(--surface); /* Dark text */
+    font-weight: 600; /* Bold font weight */
+    padding: 15px 30px; /* Match hero button size */
+    border-radius: 8px; /* Match hero button border radius */
+    display: inline-flex; /* Use flex to align text and icon */
+    align-items: center; /* Vertically align items */
+    gap: 10px; /* Space between text and icon */
+    position: relative; /* Needed for goldenGlow animation */
+    overflow: hidden; /* Needed for goldenGlow animation */
+    animation: goldenGlow 2s infinite; /* Apply the golden glow animation */
+}
+
+.cta-section-bottom .btn:hover {
+    background-color: var(--primary-dark); /* Darker yellow on hover */
+    animation: goldenGlow 1s infinite; /* Faster glow on hover */
+}
+
+/* Footer */
+footer {
+    background-color: var(--surface);
+    padding: 60px 0 20px;
+    border-top: 1px solid var(--border);
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+    gap: 40px;
+    margin-bottom: 40px;
+    flex-wrap: wrap;
+}
+
+.footer-brand {
+    flex-basis: 250px;
+}
+
+.footer-brand .logo {
+    margin-bottom: 10px;
+}
+
+.footer-brand p {
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+    margin-bottom: 5px;
+}
+
+.footer-brand i {
+     color: #e57373;
+}
+
+.footer-links {
+    display: flex;
+    gap: 40px;
+    flex-wrap: wrap;
+}
+
+.footer-col h4 {
+    font-size: 1.1rem;
+    margin-bottom: 15px;
+    color: var(--text);
+}
+
+.footer-col ul {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.footer-col ul li a {
+    color: var(--text-secondary);
+    transition: var(--transition);
+    font-size: 0.9rem;
+}
+
+.footer-col ul li a:hover {
+    color: var(--primary);
+}
+
+/* Styles for Social Links */
+.footer-col .social-links {
+    display: flex;
+    gap: 15px; /* Gap between social icons */
+}
+
+.footer-col .social-links a {
+    color: var(--text-secondary); /* Social icon color */
+    font-size: 1.2rem; /* Adjust icon size */
+    transition: var(--transition);
+}
+
+.footer-col .social-links a:hover {
+    color: var(--primary);
+}
+
+/* Styles for Contact Info */
+.footer-col p {
+    color: var(--text-secondary); /* Contact text color */
+    font-size: 0.9rem;
+    margin-bottom: 10px; /* Margin between contact lines */
+    display: flex;
+    align-items: center;
+    gap: 10px; /* Gap between icon and text */
+}
+
+.footer-col p i {
+    color: var(--primary); /* Golden color for contact icons */
+}
+
+.footer-subscribe {
+     flex-basis: 300px;
+}
+
+.footer-subscribe h4 {
+     font-size: 1.1rem;
+    margin-bottom: 15px;
+    color: var(--text);
+}
+
+.footer-subscribe p {
+     color: var(--text-secondary);
+    font-size: 0.9rem;
+    margin-bottom: 15px;
+}
+
+.subscribe-form {
+    display: flex;
+}
+
+.subscribe-form input {
+    flex: 1;
+    padding: 10px 15px;
+    border: 1px solid var(--border);
+    border-radius: 4px 0 0 4px;
+    background-color: var(--surface);
+    color: var(--text);
+    outline: none;
+    font-size: 0.9rem;
+}
+
+.subscribe-form input::placeholder {
+    color: var(--text-secondary);
+}
+
+.subscribe-form button {
+    background-color: var(--primary);
+    color: var(--surface);
+    border: none;
+    padding: 0 20px;
+    border-radius: 0 4px 4px 0;
+    cursor: pointer;
+    transition: var(--transition);
+    font-size: 0.9rem;
+    font-weight: 500;
+}
+
+.subscribe-form button:hover {
+    background-color: var(--primary-dark);
+}
+
+.footer-bottom {
+    padding: 20px 0 0;
+    border-top: 1px solid var(--border);
+    text-align: center;
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+}
+
+/* Mobile Responsive Adjustments */
+@media (max-width: 768px) {
+    section {
+        padding: 60px 0; /* Reduce section padding on smaller screens */
+    }
+
+    .container {
+        padding: 0 15px; /* Reduce horizontal container padding on smaller screens */
+    }
+
+    .section-title {
+        font-size: 2rem; /* Adjust section title font size */
+    }
+    
+    .hero-title {
+        font-size: 3rem; /* Further adjust hero title font size for 768px */
+    }
+    
+    .hero-subtitle {
+        font-size: 1rem; /* Adjust hero subtitle font size for 768px */
+    }
+
+    .divisions-grid,
+    .integration-features-grid,
+    .pricing-cards,
+    .testimonials-grid {
+        grid-template-columns: 1fr;
+    }
+    
+     .footer-content {
+         flex-direction: column;
+         gap: 30px;
+        text-align: center;
+    }
+    
+     .footer-brand,
+     .footer-subscribe {
+         flex-basis: auto;
+     }
+
+    .footer-links {
+        justify-content: center;
+    }
+
+    /* Adjust font sizes for other headings and text */
+    h1 {
+        font-size: 2.8rem;
+    }
+    h2 {
+        font-size: 2.2rem;
+    }
+    h3 {
+        font-size: 1.6rem;
+    }
+    p {
+        font-size: 1rem;
+    }
+
+    /* Adjust padding and margins for various components */
+    .card, .item, .module {
+        padding: 20px;
+    }
+
+    .division-item {
+        padding: 20px;
+    }
+
+    .integration-feature-item {
+        padding: 20px;
+    }
+
+    .price-card {
+        padding: 30px 20px;
+    }
+
+    .testimonial-card {
+        padding: 20px;
+    }
+
+    .btn {
+        padding: 10px 20px;
+    }
+
+    .subscribe-form input {
+        padding: 8px 10px;
+    }
+
+    .subscribe-form button {
+        padding: 0 15px;
+    }
+
+    /* Adjustments for Hero Section on 768px */
+    .hero {
+        padding: 40px 0; /* Maintain hero vertical padding */
+    }
+
+    .hero .container {
+        max-width: 100%; /* Allow hero container to take full width on smaller screens */
+        padding: 0 15px; /* Add container padding */
+    }
+
+    .hero-graphic-placeholder {
+        margin: 40px auto 0; /* Adjust margin above hero graphic */
+    }
+
+    /* Adjustments for Footer on 768px */
+    footer {
+        padding: 40px 0 15px; /* Adjust footer padding */
+    }
+
+    .footer-content {
+        gap: 30px; /* Adjust gap in footer content */
+    }
+
+    .footer-col {
+        text-align: left; /* Align footer column text left */
+        width: auto; /* Allow width to be determined by content */
+    }
+
+    .footer-col h4 {
+        margin-bottom: 10px; /* Adjust margin below footer titles */
+    }
+
+    .footer-col ul {
+        align-items: flex-start; /* Align footer list items left */
+    }
+
+    .footer-brand {
+        text-align: left; /* Align footer brand content left */
+    }
+
+    .footer-subscribe {
+        text-align: left; /* Align footer subscribe content left */
+    }
+
+    .subscribe-form {
+        justify-content: flex-start; /* Align subscribe form left */
+    }
+
+    /* Ensure images and other media scale correctly */
+    img {
+        max-width: 100%;
+        height: auto;
+    }
+
+    /* General adjustments for text alignment and spacing */
+    .text-center-mobile {
+        text-align: center;
+    }
+
+    .mb-mobile-20 {
+        margin-bottom: 20px;
+    }
+
+    .mt-mobile-20 {
+        margin-top: 20px;
+    }
+
+    .py-mobile-40 {
+        padding-top: 40px;
+        padding-bottom: 40px;
+    }
+}
+
+@media (max-width: 480px) {
+    .section-title {
+        font-size: 1.6rem; /* Further adjust section title font size for 480px */
+    }
+    
+    .hero-title {
+        font-size: 2.2rem; /* Further adjust hero title font size for 480px */
+    }
+
+    /* Further adjust font sizes for very small screens */
+    h1 {
+        font-size: 2rem;
+    }
+    h2 {
+        font-size: 1.6rem;
+    }
+    h3 {
+        font-size: 1.2rem;
+    }
+    p {
+        font-size: 0.9rem;
+    }
+
+    /* Further adjust padding and margins for very small screens */
+    section {
+        padding: 30px 0; /* Even further reduce section padding */
+    }
+
+    .container {
+        padding: 0 8px; /* Even further reduce horizontal container padding */
+    }
+
+    .card, .item, .module {
+        padding: 10px;
+    }
+
+    .division-item {
+        padding: 10px;
+    }
+
+    .integration-feature-item {
+        padding: 10px;
+    }
+
+    .price-card {
+        padding: 15px 10px;
+    }
+
+    .testimonial-card {
+        padding: 10px;
+    }
+
+    .btn {
+        padding: 6px 12px;
+    }
+
+    .subscribe-form input {
+        padding: 5px 6px;
+    }
+
+    .subscribe-form button {
+        padding: 0 8px;
+    }
+
+    /* Adjustments for Hero Section on 480px */
+    .hero-title {
+        font-size: 2rem; /* Adjust hero title for 480px */
+    }
+
+    .hero-subtitle {
+        font-size: 0.9rem; /* Adjust hero subtitle for 480px */
+        margin-bottom: 30px; /* Adjust margin */
+    }
+
+    .hero .primary-cta {
+        padding: 12px 25px; /* Adjust hero button padding */
+        font-size: 1rem; /* Adjust hero button font size */
+    }
+
+    .hero-graphic-placeholder {
+        margin: 30px auto 0; /* Adjust margin above graphic */
+    }
+
+    /* Adjustments for Footer on 480px */
+    footer {
+        padding: 20px 0 10px; /* Further adjust footer padding */
+    }
+
+    .footer-content {
+        gap: 20px; /* Adjust footer gap */
+    }
+
+    .footer-col h4 {
+        margin-bottom: 10px; /* Adjust margin below footer titles */
+    }
+
+    .footer-col ul {
+        gap: 10px; /* Adjust footer list item gap */
+    }
+
+    .subscribe-form input,
+    .subscribe-form button {
+        font-size: 0.85rem; /* Adjust subscribe form font size */
+    }
+
+    .footer-brand,
+    .footer-subscribe,
+    .footer-col {
+        text-align: center; /* Center footer columns on very small screens */
+        width: 100%; /* Allow footer columns to take full width */
+    }
+
+    .footer-col ul {
+        align-items: center; /* Center footer list items */
+    }
+
+    .subscribe-form {
+        justify-content: center; /* Center subscribe form */
+    }
+
+    /* Ensure images and other media scale correctly */
+    img {
+        max-width: 100%;
+        height: auto;
+    }
+
+    /* General adjustments for text alignment and spacing */
+    .text-center-mobile {
+        text-align: center;
+    }
+
+    .mb-mobile-15 {
+        margin-bottom: 15px;
+    }
+
+    .mt-mobile-15 {
+        margin-top: 15px;
+    }
+
+    .py-mobile-30 {
+        padding-top: 30px;
+        padding-bottom: 30px;
+    }
+}
+
+/* Mobile Menu Styles (refined) */
+@media (max-width: 768px) {
+    .hamburger {
+        display: block;
+    }
+
+    .nav-links, .auth-buttons {
+        position: fixed;
+        top: 0;
+        right: -250px;
+        width: 250px;
+        height: 100vh;
+        background-color: var(--surface);
+        padding: 80px 20px;
+        transition: right 0.3s ease-in-out;
+        z-index: 999;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .nav-links.active, .auth-buttons.active {
+        right: 0;
+    }
+
+     .nav-links {
+         gap: 20px;
+         align-items: flex-start;
+         padding-top: 80px;
+     }
+
+    .auth-buttons {
+        gap: 15px;
+        align-items: flex-start;
+        margin-top: 30px;
+    }
+
+    .auth-buttons .btn, .auth-buttons .login-btn {
+        width: 100%;
+        text-align: left;
+        justify-content: flex-start;
+    }
+}
+
+/* Particle background style (kept for potential enhancement) */
+.particle-background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: -1;
+}
+
+.divisions .container,
+.integrations .container,
+.pricing .container,
+.testimonials .container {
+    text-align: center;
+}
+
+@keyframes borderFlow {
+    0% {
+        background-position: 200% 0;
+    }
+    100% {
+        background-position: -200% 0;
+    }
+}
+
+/* Remove keyframes for the conic gradient animation */
+@keyframes conicFlow {
+    /* Removed */
+}
+
+/* Styles for the AI Chatbot Trigger Button */
+.chatbot-trigger {
+    position: fixed; /* Fixed position on the screen */
+    bottom: 30px; /* Distance from the bottom */
+    right: 30px; /* Distance from the right */
+    z-index: 1000; /* Ensure it's above most other content */
+}
+
+.chatbot-trigger button {
+    background-color: var(--primary); /* Golden background */
+    color: var(--surface); /* Dark icon color */
+    border: none;
+    border-radius: 50%; /* Circular shape */
+    width: 60px; /* Size of the button */
+    height: 60px; /* Size of the button */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.5rem; /* Icon size */
+    cursor: pointer;
+    box-shadow: var(--shadow-md); /* Add a shadow */
+    transition: all 0.3s ease-in-out;
+}
+
+.chatbot-trigger button:hover {
+    background-color: var(--primary-dark); /* Darker golden on hover */
+    box-shadow: var(--shadow-lg); /* More pronounced shadow on hover */
+}
+
+/* Styles for Language Selector Placeholder */
+.language-selector select {
+    background-color: var(--surface); /* Dark background */
+    color: var(--text); /* Light text */
+    border: 1px solid var(--border); /* Subtle border */
+    border-radius: 4px; /* Slight rounded corners */
+    padding: 8px 12px; /* Adjust padding */
+    font-size: 0.9rem; /* Adjust font size */
+    cursor: pointer;
+    outline: none; /* Remove default outline */
+    appearance: none; /* Remove default dropdown arrow */
+    /* Add a custom arrow if needed using background-image */
+}
+
+.language-selector select option {
+    background-color: var(--surface); /* Dark background for options */
+    color: var(--text); /* Light text for options */
+}
+
+/* Theme Toggle Styles */
+.theme-toggle {
+    display: flex;
+    align-items: center;
+    gap: 10px; /* Space between icons and switch */
+}
+
+.theme-toggle input[type="checkbox"] {
+    display: none;
+}
+
+.theme-toggle .switch-label {
+    position: relative;
+    display: inline-block;
+    width: 60px; /* Width of the toggle switch */
+    height: 34px; /* Height of the toggle switch */
+    background-color: var(--surface);
+    border-radius: 34px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: space-around; /* Space out the icons */
+    padding: 0 5px; /* Add padding to prevent icons touching edges */
+}
+
+.theme-toggle .switch-label i {
+    font-size: 1.2rem; /* Size of the icons */
+    transition: color 0.3s ease;
+}
+
+.theme-toggle .switch-label .fa-sun {
+    color: var(--primary-light); /* Color of the sun icon in dark mode */
+}
+
+.theme-toggle .switch-label .fa-moon {
+    color: var(--text-secondary); /* Color of the moon icon in dark mode */
+}
+
+.theme-toggle .switch-label .slider {
+    position: absolute;
+    content: "";
+    height: 26px; /* Size of the slider circle */
+    width: 26px;
+    left: 4px; /* Initial position (left) */
+    bottom: 4px;
+    background-color: var(--text); /* Color of the slider circle */
+    border-radius: 50%;
+    transition: transform 0.3s ease;
+}
+
+/* When the checkbox is checked (light mode) */
+.theme-toggle input[type="checkbox"]:checked + .switch-label {
+    background-color: var(--primary); /* Golden background when in light mode */
+}
+
+.theme-toggle input[type="checkbox"]:checked + .switch-label .slider {
+    transform: translateX(26px); /* Move slider to the right */
+}
+
+.theme-toggle input[type="checkbox"]:checked + .switch-label .fa-sun {
+    color: var(--surface); /* Dark color for sun in light mode */
+}
+
+.theme-toggle input[type="checkbox"]:checked + .switch-label .fa-moon {
+    color: var(--text); /* White color for moon in light mode */
+}
+
+/* Light mode theme toggle */
+/* Removed */
+
+/* Ensure icons are visible regardless of mode */
+/* Removed */
+
+[data-theme='dark'] .theme-toggle .switch-label .fa-sun {
+    color: var(--primary-light);
+}
+
+[data-theme='dark'] .theme-toggle .switch-label .fa-moon {
+     color: var(--text-secondary);
+}
+
+[data-theme='dark'] .theme-toggle input[type="checkbox"]:checked + .switch-label .fa-sun {
+    color: var(--surface);
+}
+
+[data-theme='dark'] .theme-toggle input[type="checkbox"]:checked + .switch-label .fa-moon {
+     color: var(--text);
+}
+
+.live-metrics {
+    background-color: transparent; /* Make metrics background transparent */
+    padding: 80px 0; /* Standard section padding */
+    text-align: center; /* Center content */
+}
+
+.live-metrics .container {
+    text-align: center; /* Center text within container */
+}
+
+.live-metrics .section-badge {
+    /* Inherits base .section-badge styles */
+     margin-bottom: 20px; /* Adjust margin below badge */
+}
+
+.live-metrics .section-title {
+    /* Inherits base .section-title styles */
+    margin-bottom: 15px; /* Adjust margin below title */
+}
+
+.live-metrics .section-subtitle {
+    /* Inherits base .section-subtitle styles */
+    margin-bottom: 40px; /* Adjust margin below subtitle */
+}
+
+.metrics-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); /* Adjust minmax for metric items */
+    gap: 30px; /* Adjust gap between metric items */
+    margin-top: 40px; /* Adjust margin above the grid */
+    text-align: center; /* Center text within grid items */
+}
+
+.metric-item {
+    /* Inherits .card styles for background, border, rounded corners, shadow */
+    padding: 30px; /* Padding inside the card */
+    display: flex; /* Use flexbox for internal layout */
+    flex-direction: column; /* Stack content vertically */
+    align-items: center; /* Center items horizontally */
+    transition: var(--transition); /* Add transition for hover effects */
+    position: relative; /* Needed for the pseudo-element positioning */
+    overflow: hidden; /* Hides the overflowing parts of the pseudo-element */
+    background-color: #0b0b1e; /* Use a dark background color */
+    border: 1px solid var(--border); /* Use a subtle border */
+    z-index: 1; /* Ensure content is above the pseudo-element */
+    animation: goldenGlow 4s linear infinite; /* Apply the golden glow animation */
+}
+
+.metric-item h3 {
+    font-size: 1.4rem;
+    margin-bottom: 10px;
+    color: var(--primary-light); /* Use a lighter golden for title */
+}
+
+.metric-item p {
+    font-size: 1.8rem; /* Larger font size for the number */
+    font-weight: 700;
+    color: var(--text); /* White color for the number */
+}
+
+.your-dashboard-selector {
+    box-shadow: 0 0 15px rgba(255, 193, 7, 0.3); /* Add a static golden glow */
+    border-radius: 12px; /* Add rounded corners if your dashboard container doesn't have them */
+    /* You might also need to add or adjust padding if the glow is too close to content */
+    /* padding: 20px; */
+}
+
+.your-dashboard-main-container {
+    box-shadow: 0 0 20px rgba(255, 193, 7, 0.4); /* Static golden glow */
+    border-radius: 12px; /* Match the rounded corners in the image */
+    /* Ensure the element has a background color so the glow is visible against it */
+    /* background-color: var(--surface); */
+    /* You might also need to adjust padding on the container if the glow is too close to the edges */
+    /* padding: 20px; */
+}
+
+/* Add new keyframes for the golden glow animation */
+@keyframes goldenGlow {
+    0% {
+        box-shadow: 0 0 5px rgba(255, 193, 7, 0.3),
+                    0 0 10px rgba(255, 193, 7, 0.2),
+                    0 0 15px rgba(255, 193, 7, 0.1);
+    }
+    50% {
+        box-shadow: 0 0 20px rgba(255, 193, 7, 0.5),
+                    0 0 30px rgba(255, 193, 7, 0.3),
+                    0 0 40px rgba(255, 193, 7, 0.2);
+    }
+    100% {
+        box-shadow: 0 0 5px rgba(255, 193, 7, 0.3),
+                    0 0 10px rgba(255, 193, 7, 0.2),
+                    0 0 15px rgba(255, 193, 7, 0.1);
+    }
+}
+
+/* Modify the primary-cta button styles */
+.primary-cta {
+    background: linear-gradient(45deg, var(--primary), var(--primary-dark));
+    color: var(--surface);
+    font-weight: 600;
+    padding: 15px 30px;
+    border-radius: 8px;
+    border: none;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.3s ease;
+    animation: goldenGlow 2s infinite;
+}
+
+.primary-cta::before {
+    content: '';
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    right: -2px;
+    bottom: -2px;
+    background: linear-gradient(45deg, 
+        var(--primary), 
+        var(--primary-dark), 
+        var(--primary-light), 
+        var(--primary));
+    background-size: 400% 400%;
+    z-index: -1;
+    animation: gradientBorder 3s ease infinite;
+    border-radius: 10px;
+}
+
+.primary-cta:hover {
+    transform: translateY(-2px);
+    animation: goldenGlow 1s infinite;
+}
+
+@keyframes gradientBorder {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+.division-item:hover {
+    transform: translateY(-5px); /* Keep the slight upward lift on hover */
+    /* Apply the pulsing golden glow animation on hover */
+    animation: goldenGlow 1s infinite alternate; /* Apply the animation */
+    /* The goldenGlow keyframes define the pulsing box-shadow */
+}
+
+/* Add glowing border animation for division items */
+/* Keep the goldenGlow keyframes defined elsewhere */
+
+.division-item i {
+    font-size: 3rem; /* Adjust icon size */
+    color: var(--primary); /* Golden color for icons */
+    margin-bottom: 20px; /* Adjust margin below icon */
+}
+
+/* Styles for Attendance Plans Section */
+.attendance-plans-section {
+    background: transparent; /* Make attendance plans background transparent */
+    padding: 80px 0; /* Standard section padding */
+    text-align: center; /* Center content */
+}
+
+.attendance-plans-section .container {
+    text-align: center; /* Center text within container */
+}
+
+.attendance-plans-section .section-badge {
+    /* Inherits base .section-badge styles */
+    margin-bottom: 20px; /* Adjust margin below badge */
+}
+
+.attendance-plans-section .section-title {
+    /* Inherits base .section-title styles */
+    margin-bottom: 15px; /* Adjust margin below title */
+}
+
+.attendance-plans-section .section-subtitle {
+    /* Inherits base .section-subtitle styles */
+    margin-bottom: 40px; /* Adjust margin below subtitle */
+}
+
+.attendance-cards-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Grid for two cards */
+    gap: 30px;
+    margin-top: 40px;
+    align-items: stretch; /* Ensure cards have equal height */
+}
+
+.attendance-price-card {
+    /* Inherits .card styles for background, border, rounded corners, shadow */
+    padding: 30px; /* Padding inside the card */
+    display: flex; /* Use flexbox for internal layout */
+    flex-direction: column; /* Stack content vertically */
+    align-items: flex-start; /* Align items to the start */
+    text-align: left; /* Align text left within the card */
+    border: 1px solid var(--border); /* Default border */
+    background-color: transparent; /* Make attendance price card background transparent */
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2); /* Add subtle default shadow */
+    transition: var(--transition); /* Ensure transition is applied */
+}
+
+.attendance-price-card:hover {
+    animation: goldenGlow 1s infinite alternate; /* Apply the glowing animation on hover */
+}
+
+.attendance-price-card h3 {
+    font-size: 1.5rem; /* Adjust font size */
+    margin-bottom: 10px; /* Adjust margin */
+    color: var(--text); /* White color */
+}
+
+.attendance-price-card p {
+    color: var(--text-secondary); /* Secondary text color */
+    font-size: 1rem; /* Adjust font size */
+    line-height: 1.6;
+    margin-bottom: 25px; /* Margin below description */
+    flex-grow: 1; /* Allow description to take up available space */
+}
+
+.attendance-price-card ul {
+    margin-bottom: 30px;
+    text-align: left;
+    flex-grow: 1; /* Allow feature list to take up available space */
+}
+
+.attendance-price-card ul li {
+    margin-bottom: 15px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: var(--text); /* Default text color for features */
+}
+
+.attendance-price-card ul li i {
+    color: var(--primary); /* Golden color for feature icons */
+    font-size: 1.1rem; /* Adjust icon size */
+}
+
+.attendance-price-card .btn {
+    margin-top: auto; /* Push button to the bottom */
+    width: 100%; /* Make button full width */
+    justify-content: center; /* Center button text */
+    /* Inherits .btn styles */
+}
+
+/* Featured Attendance Plan Card */
+.attendance-price-card.featured {
+    border-color: var(--primary); /* Golden border for featured card */
+    background: linear-gradient(180deg, var(--surface) 0%, rgba(255, 193, 7, 0.05) 100%); /* Subtle gradient background */
+    box-shadow: 0 0 20px rgba(255, 193, 7, 0.4); /* More pronounced golden glow */
+}
+
+.attendance-price-card.featured .btn.primary-cta {
+    /* Inherits .primary-cta styles for golden button */
+}

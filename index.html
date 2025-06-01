@@ -1,0 +1,544 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hisaab Pro | All-in-One Commerce Platform</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Orbitron:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollToPlugin.min.js"></script>
+</head>
+<body>
+    <!-- Loading Animation (Optional - can be removed if not desired) -->
+    <div class="loader">
+        <div class="loader-content">
+            <div class="loader-circle"></div>
+            <div class="loader-text">Loading<span class="dot">.</span><span class="dot">.</span><span class="dot">.</span></div>
+        </div>
+    </div>
+
+    <!-- Top Announcement Bar -->
+    <div class="announcement-bar top-announcement-bar">
+        We're now rolling out beta version to our pre-registered customers.
+    </div>
+
+    <!-- Header (Sticky Navbar) -->
+    <header class="navbar">
+        <div class="container">
+            <a href="#" class="logo">hisaab<span>.</span></a>
+
+            <nav class="nav-links">
+                <ul>
+                    <li><a href="#hero">Home</a></li>
+                    <li><a href="#divisions">Divisions</a></li>
+                    <li><a href="#features">Features</a></li>
+                    <li><a href="#integrations">Integrations</a></li>
+                    <li><a href="#pricing">Pricing</a></li>
+                    <li><a href="#testimonials">Testimonials</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+
+            <div class="auth-buttons">
+                <a href="login.html" class="login-btn">Login</a>
+                <a href="login.html" class="btn primary-cta">Start Free Trial</a>
+
+                <!-- Language Selector Placeholder -->
+                <div class="language-selector">
+                    <select>
+                        <option value="en">EN</option>
+                        <option value="es">ES</option>
+                        <option value="fr">FR</option>
+                        <!-- Add more languages as needed -->
+                    </select>
+                </div>
+
+                <!-- Dark/Light Mode Toggle Placeholder -->
+                <div class="theme-toggle">
+                    <input type="checkbox" id="theme-switch">
+                    <label for="theme-switch" class="switch-label">
+                        <i class="fas fa-sun"></i> <!-- Sun icon for light mode -->
+                        <i class="fas fa-moon"></i> <!-- Moon icon for dark mode -->
+                        <span class="slider round"></span>
+                    </label>
+                </div>
+            </div>
+
+            <!-- Hamburger for mobile menu - Keeping for responsiveness -->
+            <button class="hamburger">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="hero" class="hero">
+        <div class="container">
+            <!-- Announcement Bar -->
+            <div class="announcement-bar hero-announcement-bar">
+                <div class="announcement-content">
+                    <i class="fas fa-hand-sparkles"></i>
+                    <span class="separator"></span>
+                    Raising over $72K in seed round through government grants >
+                </div>
+            </div>
+            
+            <h1 class="hero-title">All-in-One<br>Commerce Platform<span>.</span></h1>
+            
+            <p class="hero-subtitle">Streamline your e-commerce, marketing and logistics with our comprehensive SaaS<br>platform designed for all SMEs.</p>
+
+            <a href="login.html" class="btn primary-cta">Get Started with Hisaab <i class="fas fa-arrow-right"></i></a>
+
+            <!-- Placeholder for 3D mockup/interactive graphic -->
+            <div class="hero-graphic-placeholder">
+                <!-- This will be replaced with a 3D model, animation, or interactive graphic -->
+                <img src="https://myhisaab.com/assets/dashboard.jpeg" alt="Dashboard Mockup">
+            </div>
+        </div>
+    </section>
+
+    <!-- Dashboard Preview Section -->
+    <!-- Removing as per new structure -->
+    <!-- <section class="dashboard-preview-section">...</section> -->
+
+    <!-- Divisions Section -->
+    <section id="divisions" class="divisions">
+        <div class="container">
+            <span class="section-badge">Our Divisions</span>
+            <h2 class="section-title">Three pillars of success.</h2>
+            <p class="section-subtitle">Hisaab offers comprehensive solutions through three specialized divisions</p>
+            
+            <div class="divisions-grid">
+                <!-- Commerce Division Card -->
+                <div class="division-item card">
+                    <i class="fas fa-shopping-cart"></i> <!-- Placeholder for icon animation -->
+                    <p class="micro-headline">Grow Your Store</p>
+                    <h3>Commerce<span>.</span></h3>
+                    <p>Complete e-commerce suite with POS, product & inventory tools, payment integrations.</p>
+                    <a href="#" class="btn">Learn More</a>
+                </div>
+
+                <!-- Agency Division Card -->
+                <div class="division-item card">
+                    <i class="fas fa-bullhorn"></i> <!-- Placeholder for icon animation -->
+                    <p class="micro-headline">Market Smarter</p>
+                    <h3>Agency<span>.</span></h3>
+                    <p>AI-powered marketing automation, ad campaign management, SEO + influencer tools.</p>
+                    <a href="#" class="btn">Learn More</a>
+                </div>
+
+                <!-- Delivery Division Card -->
+                <div class="division-item card">
+                    <i class="fas fa-shipping-fast"></i> <!-- Placeholder for icon animation -->
+                    <p class="micro-headline">Ship Faster</p>
+                    <h3>Delivery<span>.</span></h3>
+                    <p>Real-time logistics dashboard, partner APIs (Delhivery, Shadowfax, Shiprocket, etc.).</p>
+                    <a href="#" class="btn">Learn More</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+     <!-- Integrations Section -->
+    <section id="integrations" class="integrations">
+        <div class="container">
+            <span class="section-badge">Integration Partners</span>
+            <h2 class="section-title">Discover our powerful <span>integrations</span>.</h2>
+            <p class="section-subtitle">Hisaab offers a range of features to help you manage and grow your business efficiently</p>
+
+            <div class="integration-diagram">
+                 <!-- Placeholder for the interactive radial graph -->
+                 <!-- The complex interactive animation will require advanced implementation -->
+                 <img src="assets/integration-diagram.png" alt="Hisaab Integration Diagram">
+            </div>
+            
+            <!-- Keeping the feature grid below the diagram as it was -->
+            <!-- Moving the feature grid to a new section below Integrations -->
+            <!-- <div class="integration-features-grid">...</div> -->
+        </div>
+    </section>
+
+    <!-- Feature Grid (Enhanced) Section -->
+    <section id="features" class="features-enhanced">
+        <div class="container">
+             <!-- Adding the feature grid HTML here -->
+            <div class="integration-features-grid">
+                <div class="integration-feature-item">
+                    <i class="fas fa-store"></i>
+                    <h3>E-commerce Platform</h3>
+                    <p>Complete solution for online and offline selling, including website creation and product management.</p>
+                </div>
+                 <div class="integration-feature-item">
+                    <i class="fas fa-cash-register"></i>
+                    <h3>POS System</h3>
+                    <p>Integrated point-of-sale system for seamless offline and online billing.</p>
+                </div>
+                <div class="integration-feature-item">
+                    <i class="fas fa-users-cog"></i>
+                    <h3>Staff Management</h3>
+                    <p>Track staff attendance and manage payroll efficiently with integrated tools.</p>
+                </div>
+                 <div class="integration-feature-item">
+                    <i class="fas fa-share-alt"></i>
+                    <h3>Social Media Marketing</h3>
+                    <p>Tailored solutions for enhancing your online presence and running effective ad campaigns.</p>
+                </div>
+                <div class="integration-feature-item">
+                    <i class="fas fa-truck"></i>
+                    <h3>Logistics Integration</h3>
+                    <p>Seamless integration with major logistics partners for efficient order delivery.</p>
+                </div>
+                <div class="integration-feature-item">
+                    <i class="fas fa-chart-area"></i>
+                    <h3>Analytics and Reporting</h3>
+                    <p>Comprehensive insights and reports to help you make data-driven business decisions.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Attendance Plans Section -->
+    <section id="attendance-plans" class="attendance-plans-section">
+        <div class="container">
+            <span class="section-badge">Attendance Plans</span>
+            <h2 class="section-title">Simple attendance tracking for your staff<span>.</span></h2>
+            <p class="section-subtitle">Choose the right attendance plan for your business needs</p>
+            
+            <div class="attendance-cards-grid">
+                <!-- Basic Plan Card -->
+                <div class="attendance-price-card card">
+                    <h3>Basic</h3>
+                    <p>Essential attendance tracking for small teams</p>
+                    <ul>
+                        <li><i class="fas fa-bolt"></i> In and out location tracking</li>
+                        <li><i class="fas fa-bolt"></i> Selfie verification</li>
+                        <li><i class="fas fa-bolt"></i> Basic attendance reports</li>
+                    </ul>
+                    <a href="login.html" class="btn">Get Started</a>
+                </div>
+                
+                <!-- Pro Plan Card -->
+                <div class="attendance-price-card card featured">
+                    <h3>Pro</h3>
+                    <p>Advanced tracking with real-time monitoring</p>
+                    <ul>
+                        <li><i class="fas fa-bolt"></i> All Basic features included</li>
+                        <li><i class="fas fa-bolt"></i> Live location tracking</li>
+                        <li><i class="fas fa-bolt"></i> Real-time monitoring dashboard</li>
+                        <li><i class="fas fa-bolt"></i> Advanced attendance analytics</li>
+                    </ul>
+                    <a href="login.html" class="btn primary-cta">Get Started</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing Section -->
+    <section id="pricing" class="pricing">
+        <div class="container">
+             <span class="section-badge">Pricing</span>
+            <h2 class="section-title">Choose the right plan for <br> your business.</h2>
+            <p class="section-subtitle">Flexible pricing options to suit businesses of all sizes</p>
+            
+            <div class="pricing-cards">
+                <div class="price-card">
+                    <h3>Starter</h3>
+                    <div class="price">₹9,999<span>/month</span></div>
+                    <p>Perfect for small businesses just getting started</p>
+                    <ul>
+                        <li><i class="fas fa-check-circle"></i> Basic e-commerce features</li>
+                        <li><i class="fas fa-check-circle"></i> Simple POS system</li>
+                        <li><i class="fas fa-check-circle"></i> Limited social media tools</li>
+                    </ul>
+                    <a href="login.html" class="btn">Get Started</a>
+                </div>
+                
+                <div class="price-card featured">
+                    <h3>Growth</h3>
+                    <div class="price">₹24,999<span>/month</span></div>
+                    <p>Ideal for growing businesses with expanding needs</p>
+                    <ul>
+                        <li><i class="fas fa-check-circle"></i> Advanced e-commerce features</li>
+                        <li><i class="fas fa-check-circle"></i> Full-featured POS system</li>
+                        <li><i class="fas fa-check-circle"></i> Comprehensive social media marketing tools</li>
+                        <li><i class="fas fa-check-circle"></i> Basic logistics integration</li>
+                    </ul>
+                    <a href="login.html" class="btn featured-btn">Get Started</a>
+                </div>
+                
+                <div class="price-card">
+                    <h3>Enterprise</h3>
+                    <div class="price">Custom</div>
+                    <p>For large firms and financial institutions</p>
+                    <ul>
+                        <li><i class="fas fa-check-circle"></i> Full suite of Hisaab features</li>
+                        <li><i class="fas fa-check-circle"></i> Advanced analytics and reporting</li>
+                        <li><i class="fas fa-check-circle"></i> Dedicated account manager</li>
+                        <li><i class="fas fa-check-circle"></i> Custom integrations</li>
+                    </ul>
+                    <a href="login.html" class="btn">Contact Sales</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section id="testimonials" class="testimonials">
+        <div class="container">
+             <span class="section-badge">Our Customers</span>
+            <h2 class="section-title">What people are saying</h2>
+            <p class="section-subtitle">See how Hisaab is transforming businesses across India. Here's what our customers are saying</p>
+            
+            <!-- Container for Testimonial Slider/Items -->
+            <div class="testimonials-container">
+                 <!-- Testimonial Card Structure (will be repeated for each testimonial) -->
+                 <div class="testimonial-card card">
+                    <div class="author-info">
+                        <!-- Image Placeholder for Author Photo -->
+                        <div class="author-avatar"></div>
+                        <div class="author-details">
+                             <strong>Pravesh Kaushik</strong> <!-- Placeholder -->
+                             <span>@NiharoWorld</span> <!-- Placeholder -->
+                         </div>
+                     </div>
+                    <blockquote>"We just finished our busiest season of the year with Hisaab P.O.S."</blockquote>
+                    <!-- Placeholder for Brand Logo or Video Thumbnail if needed -->
+                    <!-- <div class="brand-logo-placeholder"></div> -->
+                    <!-- <div class="video-thumbnail-placeholder"></div> -->
+                </div>
+                <div class="testimonial-card card">
+                    <div class="author-info">
+                        <!-- Image Placeholder for Author Photo -->
+                        <div class="author-avatar"></div>
+                        <div class="author-details">
+                             <strong>Suman Meena</strong> <!-- Placeholder -->
+                             <span>@SeemaAndSuman</span> <!-- Placeholder -->
+                         </div>
+                     </div>
+                    <blockquote>"The inventory management feature alone has saved us
+                        countless hours and improved our efficiency tenfold."</blockquote>
+                    <!-- Placeholder for Brand Logo or Video Thumbnail if needed -->
+                    <!-- <div class="brand-logo-placeholder"></div> -->
+                    <!-- <div class="video-thumbnail-placeholder"></div> -->
+                </div>
+
+                <div class="testimonial-card card">
+                    <div class="author-info">
+                        <!-- Image Placeholder for Author Photo -->
+                        <div class="author-avatar"></div>
+                        <div class="author-details">
+                             <strong>Rajesh Soni</strong> <!-- Placeholder -->
+                             <span> @RaghaniTexServices</span> <!-- Placeholder -->
+                         </div>
+                     </div>
+                    <blockquote>"Hisaab Payroll + is incredibly intuitive"</blockquote>
+                    <!-- Placeholder for Brand Logo or Video Thumbnail if needed -->
+                    <!-- <div class="brand-logo-placeholder"></div> -->
+                    <!-- <div class="video-thumbnail-placeholder"></div> -->
+                </div>
+
+                <div class="testimonial-card card">
+                    <div class="author-info">
+                        <!-- Image Placeholder for Author Photo -->
+                        <div class="author-avatar"></div>
+                        <div class="author-details">
+                             <strong>Shubham</strong> <!-- Placeholder -->
+                             <span>@Popskiland</span> <!-- Placeholder -->
+                         </div>
+                     </div>
+                    <blockquote>"Hisaab ProductionTM is THE BEST tool for Manufacturers to automate their production line."</blockquote>
+                    <!-- Placeholder for Brand Logo or Video Thumbnail if needed -->
+                    <!-- <div class="brand-logo-placeholder"></div> -->
+                    <!-- <div class="video-thumbnail-placeholder"></div> -->
+                </div>
+                <div class="testimonial-card card">
+                    <div class="author-info">
+                        <!-- Image Placeholder for Author Photo -->
+                        <div class="author-avatar"></div>
+                        <div class="author-details">
+                             <strong>Manish Agarwal </strong> <!-- Placeholder -->
+                             <span>@ShreeAmbikaFashion</span> <!-- Placeholder -->
+                         </div>
+                     </div>
+                    <blockquote>"Obviously, there are so many companies that offer some kind of ecommerce solutions, but when we did the preliminary screening with Hisaab, we quickly thought, 'Yeah, this is the one we're going to go with.."</blockquote>
+                    <!-- Placeholder for Brand Logo or Video Thumbnail if needed -->
+                    <!-- <div class="brand-logo-placeholder"></div> -->
+                    <!-- <div class="video-thumbnail-placeholder"></div> -->
+                </div>
+
+                <!-- Duplicated Testimonial Cards for Seamless Loop -->
+                <div class="testimonial-card card">
+                    <div class="author-info">
+                        <!-- Image Placeholder for Author Photo -->
+                        <div class="author-avatar"></div>
+                        <div class="author-details">
+                            <strong>Pravesh Kaushik</strong> <!-- Placeholder -->
+                            <span>@NiharoWorld</span> <!-- Placeholder -->
+                        </div>
+                    </div>
+                    <blockquote>"We just finished our busiest season of the year with Hisaab P.O.S."</blockquote>
+                    <!-- Placeholder for Brand Logo or Video Thumbnail if needed -->
+                    <!-- <div class="brand-logo-placeholder"></div> -->
+                    <!-- <div class="video-thumbnail-placeholder"></div> -->
+                </div>
+                <div class="testimonial-card card">
+                    <div class="author-info">
+                        <!-- Image Placeholder for Author Photo -->
+                        <div class="author-avatar"></div>
+                        <div class="author-details">
+                            <strong>Suman Meena</strong> <!-- Placeholder -->
+                            <span>@SeemaAndSuman</span> <!-- Placeholder -->
+                        </div>
+                    </div>
+                    <blockquote>"The inventory management feature alone has saved us
+                        countless hours and improved our efficiency tenfold."</blockquote>
+                    <!-- Placeholder for Brand Logo or Video Thumbnail if needed -->
+                    <!-- <div class="brand-logo-placeholder"></div> -->
+                    <!-- <div class="video-thumbnail-placeholder"></div> -->
+                </div>
+                <div class="testimonial-card card">
+                    <div class="author-info">
+                        <!-- Image Placeholder for Author Photo -->
+                        <div class="author-avatar"></div>
+                        <div class="author-details">
+                            <strong>Rajesh Soni</strong> <!-- Placeholder -->
+                            <span> @RaghaniTexServices</span> <!-- Placeholder -->
+                        </div>
+                    </div>
+                    <blockquote>"Hisaab Payroll + is incredibly intuitive"</blockquote>
+                    <!-- Placeholder for Brand Logo or Video Thumbnail if needed -->
+                    <!-- <div class="brand-logo-placeholder"></div> -->
+                    <!-- <div class="video-thumbnail-placeholder"></div> -->
+                </div>
+                <div class="testimonial-card card">
+                    <div class="author-info">
+                        <!-- Image Placeholder for Author Photo -->
+                        <div class="author-avatar"></div>
+                        <div class="author-details">
+                            <strong>Shubham</strong> <!-- Placeholder -->
+                            <span>@Popskiland</span> <!-- Placeholder -->
+                        </div>
+                    </div>
+                    <blockquote>"Hisaab ProductionTM is THE BEST tool for Manufacturers to automate their production line."</blockquote>
+                    <!-- Placeholder for Brand Logo or Video Thumbnail if needed -->
+                    <!-- <div class="brand-logo-placeholder"></div> -->
+                    <!-- <div class="video-thumbnail-placeholder"></div> -->
+                </div>
+                <div class="testimonial-card card">
+                    <div class="author-info">
+                        <!-- Image Placeholder for Author Photo -->
+                        <div class="author-avatar"></div>
+                        <div class="author-details">
+                            <strong>Manish Agarwal </strong> <!-- Placeholder -->
+                            <span>@ShreeAmbikaFashion</span> <!-- Placeholder -->
+                        </div>
+                    </div>
+                    <blockquote>"Obviously, there are so many companies that offer some kind of ecommerce solutions, but when we did the preliminary screening with Hisaab, we quickly thought, 'Yeah, this is the one we're going to go with.."</blockquote>
+                    <!-- Placeholder for Brand Logo or Video Thumbnail if needed -->
+                    <!-- <div class="brand-logo-placeholder"></div> -->
+                    <!-- <div class="video-thumbnail-placeholder"></div> -->
+                </div>
+
+                <!-- Repeat .testimonial-card structure for more testimonials -->
+                <!-- The slider functionality will be added later with JavaScript -->
+
+             </div>
+        </div>
+    </section>
+
+    <!-- Live Performance Metrics Section Placeholder -->
+    <section id="metrics" class="live-metrics">
+        <div class="container">
+            <span class="section-badge">Real-time Data</span>
+            <h2 class="section-title">See Your Business Grow</h2>
+            <p class="section-subtitle">Track key performance indicators live on your dashboard.</p>
+            
+            <div class="metrics-grid">
+                <div class="metric-item card">
+                    <h3>Orders Today</h3>
+                    <p>+1,234</p> <!-- Placeholder Data -->
+                </div>
+                <div class="metric-item card">
+                    <h3>Ads Running</h3>
+                    <p>50</p> <!-- Placeholder Data -->
+                </div>
+                <div class="metric-item card">
+                    <h3>Revenue (This Month)</h3>
+                    <p>₹1,50,000</p> <!-- Placeholder Data -->
+                </div>
+                <!-- Add more metric items as needed -->
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section-bottom">
+        <div class="container">
+            <h2>From Idea to Growth <br> Faster Than Ever.</h2>
+            <p>Empower your business with Hisaab's comprehensive suite of tools for e-commerce, marketing and logistics</p>
+            <a href="login.html" class="btn primary-cta">Start your free trial <i class="fas fa-arrow-right"></i></a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                     <a href="#" class="logo">hisaab.</a>
+                     <p>All-in-One Commerce Platform.</p>
+                    <p>Made in India with <i class="fas fa-heart"></i></p>
+                 </div>
+                
+                <div class="footer-links">
+                    <div class="footer-col">
+                        <h4>Product</h4>
+                        <ul>
+                            <li><a href="#features">Features</a></li>
+                            <li><a href="#pricing">Pricing</a></li>
+                             <li><a href="#integrations">Integration</a></li>
+                             <li><a href="#">Blog</a></li>
+                        </ul>
+                    </div>
+                    
+                    <div class="footer-col">
+                        <h4>Integrations</h4>
+                        <ul>
+                            <li><a href="https://www.facebook.com/people/Hisaabstore/61563860194004/">Facebook</a></li>
+                            <li><a href="https://www.instagram.com/hisaab.store/">Instagram</a></li>
+                             <!-- Add more integrations as needed -->
+                        </ul>
+                    </div>
+                     <!-- Add more footer columns as needed -->
+                </div>
+
+                <div class="footer-subscribe">
+                     <h4>Stay updated with Hisaab.</h4>
+                     <p>Get the latest news and updates about our platform and Indian business trends</p>
+                     <form class="subscribe-form">
+                        <input type="email" placeholder="Enter your email">
+                        <button type="submit">Subscribe</button>
+                    </form>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2025 RRV SOFTECH PVT LTD. All rights reserved.</p>
+                <p><a href="#">Privacy Policy</a> | <a href="#">Terms of Service</a></p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- AI Chatbot Assistant Placeholder -->
+    <div class="chatbot-trigger">
+        <button id="openChatbot" title="Open Chat"><i class="fas fa-comments"></i></button>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
