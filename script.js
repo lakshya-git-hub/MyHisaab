@@ -102,9 +102,11 @@ document.addEventListener('DOMContentLoaded', function() {
         htmlElement.setAttribute('data-theme', savedTheme);
         themeToggle.checked = savedTheme === 'light';
     } else {
-        const initialTheme = systemPrefersDark ? 'dark' : 'light';
+        // Set dark mode as default if no saved theme preference
+        const initialTheme = 'dark';
         htmlElement.setAttribute('data-theme', initialTheme);
-        themeToggle.checked = initialTheme === 'light';
+        // The checkbox should be unchecked for dark mode
+        themeToggle.checked = false;
         localStorage.setItem('theme', initialTheme);
     }
     

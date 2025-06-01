@@ -1464,6 +1464,35 @@ footer {
         padding-top: 40px;
         padding-bottom: 40px;
     }
+
+    .navbar .container {
+        /* Ensure container allows items to shrink */
+        flex-wrap: wrap; /* Allow items to wrap if necessary */
+        justify-content: center; /* Center items initially, adjust as needed */
+    }
+
+    .navbar .logo {
+        flex-shrink: 1; /* Allow logo to shrink */
+        min-width: 0; /* Allow shrinking below content size */
+    }
+
+     .navbar .container .auth-buttons:not(.active) {
+        /* Adjust layout for auth buttons in header when mobile menu is not active */
+        display: flex;
+        flex-wrap: wrap; /* Allow items to wrap to the next line */
+        justify-content: center; /* Center items within the auth group */
+        gap: 10px; /* Reduce gap for better space utilization */
+        flex-grow: 0; /* Prevent auth buttons from growing and pushing other elements */
+        flex-shrink: 1; /* Allow auth buttons to shrink */
+        min-width: 0; /* Allow flex items to shrink below their content size */
+        margin-top: 10px; /* Add some space above if they wrap */
+        width: 100%; /* Allow the auth buttons container to take full width if needed for centering */
+    }
+
+    /* Hide the nav-links in the main header bar on mobile */
+    .navbar .nav-links:not(.active) {
+        display: none; /* Hide nav links completely when mobile menu is not active */
+    }
 }
 
 @media (max-width: 480px) {
