@@ -1469,12 +1469,13 @@ footer {
         flex-wrap: wrap; /* Allow items to wrap to the next line */
         justify-content: space-between; /* Distribute space between main items */
         align-items: center; /* Vertically align items */
-        padding: 0 20px; /* Add some horizontal padding */
+        padding: 10px 20px; /* Add some vertical and horizontal padding */
     }
 
     .navbar .logo {
         flex-basis: auto; /* Allow logo to take necessary space */
         margin-right: auto; /* Push other items to the right */
+        flex-shrink: 0; /* Prevent logo from shrinking */
     }
 
     /* Hide nav links in the main header bar on mobile by default */
@@ -1486,14 +1487,20 @@ footer {
     .navbar .container .auth-buttons:not(.active) {
         display: flex; /* Use flex to arrange auth buttons */
         flex-wrap: wrap; /* Allow buttons to wrap within the auth group */
-        gap: 10px; /* Space between auth buttons */
+        gap: 8px; /* Slightly reduced gap for better space */
         align-items: center; /* Vertically align auth buttons */
         margin-left: 10px; /* Add some space to the left of auth buttons */
+        justify-content: flex-end; /* Align auth buttons to the right */
+        flex-grow: 1; /* Allow auth buttons to take available space */
+        flex-shrink: 1; /* Allow auth buttons container to shrink */
+        min-width: 0; /* Allow shrinking below content size */
     }
 
     .auth-buttons .login-btn, .auth-buttons .primary-cta {
         flex-shrink: 1; /* Allow buttons to shrink */
         min-width: 0; /* Allow shrinking below content size */
+        padding: 8px 15px; /* Adjust button padding on mobile */
+        font-size: 0.9rem; /* Adjust button font size on mobile */
     }
 
     .auth-buttons .language-selector, .auth-buttons .theme-toggle {
@@ -1512,13 +1519,27 @@ footer {
     }
 
      /* Further refine for very small screens if needed */
-    @media (max-width: 400px) {
+    @media (max-width: 480px) {
+        .navbar .container {
+            padding: 10px 15px; /* Adjust padding for smaller screens */
+        }
         .navbar .container .auth-buttons:not(.active) {
             justify-content: center; /* Center auth buttons if they wrap */
             width: 100%; /* Take full width if centered */
             margin-top: 10px; /* Add space above if they stack */
             margin-left: 0; /* Remove left margin if taking full width */
+             gap: 5px; /* Reduce gap further on very small screens */
         }
+
+         .auth-buttons .login-btn, .auth-buttons .primary-cta {
+            padding: 6px 12px; /* Further adjust button padding */
+            font-size: 0.85rem; /* Further adjust button font size */
+        }
+
+         .auth-buttons .language-selector select, .theme-toggle .switch-label {
+             transform: scale(0.9); /* Slightly reduce size of selector/toggle */
+             transform-origin: center right; /* Scale from the right */
+         }
     }
 }
 
