@@ -1345,10 +1345,10 @@ footer {
 
     /* Adjust header padding */
     .navbar .container {
-         padding: 10px 15px; /* Adjust header padding to match container */
-         flex-wrap: wrap; /* Ensure wrapping */
-         justify-content: space-between; /* Space out logo and auth buttons */
-         align-items: center;
+         padding: 10px 20px; /* Adjust header padding to match container */
+         flex-wrap: wrap; /* Allow items to wrap to the next line */
+         justify-content: space-between; /* Distribute space between main items */
+         align-items: center; /* Vertically align items */
     }
 
     .navbar .logo {
@@ -1357,12 +1357,7 @@ footer {
         flex-shrink: 0; /* Prevent logo from shrinking */
     }
 
-    /* Hide nav links in the main header bar on mobile by default */
-    .navbar .nav-links:not(.active) {
-        display: none;
-    }
-
-    /* Style for auth buttons container when mobile menu is NOT active */
+    /* Style for auth buttons container in the header when mobile menu is NOT active */
     .navbar .container .auth-buttons:not(.active) {
         display: flex; /* Use flex to arrange auth buttons */
         flex-wrap: wrap; /* Allow buttons to wrap within the auth group */
@@ -1387,9 +1382,39 @@ footer {
          min-width: auto; /* Maintain their size */
     }
 
-    /* Mobile menu (sidebar) styles - Ensure it covers content */
+    /* Mobile menu (sidebar) styles for Nav Links */
+    .nav-links {
+        position: fixed; /* Fixed position on the screen */
+        top: 0; /* Position from the top */
+        right: -250px; /* Initially hidden off-screen to the right */
+        width: 250px; /* Width of the sidebar menu */
+        height: 100vh; /* Full viewport height */
+        background-color: var(--surface); /* Use surface color for background */
+        padding: 80px 20px; /* Padding inside the sidebar */
+        transition: right 0.3s ease-in-out; /* Smooth sliding animation */
+        z-index: 999; /* Ensure it's above most content but below hamburger */
+        display: flex; /* Use flexbox for column layout */
+        flex-direction: column; /* Stack links vertically */
+        gap: 20px; /* Space between nav links */
+        align-items: flex-start; /* Align links to the left */
+    }
+
+    /* Style for Auth Buttons when mobile menu IS active (integrate into sidebar) */
+    .auth-buttons.active {
+        display: flex; /* Show auth buttons when mobile menu is active */
+        flex-direction: column; /* Stack auth buttons vertically */
+        gap: 15px; /* Space between auth buttons */
+        align-items: flex-start; /* Align buttons to the left */
+        margin-top: 30px; /* Space above auth buttons in the sidebar */
+        border-top: 1px solid var(--border); /* Add a separator line */
+        padding-top: 20px; /* Padding above separator */
+        width: 100%; /* Ensure they take full width in sidebar */
+    }
+
+    /* Show and slide in Nav Links when active */
     .nav-links.active {
-        /* ... existing styles for active mobile menu ... */
+        right: 0; /* Slide into view */
+        display: flex; /* Ensure it's displayed */
     }
 
     /* Adjust main content margin when mobile menu is active */
@@ -1397,38 +1422,28 @@ footer {
         margin-left: 250px; /* Match sidebar width */
     }
 
+    /* Further refine for very small screens if needed */
     @media (max-width: 480px) {
-        .container {
-            padding: 0 10px; /* Reduce padding further on very small screens */
+         .navbar .container {
+             padding: 10px 15px; /* Adjust padding for smaller screens */
+         }
+        .navbar .container .auth-buttons:not(.active) {
+            justify-content: center; /* Center auth buttons if they wrap */
+            width: 100%; /* Take full width if centered */
+            margin-top: 10px; /* Add space above if they stack */
+            margin-left: 0; /* Remove left margin if taking full width */
+             gap: 5px; /* Reduce gap further on very small screens */
         }
 
-        .navbar .container {
-             padding: 8px 10px; /* Adjust header padding */
+         .auth-buttons .login-btn, .auth-buttons .primary-cta {
+            padding: 6px 12px; /* Further adjust button padding */
+            font-size: 0.85rem; /* Further adjust button font size */
         }
 
-        .division-item,
-        .integration-feature-item,
-        .price-card,
-        .attendance-price-card,
-        .metric-item {
-             padding: 15px; /* Reduce padding further for grid items */
-        }
-
-        .testimonials-container {
-            gap: 15px; /* Reduce gap in testimonials container */
-        }
-
-        .testimonial-card {
-            flex: 0 0 85%; /* Allow testimonial cards to take up more width, but still scroll */
-            padding: 15px; /* Reduce testimonial card padding */
-        }
-
-        /* Ensure text elements don't overflow */
-        h1, h2, h3, p {
-            word-break: break-word; /* Allow long words to break */
-        }
-
-        /* ... rest of existing @media (max-width: 480px) styles ... */
+         .auth-buttons .language-selector select, .theme-toggle .switch-label {
+             transform: scale(0.9); /* Slightly reduce size of selector/toggle */
+             transform-origin: center right; /* Scale from the right */
+         }
     }
 }
 
