@@ -9,6 +9,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Orbitron:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="chatbot.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollToPlugin.min.js"></script>
@@ -534,11 +535,36 @@
         </div>
     </footer>
 
-    <!-- AI Chatbot Assistant Placeholder -->
-    <div class="chatbot-trigger">
-        <button id="openChatbot" title="Open Chat"><i class="fas fa-comments"></i></button>
+    <!-- AI Chatbot System -->
+    <div id="chatbot-container">
+        <!-- Chatbot Icon (Floating Bubble) -->
+        <button id="chatbot-toggle-btn" class="chatbot-icon">
+            <i class="fas fa-comment-dots"></i> <!-- Example icon, can be replaced -->
+        </button>
+
+        <!-- Chat Window -->
+        <div id="chatbot-window" class="chatbot-window">
+            <div class="chat-header">
+                <h3>HISAAB AI Assistant</h3>
+                <button id="chatbot-close-btn" class="close-btn">&times;</button>
+            </div>
+            <div class="chat-messages" id="chat-messages">
+                <!-- Messages will be added here by JavaScript -->
+                <div class="message bot-message">
+                    <p>Hi there! I'm HISAAB's AI Assistant 👋 How can I help you today?</p>
+                </div>
+            </div>
+            <div class="chat-input">
+                <input type="text" id="user-input" placeholder="Type your question here...">
+                <button id="send-btn" class="send-btn"><i class="fas fa-paper-plane"></i></button>
+                <!-- Mic icon placeholder -->
+                <button id="mic-btn" class="mic-btn" disabled><i class="fas fa-microphone"></i></button>
+            </div>
+        </div>
     </div>
 
     <script src="script.js"></script>
+    <!-- New Chatbot Script -->
+    <script src="chatbot.js"></script>
 </body>
 </html>
