@@ -1345,128 +1345,104 @@ footer {
 
     /* Adjust header padding */
     .navbar .container {
-        flex-wrap: wrap; /* Allow items to wrap to the next line */
-        justify-content: space-between; /* Distribute space between main items */
-        align-items: center; /* Vertically align items */
-        padding: 10px 20px; /* Add some vertical and horizontal padding */
+         padding: 10px 20px; /* Adjust header padding to match container */
+         flex-wrap: wrap; /* Allow items to wrap to the next line */
+         justify-content: space-between; /* Distribute space between main items */
+         align-items: center; /* Vertically align items */
     }
 
     .navbar .logo {
         flex-basis: auto; /* Allow logo to take necessary space */
-        margin-right: 10px; /* Add space to the right of the logo */
-        flex-shrink: 0; /* Prevent logo from shrinking too much */
+        margin-right: auto; /* Push other items to the right */
+        flex-shrink: 0; /* Prevent logo from shrinking */
     }
 
-    /* Do NOT hide nav links in the main header bar on mobile */
-    .navbar .nav-links {
-        display: flex; /* Ensure nav links are displayed */
-        flex-wrap: wrap; /* Allow nav links to wrap */
-        gap: 15px; /* Space between nav links */
-        align-items: center; /* Vertically align nav links */
-        margin-right: 10px; /* Add space to the right of nav links */
-        flex-grow: 1; /* Allow nav links to take available space */
-        flex-shrink: 1; /* Allow nav links container to shrink */
-        min-width: 0; /* Allow shrinking below content size */
-    }
-
-    .nav-links ul {
-        display: flex; /* Ensure ul is flex */
-        flex-wrap: wrap; /* Allow list items to wrap */
-        gap: 15px; /* Space between list items */
-        padding: 0; /* Remove default ul padding */
-    }
-
-    .nav-links ul li {
-        /* Default list item styles */
-    }
-
-    .nav-links ul li a {
-        font-size: 0.9rem; /* Slightly smaller font size for links */
-        padding: 2px 0; /* Adjust padding */
-        white-space: nowrap; /* Prevent links from breaking */
-    }
-
-    /* Style for auth buttons container in the header */
-    .navbar .container .auth-buttons {
-        display: flex; /* Use flex to arrange auth buttons */
-        flex-wrap: wrap; /* Allow buttons to wrap within the auth group */
-        gap: 8px; /* Space between auth buttons */
-        align-items: center; /* Vertically align auth buttons */
-        margin-left: auto; /* Push auth buttons to the right */
-        justify-content: flex-end; /* Align auth buttons to the right */
-        flex-grow: 0; /* Prevent auth buttons from growing */
-        flex-shrink: 0; /* Prevent auth buttons from shrinking too much initially */
-        min-width: auto; /* Allow natural width */
+    /* Style for auth buttons container in the header when mobile menu is NOT active */
+    .navbar .container .auth-buttons:not(.active) {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+        align-items: center;
+        margin-left: 10px;
+        justify-content: flex-end;
+        flex-grow: 1;
+        flex-shrink: 1;
+        min-width: 0;
     }
 
     .auth-buttons .login-btn, .auth-buttons .primary-cta {
-        flex-shrink: 1; /* Allow buttons to shrink */
-        min-width: 0; /* Allow shrinking below content size */
-        padding: 8px 15px; /* Adjust button padding on mobile */
-        font-size: 0.9rem; /* Adjust button font size on mobile */
+        flex-shrink: 1;
+        min-width: 0;
+        padding: 8px 15px;
+        font-size: 0.9rem;
     }
 
     .auth-buttons .language-selector, .auth-buttons .theme-toggle {
-        flex-shrink: 0; /* Prevent selector/toggle from shrinking too much */
-        min-width: auto; /* Maintain their size */
-        transform: scale(0.9); /* Slightly reduce size */
-        transform-origin: center right; /* Scale from the right */
+         flex-shrink: 0;
+         min-width: auto;
     }
 
-    /* Hide the sidebar/off-screen mobile menu styles */
-    .nav-links.active, .auth-buttons.active {
-        position: static; /* Revert to normal flow */
-        width: auto; /* Revert width */
-        height: auto; /* Revert height */
-        background-color: transparent; /* Revert background */
-        padding: 0; /* Revert padding */
-        transition: none; /* Remove transition */
-        z-index: auto; /* Revert z-index */
-        flex-direction: row; /* Arrange in a row */
-        gap: 10px; /* Adjust gap */
-        align-items: center; /* Vertically align */
-        margin-top: 0; /* Remove margin top */
-        border-top: none; /* Remove border top */
-        padding-top: 0; /* Remove padding top */
+    /* Mobile menu (sidebar) styles for Nav Links */
+    .nav-links {
+        position: fixed;
+        top: 0;
+        right: -250px;
+        width: 250px;
+        height: 100vh;
+        background-color: var(--surface);
+        padding: 80px 20px;
+        transition: right 0.3s ease-in-out;
+        z-index: 999; /* Below hamburger (1100) */
+        flex-direction: column; /* Stack links vertically */
+        gap: 20px;
+        align-items: flex-start;
+         /* Initial display state handled by :not(.active) and .active rules */
     }
 
-    /* Further refine for very small screens */
+    /* Style for Auth Buttons when mobile menu IS active (integrate into sidebar) */
+    .auth-buttons.active {
+        display: flex; /* Show auth buttons when mobile menu is active */
+        flex-direction: column; /* Stack auth buttons vertically */
+        gap: 15px;
+        align-items: flex-start;
+        margin-top: 30px;
+        border-top: 1px solid var(--border);
+        padding-top: 20px;
+        width: 100%;
+    }
+
+    /* Show and slide in Nav Links when active */
+    .nav-links.active {
+        right: 0; /* Slide into view */
+        display: flex; /* Ensure it's displayed as flex when active */
+    }
+
+    /* Adjust main content margin when mobile menu is active */
+    body.mobile-menu-active .content-sections {
+        margin-left: 250px;
+    }
+
+     /* Further refine for very small screens if needed */
     @media (max-width: 480px) {
          .navbar .container {
-             padding: 10px 15px; /* Adjust padding for smaller screens */
+             padding: 10px 15px;
          }
-
-         .navbar .logo {
-              margin-right: 5px; /* Reduce margin next to logo */
-         }
-
-         .navbar .nav-links {
-             gap: 10px; /* Reduce nav link gap */
-             margin-right: 5px; /* Reduce margin next to nav links */
-             flex-basis: 100%; /* Allow nav links to take full line if needed */
-             justify-content: center; /* Center nav links if they wrap */
-         }
-
-         .nav-links ul {
-             gap: 8px; /* Reduce gap between list items */
-         }
-
-         .navbar .container .auth-buttons {
-            justify-content: center; /* Center auth buttons if they wrap */
-            width: 100%; /* Take full width if centered */
-            margin-top: 10px; /* Add space above if they stack */
-            margin-left: 0; /* Remove left margin if taking full width */
-             gap: 5px; /* Reduce gap further on very small screens */
+        .navbar .container .auth-buttons:not(.active) {
+            justify-content: center;
+            width: 100%;
+            margin-top: 10px;
+            margin-left: 0;
+             gap: 5px;
         }
 
          .auth-buttons .login-btn, .auth-buttons .primary-cta {
-            padding: 6px 12px; /* Further adjust button padding */
-            font-size: 0.85rem; /* Further adjust button font size */
+            padding: 6px 12px;
+            font-size: 0.85rem;
         }
 
          .auth-buttons .language-selector select, .theme-toggle .switch-label {
-             transform: scale(0.85); /* Slightly reduce size of selector/toggle */
-             transform-origin: center right; /* Scale from the right */
+             transform: scale(0.9);
+             transform-origin: center right;
          }
     }
 }
@@ -1619,134 +1595,115 @@ footer {
 /* Mobile Menu Styles (refined) */
 @media (max-width: 768px) {
     .hamburger {
-        display: block; /* Show hamburger on mobile */
-        position: relative; /* Needed for z-index */
-        z-index: 1100; /* Ensure it's above other elements */
+        display: block;
+        position: relative;
+        z-index: 1100;
     }
 
     .navbar .container {
-        flex-wrap: wrap; /* Allow items to wrap to the next line */
-        justify-content: space-between; /* Distribute space between main items */
-        align-items: center; /* Vertically align items */
-        padding: 10px 20px; /* Add some vertical and horizontal padding */
+        flex-wrap: wrap;
+        justify-content: space-between;
+        align-items: center;
+        padding: 10px 20px;
     }
 
     .navbar .logo {
-        flex-basis: auto; /* Allow logo to take necessary space */
-        margin-right: 10px; /* Add space to the right of the logo */
-        flex-shrink: 0; /* Prevent logo from shrinking too much */
+        flex-basis: auto;
+        margin-right: auto;
+        flex-shrink: 0;
     }
 
-    /* Do NOT hide nav links in the main header bar on mobile */
-    .navbar .nav-links {
-        display: flex; /* Ensure nav links are displayed */
-        flex-wrap: wrap; /* Allow nav links to wrap */
-        gap: 15px; /* Space between nav links */
-        align-items: center; /* Vertically align nav links */
-        margin-right: 10px; /* Add space to the right of nav links */
-        flex-grow: 1; /* Allow nav links to take available space */
-        flex-shrink: 1; /* Allow nav links container to shrink */
-        min-width: 0; /* Allow shrinking below content size */
+    /* Hide nav links in the main header bar on mobile when NOT active */
+    .nav-links:not(.active) {
+        display: none; /* Explicitly hide when not active */
     }
 
-    .nav-links ul {
-         display: flex; /* Ensure ul is flex */
-         flex-wrap: wrap; /* Allow list items to wrap */
-         gap: 15px; /* Space between list items */
-         padding: 0; /* Remove default ul padding */
-    }
-
-    .nav-links ul li {
-        /* Default list item styles */
-    }
-
-    .nav-links ul li a {
-        font-size: 0.9rem; /* Slightly smaller font size for links */
-        padding: 2px 0; /* Adjust padding */
-         white-space: nowrap; /* Prevent links from breaking */
-    }
-
-    /* Style for auth buttons container in the header */
-    .navbar .container .auth-buttons {
-        display: flex; /* Use flex to arrange auth buttons */
-        flex-wrap: wrap; /* Allow buttons to wrap within the auth group */
-        gap: 8px; /* Space between auth buttons */
-        align-items: center; /* Vertically align auth buttons */
-        margin-left: auto; /* Push auth buttons to the right */
-        justify-content: flex-end; /* Align auth buttons to the right */
-        flex-grow: 0; /* Prevent auth buttons from growing */
-        flex-shrink: 0; /* Prevent auth buttons from shrinking too much initially */
-         min-width: auto; /* Allow natural width */
+    /* Style for auth buttons container in the header when mobile menu is NOT active */
+    .navbar .container .auth-buttons:not(.active) {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+        align-items: center;
+        margin-left: 10px;
+        justify-content: flex-end;
+        flex-grow: 1;
+        flex-shrink: 1;
+        min-width: 0;
     }
 
     .auth-buttons .login-btn, .auth-buttons .primary-cta {
-        flex-shrink: 1; /* Allow buttons to shrink */
-        min-width: 0; /* Allow shrinking below content size */
-        padding: 8px 15px; /* Adjust button padding on mobile */
-        font-size: 0.9rem; /* Adjust button font size on mobile */
+        flex-shrink: 1;
+        min-width: 0;
+        padding: 8px 15px;
+        font-size: 0.9rem;
     }
 
     .auth-buttons .language-selector, .auth-buttons .theme-toggle {
-         flex-shrink: 0; /* Prevent selector/toggle from shrinking too much */
-         min-width: auto; /* Maintain their size */
-         transform: scale(0.9); /* Slightly reduce size */
-         transform-origin: center right; /* Scale from the right */
+         flex-shrink: 0;
+         min-width: auto;
     }
 
-    /* Hide the sidebar/off-screen mobile menu styles */
-    .nav-links.active, .auth-buttons.active {
-        position: static; /* Revert to normal flow */
-        width: auto; /* Revert width */
-        height: auto; /* Revert height */
-        background-color: transparent; /* Revert background */
-        padding: 0; /* Revert padding */
-        transition: none; /* Remove transition */
-        z-index: auto; /* Revert z-index */
-        flex-direction: row; /* Arrange in a row */
-        gap: 10px; /* Adjust gap */
-        align-items: center; /* Vertically align */
-        margin-top: 0; /* Remove margin top */
-        border-top: none; /* Remove border top */
-        padding-top: 0; /* Remove padding top */
+    /* Mobile menu (sidebar) styles for Nav Links */
+    .nav-links {
+        position: fixed;
+        top: 0;
+        right: -250px;
+        width: 250px;
+        height: 100vh;
+        background-color: var(--surface);
+        padding: 80px 20px;
+        transition: right 0.3s ease-in-out;
+        z-index: 999; /* Below hamburger (1100) */
+        flex-direction: column; /* Stack links vertically */
+        gap: 20px;
+        align-items: flex-start;
+         /* Initial display state handled by :not(.active) and .active rules */
     }
 
-     /* Further refine for very small screens */
+    /* Style for Auth Buttons when mobile menu IS active (integrate into sidebar) */
+    .auth-buttons.active {
+        display: flex; /* Show auth buttons when mobile menu is active */
+        flex-direction: column; /* Stack auth buttons vertically */
+        gap: 15px;
+        align-items: flex-start;
+        margin-top: 30px;
+        border-top: 1px solid var(--border);
+        padding-top: 20px;
+        width: 100%;
+    }
+
+    /* Show and slide in Nav Links when active */
+    .nav-links.active {
+        right: 0; /* Slide into view */
+        display: flex; /* Ensure it's displayed as flex when active */
+    }
+
+    /* Adjust main content margin when mobile menu is active */
+    body.mobile-menu-active .content-sections {
+        margin-left: 250px;
+    }
+
+     /* Further refine for very small screens if needed */
     @media (max-width: 480px) {
          .navbar .container {
-             padding: 10px 15px; /* Adjust padding for smaller screens */
+             padding: 10px 15px;
          }
-
-         .navbar .logo {
-              margin-right: 5px; /* Reduce margin next to logo */
-         }
-
-         .navbar .nav-links {
-             gap: 10px; /* Reduce nav link gap */
-             margin-right: 5px; /* Reduce margin next to nav links */
-             flex-basis: 100%; /* Allow nav links to take full line if needed */
-             justify-content: center; /* Center nav links if they wrap */
-         }
-
-         .nav-links ul {
-             gap: 8px; /* Reduce gap between list items */
-         }
-
-         .navbar .container .auth-buttons {
-            justify-content: center; /* Center auth buttons if they wrap */
-            width: 100%; /* Take full width if centered */
-            margin-top: 10px; /* Add space above if they stack */
-            margin-left: 0; /* Remove left margin if taking full width */
-             gap: 5px; /* Reduce gap further on very small screens */
+        .navbar .container .auth-buttons:not(.active) {
+            justify-content: center;
+            width: 100%;
+            margin-top: 10px;
+            margin-left: 0;
+             gap: 5px;
         }
 
          .auth-buttons .login-btn, .auth-buttons .primary-cta {
-            padding: 6px 12px; /* Further adjust button padding */
-            font-size: 0.85rem; /* Further adjust button font size */
+            padding: 6px 12px;
+            font-size: 0.85rem;
         }
 
          .auth-buttons .language-selector select, .theme-toggle .switch-label {
-             transform: scale(0.85); /* Slightly reduce size of selector/toggle */
-             transform-origin: center right; /* Scale from the right */
+             transform: scale(0.9);
+             transform-origin: center right;
          }
     }
 }
