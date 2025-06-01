@@ -45,70 +45,49 @@ body {
     font-size: 14px;
 }
 
+.login-form {
+    width: 100%;
+}
+
 .form-group {
-    text-align: left;
-    margin-bottom: 20px;
+    margin-bottom: 1.5rem;
 }
 
 .form-group label {
     display: block;
-    margin-bottom: 8px;
-    color: #333; /* Dark text */
+    margin-bottom: 0.5rem;
     font-weight: 500;
-    font-size: 14px;
 }
 
-.phone-input {
-    display: flex;
-    border: 1px solid #ccc; /* Light grey border */
-    border-radius: 5px;
-    overflow: hidden;
-    align-items: center;
-}
-
-.phone-input select {
-    padding: 10px;
-    border: none;
-    border-right: 1px solid #ccc; /* Light grey separator */
-    background-color: #eee; /* Very light grey background */
-    outline: none;
-    font-size: 14px;
-    cursor: pointer;
-    -webkit-appearance: none;
-    -moz-appearance: none;
-    appearance: none;
-    border-radius: 5px 0 0 5px; /* Rounded corners on one side */
-}
-
-.phone-input input[type="text"] {
-    flex-grow: 1;
-    padding: 10px;
-    border: none;
-    outline: none;
-    font-size: 14px;
-    color: #333; /* Dark text */
-}
-
-.btn {
-    display: block;
+.form-group input {
     width: 100%;
-    padding: 12px;
+    padding: 0.75rem;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    font-size: 1rem;
+    transition: border-color 0.3s ease;
+}
+
+.form-group input:focus {
+    outline: none;
+    border-color: var(--accent);
+}
+
+.login-btn {
+    width: 100%;
+    padding: 0.75rem;
+    background-color: var(--accent);
+    color: white;
     border: none;
-    border-radius: 5px;
-    font-size: 16px;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: 600;
     cursor: pointer;
     transition: background-color 0.3s ease;
-    text-decoration: none;
 }
 
-.send-otp-btn {
-    background-color: #333; /* Dark button */
-    color: #fff; /* White text */
-    margin-bottom: 20px;
-}
-
-.send-otp-btn:hover {
-    background-color: #555; /* Slightly lighter dark on hover */
+.login-btn:hover {
+    background-color: var(--accent-hover);
 }
 
 .or-separator {
