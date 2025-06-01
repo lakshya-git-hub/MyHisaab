@@ -1309,7 +1309,7 @@ footer {
     }
 
     .container {
-        padding: 0 15px; /* Reduce horizontal container padding on smaller screens */
+        padding: 0 15px; /* Ensure consistent horizontal padding */
     }
 
     .section-title {
@@ -1324,152 +1324,31 @@ footer {
         font-size: 1rem; /* Adjust hero subtitle font size for 768px */
     }
 
+    /* Ensure grid items stack correctly */
     .divisions-grid,
     .integration-features-grid,
     .pricing-cards,
-    .testimonials-grid {
-        grid-template-columns: 1fr;
-    }
-    
-     .footer-content {
-         flex-direction: column;
-         gap: 30px;
-        text-align: center;
-    }
-    
-     .footer-brand,
-     .footer-subscribe {
-         flex-basis: auto;
-     }
-
-    .footer-links {
-        justify-content: center;
+    .attendance-cards-grid,
+    .metrics-grid {
+        grid-template-columns: 1fr; /* Stack items in a single column */
+        gap: 20px; /* Reduce gap on mobile */
     }
 
-    /* Adjust font sizes for other headings and text */
-    h1 {
-        font-size: 2.8rem;
-    }
-    h2 {
-        font-size: 2.2rem;
-    }
-    h3 {
-        font-size: 1.6rem;
-    }
-    p {
-        font-size: 1rem;
+    /* Adjust padding for cards within grids */
+    .division-item,
+    .integration-feature-item,
+    .price-card,
+    .attendance-price-card,
+    .metric-item {
+         padding: 20px; /* Uniform padding for grid items */
     }
 
-    /* Adjust padding and margins for various components */
-    .card, .item, .module {
-        padding: 20px;
-    }
-
-    .division-item {
-        padding: 20px;
-    }
-
-    .integration-feature-item {
-        padding: 20px;
-    }
-
-    .price-card {
-        padding: 30px 20px;
-    }
-
-    .testimonial-card {
-        padding: 20px;
-    }
-
-    .btn {
-        padding: 10px 20px;
-    }
-
-    .subscribe-form input {
-        padding: 8px 10px;
-    }
-
-    .subscribe-form button {
-        padding: 0 15px;
-    }
-
-    /* Adjustments for Hero Section on 768px */
-    .hero {
-        padding: 40px 0; /* Maintain hero vertical padding */
-    }
-
-    .hero .container {
-        max-width: 100%; /* Allow hero container to take full width on smaller screens */
-        padding: 0 15px; /* Add container padding */
-    }
-
-    .hero-graphic-placeholder {
-        margin: 40px auto 0; /* Adjust margin above hero graphic */
-    }
-
-    /* Adjustments for Footer on 768px */
-    footer {
-        padding: 40px 0 15px; /* Adjust footer padding */
-    }
-
-    .footer-content {
-        gap: 30px; /* Adjust gap in footer content */
-    }
-
-    .footer-col {
-        text-align: left; /* Align footer column text left */
-        width: auto; /* Allow width to be determined by content */
-    }
-
-    .footer-col h4 {
-        margin-bottom: 10px; /* Adjust margin below footer titles */
-    }
-
-    .footer-col ul {
-        align-items: flex-start; /* Align footer list items left */
-    }
-
-    .footer-brand {
-        text-align: left; /* Align footer brand content left */
-    }
-
-    .footer-subscribe {
-        text-align: left; /* Align footer subscribe content left */
-    }
-
-    .subscribe-form {
-        justify-content: flex-start; /* Align subscribe form left */
-    }
-
-    /* Ensure images and other media scale correctly */
-    img {
-        max-width: 100%;
-        height: auto;
-    }
-
-    /* General adjustments for text alignment and spacing */
-    .text-center-mobile {
-        text-align: center;
-    }
-
-    .mb-mobile-20 {
-        margin-bottom: 20px;
-    }
-
-    .mt-mobile-20 {
-        margin-top: 20px;
-    }
-
-    .py-mobile-40 {
-        padding-top: 40px;
-        padding-bottom: 40px;
-    }
-
+    /* Adjust header padding */
     .navbar .container {
-        flex-wrap: wrap; /* Allow items to wrap to the next line */
-        justify-content: space-between; /* Distribute space between main items */
-        align-items: center; /* Vertically align items */
-        padding: 10px 20px; /* Add some vertical and horizontal padding */
+         padding: 10px 15px; /* Adjust header padding to match container */
+         flex-wrap: wrap; /* Ensure wrapping */
+         justify-content: space-between; /* Space out logo and auth buttons */
+         align-items: center;
     }
 
     .navbar .logo {
@@ -1518,28 +1397,38 @@ footer {
         margin-left: 250px; /* Match sidebar width */
     }
 
-     /* Further refine for very small screens if needed */
     @media (max-width: 480px) {
+        .container {
+            padding: 0 10px; /* Reduce padding further on very small screens */
+        }
+
         .navbar .container {
-            padding: 10px 15px; /* Adjust padding for smaller screens */
-        }
-        .navbar .container .auth-buttons:not(.active) {
-            justify-content: center; /* Center auth buttons if they wrap */
-            width: 100%; /* Take full width if centered */
-            margin-top: 10px; /* Add space above if they stack */
-            margin-left: 0; /* Remove left margin if taking full width */
-             gap: 5px; /* Reduce gap further on very small screens */
+             padding: 8px 10px; /* Adjust header padding */
         }
 
-         .auth-buttons .login-btn, .auth-buttons .primary-cta {
-            padding: 6px 12px; /* Further adjust button padding */
-            font-size: 0.85rem; /* Further adjust button font size */
+        .division-item,
+        .integration-feature-item,
+        .price-card,
+        .attendance-price-card,
+        .metric-item {
+             padding: 15px; /* Reduce padding further for grid items */
         }
 
-         .auth-buttons .language-selector select, .theme-toggle .switch-label {
-             transform: scale(0.9); /* Slightly reduce size of selector/toggle */
-             transform-origin: center right; /* Scale from the right */
-         }
+        .testimonials-container {
+            gap: 15px; /* Reduce gap in testimonials container */
+        }
+
+        .testimonial-card {
+            flex: 0 0 85%; /* Allow testimonial cards to take up more width, but still scroll */
+            padding: 15px; /* Reduce testimonial card padding */
+        }
+
+        /* Ensure text elements don't overflow */
+        h1, h2, h3, p {
+            word-break: break-word; /* Allow long words to break */
+        }
+
+        /* ... rest of existing @media (max-width: 480px) styles ... */
     }
 }
 
