@@ -73,21 +73,22 @@
 .chatbot-window {
     display: none; /* Hidden by default */
     position: absolute;
-    bottom: 80px; /* Position above the icon */
-    right: 0;
-    width: 350px; /* Adjust width as needed */
-    height: 450px; /* Adjust height as needed */
-    background-color: rgba(17, 17, 17, 0.8); /* Transparent dark background */
-    backdrop-filter: blur(12px); /* Glassmorphism blur */
-    border-radius: 15px; /* Smooth border radius */
-    border: 1px solid rgba(255, 193, 7, 0.3); /* Subtle golden border */
-    box-shadow: 0 0 20px rgba(255, 193, 7, 0.4); /* Golden glow effect */
+    bottom: 80px; /* Reduced gap between icon and window */
+    right: 20px;
+    width: 260px;
+    height: 330px;
+    background-color: rgba(17, 17, 17, 0.8);
+    backdrop-filter: blur(12px);
+    border-radius: 15px;
+    border: 1px solid rgba(255, 193, 7, 0.3);
+    box-shadow: 0 0 20px rgba(255, 193, 7, 0.4);
     overflow: hidden;
-    flex-direction: column; /* Arrange content vertically */
-    transition: all 0.4s ease-in-out; /* Smooth entrance/exit animation */
-    transform: scale(0.8); /* Start slightly smaller */
-    opacity: 0; /* Start invisible */
-    transform-origin: bottom right; /* Animation origin from bottom right */
+    flex-direction: column;
+    transition: all 0.4s ease-in-out;
+    transform: scale(0.8);
+    opacity: 0;
+    transform-origin: bottom right;
+    z-index: 999; /* Ensure it's below the header */
 }
 
 .chatbot-window.active {
@@ -278,12 +279,12 @@
     }
 
     .chatbot-window {
-        width: 90%; /* Adjust width to be a percentage */
-        height: 80vh; /* Adjust height based on viewport height */
-        bottom: 80px; /* Position above the icon */
-        right: 5%; /* Center horizontally */
-        left: 5%;
-        max-width: none; /* Remove max-width constraint */
+        width: 95%;
+        height: 60vh;
+        bottom: 70px; /* Reduced gap for mobile */
+        right: 2.5%;
+        left: 2.5%;
+        max-width: none;
     }
 
     .chat-messages {
