@@ -16,14 +16,15 @@
             <p>Welcome back! Please enter your details.</p>
             <form class="login-form">
             <div class="form-group">
-                    <label for="email">Email</label>
-                    <input type="email" id="email" placeholder="Enter your email">
-                </div>
-                <div class="form-group">
-                    <label for="password">Password</label>
-                    <input type="password" id="password" placeholder="Enter your password">
+                    <label for="phone">Phone Number</label>
+                    <div style="display: flex; align-items: center;">
+                        <span style="margin-right: 5px;">🇮🇳</span>
+                        <input type="text" id="country-code" value="+91" style="width: 50px; margin-right: 5px;" readonly>
+                        <input type="text" id="phone" placeholder="Enter your phone number" style="flex-grow: 1;">
+                    </div>
+
             </div>
-                <button type="submit" class="btn login-btn">Sign In</button>
+                <button type="submit" class="btn login-btn">Send OTP</button>
             <div class="or-separator">OR</div>
             <p class="signup-link">Don't have an account? <a href="signup.html">Sign up</a></p>
             </form>

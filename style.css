@@ -1434,7 +1434,7 @@ footer {
             margin-top: 10px;
             margin-left: 0;
              gap: 5px;
-        }
+    }
 
          .auth-buttons .login-btn, .auth-buttons .primary-cta {
             padding: 6px 12px;
@@ -1656,11 +1656,11 @@ footer {
         transition: right 0.3s ease-in-out;
         z-index: 999; /* Below hamburger (1100) */
         flex-direction: column; /* Stack links vertically */
-        gap: 20px;
-        align-items: flex-start;
+         gap: 20px;
+         align-items: flex-start;
         display: none; /* Explicitly hide by default on mobile */
          /* Initial display state handled by :not(.active) and .active rules */
-    }
+     }
 
     /* Style for Auth Buttons when mobile menu IS active (integrate into sidebar) */
     .auth-buttons.active {
@@ -1692,7 +1692,7 @@ footer {
          }
         .navbar .container .auth-buttons:not(.active) {
             justify-content: center;
-            width: 100%;
+        width: 100%;
             margin-top: 10px;
             margin-left: 0;
              gap: 5px;
