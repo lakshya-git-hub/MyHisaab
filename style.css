@@ -645,9 +645,9 @@ section {
 
 .navbar .container {
     display: flex;
-    justify-content: flex-start; /* Align items to the start (left) */
+    justify-content: space-between;
     align-items: center;
-    padding: 10px 15px; /* Add horizontal padding to the container */
+    padding: 10px 0; /* Set vertical padding only here */
     width: 100%;
     max-width: 100%; /* Ensure it takes full width */
 }
@@ -659,37 +659,37 @@ section {
     color: var(--text);
     position: relative;
     text-decoration: none;
-    padding-left: 0; /* Remove extra left padding */
-    margin-right: auto; /* Push following elements to the right */
+    padding-left: 15px; /* Add left padding to the logo */
 }
 
 .nav-links {
-    display: none; /* Hide nav links on desktop */
+    flex-grow: 1;
+    text-align: center;
+    margin: 0 auto; /* Center the block */
+    margin-left: 150px; /* Increase left margin to shift further right */
+    margin-right: 0 !important;
+    display: flex; /* Ensure nav links are displayed as flex on desktop */
+    justify-content: center; /* Center the list items */
+    align-items: center;
+}
+
+.nav-links ul {
+    display: flex;
+    gap: 15px; /* Reduce gap between links */
+    justify-content: center;
+    margin: 0;
+    padding: 0;
 }
 
 .auth-buttons {
     display: flex;
-    gap: 15px; /* Gap between login and theme toggle */
+    gap: 15px;
     align-items: center;
-    padding-right: 0; /* Remove extra right padding */
+    padding-right: 15px; /* Add right padding to auth buttons */
     flex-shrink: 0;
 }
 
-.auth-buttons .login-btn {
-    font-weight: 500;
-    transition: all 0.3s ease-in-out;
-    color: var(--text); /* White color for login link */
-    text-decoration: none;
-    padding: 5px 10px; /* Add some padding for hover effect */
-    border-radius: 4px; /* Subtle rounded corners */
-}
-
-.auth-buttons .login-btn:hover {
-    color: var(--primary-light); /* Lighter golden on hover */
-    background-color: rgba(255, 193, 7, 0.1); /* Subtle golden background on hover */
-}
-
-/* Keep mobile responsive adjustments as they are */
+/* Mobile Responsive Adjustments */
 @media (max-width: 768px) {
     .navbar .container {
         padding: 10px 15px; /* Add back horizontal padding for mobile container */
@@ -701,7 +701,6 @@ section {
     .logo {
         padding-left: 0; /* Remove extra left padding on mobile logo */
         font-size: 1.5rem; /* Reduce logo font size on mobile */
-         margin-right: 0; /* Remove margin-right on mobile */
     }
 
     .nav-links {
