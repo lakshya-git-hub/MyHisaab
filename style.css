@@ -65,6 +65,218 @@
     --accent-hover: var(--light-accent-hover);
     --glow: var(--light-glow);
     --card-shadow: var(--light-card-shadow);
+
+    /* Light Theme Styles - Header */
+    & .navbar {
+        background-color: var(--light-bg); /* Use light background */
+        border-bottom-color: var(--light-border); /* Light border bottom */
+    }
+
+    & .navbar .logo {
+        color: var(--light-text); /* Dark text for logo */
+    }
+
+    & .navbar .nav-links ul li a {
+        color: var(--light-text-secondary); /* Darker text for links */
+    }
+
+    & .navbar .nav-links ul li a:hover {
+        color: var(--light-text); /* Dark text on hover */
+    }
+
+    & .navbar .auth-buttons .login-btn {
+        color: var(--light-text-secondary); /* Darker text for login */
+    }
+
+     & .navbar .auth-buttons .login-btn:hover {
+        color: var(--light-text); /* Dark text on hover */
+        background-color: rgba(0, 0, 0, 0.05); /* Subtle dark background on hover */
+    }
+
+    & .navbar .primary-cta {
+        background: var(--light-accent); /* Use light accent color for button */
+        color: var(--white); /* White text on button */
+    }
+
+    & .navbar .primary-cta:hover {
+        background: var(--light-accent-hover); /* Darker light accent on hover */
+    }
+
+    & .top-announcement-bar {
+        background-color: var(--primary); /* Keep golden background */
+        color: #333333; /* Keep dark text color */
+    }
+
+    /* Light Theme Styles - Mobile App Promo Specifics */
+    & .mobile-app-promo .app-title {
+        /* Keep darker golden gradient for title */
+        background: linear-gradient(135deg, #DAA520, #B8860B); /* Darker golden gradient */
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+    }
+
+    & .mobile-app-promo .app-subtitle {
+        color: var(--light-text-secondary); /* Use a dark grey for subtitle */
+    }
+
+    & .mobile-app-promo .store-btn {
+        /* Adjusted styles for better visibility in light mode: Light button, dark text */
+        background: var(--light-surface); /* Use light surface for button background */
+        border: 1px solid var(--light-border); /* Use light border */
+        color: var(--light-text); /* Use dark text color for text and icons */
+        box-shadow: var(--light-card-shadow); /* Keep light shadow */
+    }
+
+    & .mobile-app-promo .store-btn:hover {
+        /* Adjusted hover styles for light mode */
+        background: #e0e0e0; /* Slightly darker background on hover */
+        border-color: var(--light-text-secondary); /* Slightly darker border on hover */
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); /* Darker shadow on hover */
+        color: var(--light-text); /* Keep text/icons dark on hover */
+    }
+
+    & .mobile-app-promo .store-btn i {
+         color: var(--light-text); /* Ensure icons are dark in light mode */
+    }
+
+    & .mobile-app-promo .interaction-dot {
+        background: var(--dark-accent); /* Keep golden dot */
+    }
+
+    & .mobile-app-promo::before {
+        /* Adjust grid color for light mode */
+        background-image:
+            linear-gradient(to right, rgba(0, 0, 0, 0.08) 1px, transparent 1px),
+            linear-gradient(to bottom, rgba(0, 0, 0, 0.08) 1px, transparent 1px);
+    }
+
+    /* Light Theme Styles - AI Chatbot */
+    & #chatbot-container {
+        /* No specific styles needed for the container in light mode */
+    }
+
+    & .chatbot-icon {
+        background-color: var(--primary); /* Keep golden background */
+        color: var(--white); /* White icon color */
+        box-shadow: 0 0 10px rgba(255, 193, 7, 0.5); /* Keep subtle golden glow */
+    }
+
+    & .chatbot-icon:hover {
+        background-color: var(--primary-dark); /* Darker golden on hover */
+        box-shadow: 0 0 20px rgba(255, 193, 7, 0.8); /* More pronounced golden shadow */
+    }
+
+    & .chatbot-window {
+        background-color: var(--light-surface); /* Light background for window */
+        border-color: var(--light-border); /* Light border */
+        box-shadow: var(--light-card-shadow); /* Light shadow */
+    }
+
+    & .chat-header {
+        background-color: var(--light-bg); /* Slightly darker light background for header */
+        border-bottom-color: var(--light-border); /* Light border bottom */
+        color: var(--light-text); /* Dark text */
+    }
+
+    & .chat-header .close-btn {
+        color: var(--light-text-secondary); /* Darker text for close button */
+    }
+
+    & .chat-header .close-btn:hover {
+        color: var(--light-text); /* Dark text on hover */
+    }
+
+    & .chat-messages::-webkit-scrollbar-track {
+        background: rgba(0, 0, 0, 0.1); /* Lighter transparent track */
+    }
+
+    & .chat-messages::-webkit-scrollbar-thumb {
+        background: rgba(0, 0, 0, 0.3); /* Darker transparent thumb */
+    }
+
+    & .chat-messages::-webkit-scrollbar-thumb:hover {
+        background: rgba(0, 0, 0, 0.5); /* Even darker transparent on hover */
+    }
+
+    & .message {
+        /* No changes needed to base message animation/position */
+    }
+
+    & .bot-message {
+        background-color: var(--light-border); /* Light grey background for bot messages */
+        color: var(--light-text); /* Dark text */
+    }
+
+    & .user-message {
+        background-color: var(--primary-light); /* Lighter golden background for user messages */
+        color: #333333; /* Dark text */
+    }
+
+    & .chat-input {
+        border-top-color: var(--light-border); /* Light border top */
+        background-color: var(--light-bg); /* Light background for input area */
+    }
+
+    & .chat-input input[type="text"] {
+        border-color: var(--light-border); /* Light border */
+        background-color: var(--light-surface); /* Light surface background */
+        color: var(--light-text); /* Dark text */
+    }
+
+    & .chat-input input[type="text"]:focus {
+        border-color: var(--light-accent); /* Light accent border on focus */
+    }
+
+    & .chat-input input[type="text"]::placeholder {
+        color: var(--light-text-secondary); /* Darker placeholder text */
+    }
+
+    & .chat-input button {
+        color: var(--light-text-secondary); /* Darker icon color */
+    }
+
+     & .chat-input button:hover:not(:disabled) {
+        color: var(--light-text); /* Dark icon color on hover */
+    }
+
+    /* Light Theme Styles - Divisions and Live Metrics Cards */
+    & .division-item, & .metric-item {
+        background: var(--light-surface); /* Light background */
+        border-color: var(--light-border); /* Light border */
+        box-shadow: var(--light-card-shadow); /* Light shadow */
+    }
+
+    & .division-item i, & .metric-item i {
+        color: var(--primary); /* Keep golden icons */
+    }
+
+     & .division-item .micro-headline {
+         color: var(--light-text-secondary); /* Dark text for micro-headline */
+     }
+
+    & .division-item h3, & .metric-item h3 {
+        color: var(--light-text); /* Dark text for titles */
+    }
+
+    & .division-item p {
+        color: var(--light-text-secondary); /* Darker text for paragraphs */
+    }
+
+     & .division-item .btn, & .metric-item .btn {
+         background-color: var(--light-bg); /* Light background for buttons */
+         color: var(--light-text); /* Dark text for buttons */
+         border-color: var(--light-border); /* Light border for buttons */
+     }
+
+      & .division-item .btn:hover, & .metric-item .btn:hover {
+          background-color: var(--light-border); /* Slightly darker light background on hover */
+          color: var(--light-text); /* Dark text on hover */
+          border-color: var(--light-text-secondary); /* Darker border on hover */
+      }
+
+    & .metric-item p {
+         color: var(--light-text); /* Dark text for the metric number */
+    }
 }
 
 /* Dark Theme Styles */
@@ -95,9 +307,10 @@ body {
     font-family: var(--font-primary);
     background-color: var(--bg);
     color: var(--text);
-    line-height: 1.6;
+    line-height: 1.5; /* Slightly reduced line height */
     position: relative;
     overflow-x: hidden;
+    font-size: 0.95rem; /* Reduced base font size */
 }
 
 /* Subtle glowing background effects */
@@ -138,6 +351,18 @@ h1, h2, h3, h4, h5, h6 {
     color: var(--text);
 }
 
+h1 {
+    font-size: 3.5rem; /* Reduced h1 size */
+}
+
+h2 {
+    font-size: 2.5rem; /* Reduced h2 size */
+}
+
+h3 {
+    font-size: 1.8rem; /* Reduced h3 size */
+}
+
 a {
     text-decoration: none;
     color: var(--primary);
@@ -158,13 +383,13 @@ img {
 
 .container {
     width: 100%;
-    max-width: 1200px; /* Standard container width */
+    max-width: 1100px; /* Slightly reduced max width */
     margin: 0 auto;
-    padding: 0 20px; /* Horizontal padding */
+    padding: 0 15px; /* Reduced horizontal padding */
 }
 
 section {
-    padding: 80px 0; /* Standard section padding */
+    padding: 60px 0; /* Reduced standard section padding */
 }
 
 /* General Styles for Elements with Rounded Corners and Shadows */
@@ -247,7 +472,7 @@ section {
 }
 
 .section-title {
-    font-size: 3rem;
+    font-size: 2.2rem; /* Reduced section title size */
     margin-bottom: 15px;
     text-align: center;
     color: var(--text);
@@ -260,18 +485,18 @@ section {
 .section-subtitle {
     color: var(--text-secondary);
     text-align: center;
-    max-width: 800px;
-    margin: 0 auto 60px;
-    font-size: 1.1rem;
+    max-width: 700px; /* Slightly reduced max width for subtitle */
+    margin: 0 auto 40px; /* Reduced bottom margin */
+    font-size: 1rem; /* Slightly reduced subtitle font size */
 }
 
 .btn {
     position: relative;
     display: inline-flex;
     align-items: center;
-    gap: 10px;
-    padding: 12px 24px;
-    border-radius: 6px;
+    gap: 8px; /* Slightly reduced gap */
+    padding: 10px 20px; /* Reduced button padding */
+    border-radius: 5px; /* Slightly reduced border radius */
     font-weight: 500;
     text-align: center;
     transition: var(--transition);
@@ -293,8 +518,8 @@ section {
     background: linear-gradient(45deg, var(--primary), var(--primary-dark));
     color: var(--bg);
     font-weight: 600;
-    padding: 15px 30px;
-    border-radius: 8px;
+    padding: 12px 25px; /* Reduced primary button padding */
+    border-radius: 6px; /* Reduced primary button border radius */
     border: none;
     position: relative;
     overflow: hidden;
@@ -356,11 +581,13 @@ section {
 
 .top-announcement-bar {
     background-color: var(--primary); /* Solid golden background */
-    color: var(--bg); /* Dark text color */
+    color: #333333; /* Dark text color */
     padding: 8px 0; /* Standard padding */
     font-size: 0.85rem; /* Slightly adjust font size */
     font-weight: 500;
-    z-index: 1001; /* Ensure it's above the sticky header */
+    z-index: 1001;
+    width: 100%; /* Ensure it spans the full width */
+    text-align: center; /* Center the text */
 }
 
 .hero-announcement-bar {
@@ -400,17 +627,99 @@ section {
 
 /* Header (Sticky Navbar) */
 .navbar {
-    position: sticky; /* Make the header sticky */
-    top: 0; /* Stick to the top */
+    position: sticky;
+    top: 0;
     left: 0;
     width: 100%;
-    background-color: var(--surface);
-    backdrop-filter: blur(8px); /* Add more prominent blur */
-    padding: 15px 0; /* Adjust padding */
-    z-index: 1000; /* Ensure it's above other content */
-    border-bottom: 1px solid var(--border); /* Subtle dark border at the bottom */
+    background-color: #1a1a1a;
+    backdrop-filter: blur(8px);
+    padding: 0;
+    z-index: 1000;
+    border-bottom: none;
+    border-top: none;
     transition: all 0.3s ease-in-out;
-    /* Remove previous scrolled state styles as they might be handled by JS */
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+}
+
+.navbar .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 0; /* Set vertical padding only here */
+    width: 100%;
+    max-width: 100%; /* Ensure it takes full width */
+}
+
+.logo {
+    font-family: var(--font-secondary);
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: var(--text);
+    position: relative;
+    text-decoration: none;
+    padding-left: 15px; /* Add left padding to the logo */
+}
+
+.nav-links {
+    flex-grow: 1;
+    text-align: center;
+    margin: 0 auto; /* Center the block */
+    margin-left: 150px; /* Increase left margin to shift further right */
+    margin-right: 0 !important;
+}
+
+.nav-links ul {
+    display: flex;
+    gap: 15px; /* Reduce gap between links */
+    justify-content: center;
+    margin: 0;
+    padding: 0;
+}
+
+.auth-buttons {
+    display: flex;
+    gap: 15px;
+    align-items: center;
+    padding-right: 15px; /* Add right padding to auth buttons */
+    flex-shrink: 0;
+}
+
+/* Mobile Responsive Adjustments */
+@media (max-width: 768px) {
+    .navbar .container {
+        padding: 10px 0; /* Vertical padding only on mobile */
+    }
+
+    .logo {
+        padding-left: 15px; /* Maintain padding on logo */
+    }
+
+    .auth-buttons {
+        padding-right: 15px; /* Maintain padding on auth buttons */
+    }
+
+    /* Adjust padding for smaller mobile screens */
+    @media (max-width: 480px) {
+        .logo {
+            padding-left: 10px;
+        }
+
+        .auth-buttons {
+            padding-right: 10px;
+        }
+    }
+
+    /* Ensure mobile menu nav links are aligned correctly when active */
+    .nav-links.active {
+        align-items: flex-start;
+        text-align: left;
+    }
+
+    .nav-links.active ul {
+        justify-content: flex-start;
+    }
 }
 
 /* Remove previous scrolled state styles if they are still present */
@@ -418,11 +727,7 @@ section {
     box-shadow: var(--shadow-md); /* Add shadow when scrolled */
 }
 
-.navbar .container {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
+/* REMOVE the duplicate/conflicting .navbar .container rule below this line */
 
 .logo {
     font-family: var(--font-secondary); /* Use heading font */
@@ -437,17 +742,24 @@ section {
     color: var(--primary); /* Golden dot */
 }
 
+.nav-links {
+    /* Add styles to center the nav links */
+    flex-grow: 1; /* Allow nav links to take up available space */
+    text-align: center; /* Center the text within nav links */
+}
+
 .nav-links ul {
     display: flex;
-    gap: 30px; /* Increase gap slightly */
+    gap: 20px; /* Reduced gap between nav links */
+    justify-content: center; /* Center the list items within the nav links container */
 }
 
 .nav-links ul li a {
     font-weight: 500;
     transition: all 0.3s ease-in-out;
     position: relative;
-    padding: 5px 0;
-    color: var(--text-secondary); /* Secondary text color */
+    padding: 5px 0; /* Keep padding */
+    color: var(--text); /* White color for nav links */
     text-decoration: none;
 }
 
@@ -458,14 +770,14 @@ section {
     left: 0;
     width: 100%;
     height: 2px;
-    background-color: var(--accent); /* Golden color */
+    background-color: var(--primary); /* Golden color */
     transform: scaleX(0);
     transform-origin: right;
     transition: transform 0.3s ease;
 }
 
 .nav-links ul li a:hover {
-    color: var(--text); /* White hover color */
+    color: var(--primary-light); /* Lighter golden on hover */
 }
 
 .nav-links ul li a:hover::before {
@@ -475,39 +787,48 @@ section {
 
 .auth-buttons {
     display: flex;
-    gap: 15px; /* Keep gap */
+    gap: 15px; /* Adjusted gap */
     align-items: center;
+    /* Prevent auth buttons from growing */
+    flex-grow: 0;
+    flex-shrink: 0;
 }
 
 .login-btn {
     font-weight: 500;
     transition: all 0.3s ease-in-out;
-    color: var(--text-secondary); /* Secondary text color */
+    color: var(--text); /* White color for login link */
     text-decoration: none;
+    padding: 5px 10px; /* Add some padding for hover effect */
+    border-radius: 4px; /* Subtle rounded corners */
 }
 
 .login-btn:hover {
-    color: var(--text); /* White hover color */
+    color: var(--primary-light); /* Lighter golden on hover */
+    background-color: rgba(255, 193, 7, 0.1); /* Subtle golden background on hover */
 }
 
 /* Styling for the CTA button in the header */
 .navbar .primary-cta {
-     padding: 10px 20px; /* Adjust padding */
-     font-weight: 600; /* Slightly bolder font weight */
-     border-radius: 6px; /* Rounded corners */
-     background: linear-gradient(45deg, var(--primary), var(--primary-dark)); /* Golden gradient background */
-     color: var(--bg); /* Dark text color */
+     padding: 8px 15px; /* Adjusted padding for button */
+     font-weight: 600; /* Keep font weight */
+     border-radius: 5px; /* Adjusted rounded corners */
+     background: var(--primary); /* Solid golden background */
+     color: #333333; /* Dark text color */
      text-decoration: none;
-     position: relative; /* Needed for potential glow effect */
-     overflow: hidden; /* Needed for potential glow effect */
-     /* Add subtle glow effect - can be refined */
-     box-shadow: 0 0 10px rgba(255, 193, 7, 0.5); /* Soft initial glow */
+     position: relative;
+     overflow: hidden;
+     box-shadow: none; /* Remove box shadow */
      transition: all 0.3s ease-in-out;
+     animation: none; /* Remove animation */
+     border: none; /* Ensure no border */
 }
 
 .navbar .primary-cta:hover {
-     background: linear-gradient(45deg, var(--primary-light), var(--primary)); /* Slightly lighter gradient on hover */
-     box-shadow: 0 0 15px rgba(255, 193, 7, 0.8); /* More pronounced glow on hover */
+     background: var(--primary-dark); /* Darker golden on hover */
+     box-shadow: none; /* Remove box shadow on hover */
+     transform: none; /* Remove transform on hover */
+     animation: none; /* Remove animation on hover */
 }
 
 /* Hamburger for Mobile */
@@ -696,7 +1017,7 @@ section {
 .division-item .micro-headline {
     font-size: 0.9rem; /* Smaller font size for micro-headline */
     font-weight: 600;
-    color: var(--accent-blue); /* Accent color for micro-headline */
+    color: var(--accent-orange); /* Changed from --accent-blue to --accent-orange */
     margin-bottom: 10px;
     text-transform: uppercase;
     letter-spacing: 0.5px;
@@ -1794,7 +2115,9 @@ footer {
 .theme-toggle {
     display: flex;
     align-items: center;
-    gap: 10px; /* Space between icons and switch */
+    gap: 5px; /* Reduced gap */
+    transform: scale(0.8); /* Reduced size of the toggle */
+    transform-origin: center right; /* Scale from the right */
 }
 
 .theme-toggle input[type="checkbox"] {
@@ -1980,8 +2303,8 @@ footer {
     background: linear-gradient(45deg, var(--primary), var(--primary-dark));
     color: var(--surface);
     font-weight: 600;
-    padding: 15px 30px;
-    border-radius: 8px;
+    padding: 12px 25px; /* Reduced primary button padding */
+    border-radius: 6px; /* Reduced primary button border radius */
     border: none;
     position: relative;
     overflow: hidden;
@@ -2140,4 +2463,230 @@ footer {
 
 .attendance-price-card.featured .btn.primary-cta {
     /* Inherits .primary-cta styles for golden button */
+}
+
+/* Mobile App Promotion Section */
+.mobile-app-promo {
+    position: relative;
+    padding: 120px 0;
+    /* Removed the specific black background gradient */
+    background: transparent;
+    overflow: hidden;
+}
+
+.mobile-app-promo::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: 
+        linear-gradient(to right, rgba(255, 255, 255, 0.04) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(255, 255, 255, 0.04) 1px, transparent 1px);
+    background-size: 40px 40px;
+    pointer-events: none;
+}
+
+.mobile-app-content {
+    display: flex;
+    align-items: center;
+    gap: 60px;
+    position: relative;
+    z-index: 2;
+}
+
+.phone-mockup {
+    /* Adjusted flex basis to give more space to text */
+    flex: 0 0 40%;
+    position: relative;
+    animation: float 6s ease-in-out infinite;
+}
+
+.phone-frame {
+    position: relative;
+    /* Reduced size of the phone mockup */
+    width: 220px; /* Further reduced width */
+    height: 450px; /* Further reduced height */
+    margin: 0 auto;
+    background: #1a1b1f;
+    border-radius: 40px;
+    padding: 10px;
+    /* Added golden glow effect similar to the dashboard */
+    box-shadow: 
+        0 0 0 2px rgba(255, 215, 0, 0.2),
+        0 0 30px rgba(255, 215, 0, 0.4); /* Adjusted glow intensity */
+    animation: goldenGlow 4s infinite alternate; /* Apply the golden glow animation */
+}
+
+.phone-screen {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    border-radius: 30px;
+    overflow: hidden;
+    background: #000;
+}
+
+.phone-screen img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.interaction-dot {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    width: 8px;
+    height: 8px;
+    background: #FFD700;
+    border-radius: 50%;
+    animation: pulse 2s ease-in-out infinite;
+}
+
+.app-info {
+    /* Adjusted flex basis to take more space */
+    flex: 0 0 60%;
+    color: #fff;
+}
+
+.app-title {
+    font-size: 3rem;
+    font-weight: 700;
+    margin-bottom: 20px;
+    background: linear-gradient(135deg, #FFD700, #F8C400);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.app-subtitle {
+    font-size: 1.2rem;
+    line-height: 1.6;
+    color: rgba(255, 255, 255, 0.8);
+    margin-bottom: 40px;
+}
+
+.store-buttons {
+    display: flex;
+    gap: 20px;
+    margin-bottom: 40px;
+    /* Added align-items to center buttons vertically */
+    align-items: center;
+}
+
+.store-btn {
+    /* Ensure inline flex and center alignment for consistent vertical positioning */
+    display: inline-flex;
+    align-items: center; /* Center content vertically */
+    justify-content: center; /* Center content horizontally */
+    gap: 10px;
+    padding: 12px 24px;
+    /* Adjusted background to be a dark golden color with transparency */
+    background: rgba(100, 80, 0, 0.6); /* Example: Dark golden with 60% opacity */
+    border: 1px solid rgba(255, 215, 0, 0.5); /* Slightly more opaque border */
+    border-radius: 12px;
+    color: #fff;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    backdrop-filter: blur(10px);
+}
+
+.store-btn:hover {
+    transform: translateY(-2px);
+    /* Adjusted hover background and shadow for a better golden glow effect */
+    background: rgba(120, 90, 0, 0.8); /* Darker golden on hover */
+    border-color: #FFD700;
+    box-shadow: 0 0 20px rgba(255, 215, 0, 0.3), 0 0 30px rgba(255, 215, 0, 0.2); /* Enhanced golden glow */
+    color: #fff; /* Keep text white on hover */
+}
+
+.store-btn i {
+    font-size: 1.5rem;
+    /* Added vertical-align to help align icons within the button */
+    vertical-align: middle;
+}
+
+.ambient-glow {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 80%;
+    height: 80%;
+    background: radial-gradient(circle, rgba(255, 215, 0, 0.1) 0%, transparent 70%);
+    pointer-events: none;
+    animation: glow 8s ease-in-out infinite;
+}
+
+.particles-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+}
+
+/* Animations */
+@keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-20px); }
+}
+
+@keyframes pulse {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.5; transform: scale(1.2); }
+}
+
+@keyframes glow {
+    0%, 100% { opacity: 0.5; transform: translate(-50%, -50%) scale(1); }
+    50% { opacity: 0.8; transform: translate(-50%, -50%) scale(1.1); }
+}
+
+@keyframes fadeInOut {
+    0%, 100% { opacity: 0.5; }
+    50% { opacity: 1; }
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+    .mobile-app-content {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .phone-mockup {
+        flex: 0 0 auto;
+        margin-bottom: 40px;
+    }
+
+    .app-info {
+        flex: 0 0 auto;
+    }
+
+    .store-buttons {
+        justify-content: center;
+    }
+}
+
+@media (max-width: 768px) {
+    .mobile-app-promo {
+        padding: 80px 0;
+    }
+
+    .app-title {
+        font-size: 2.5rem;
+    }
+
+    .store-buttons {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .store-btn {
+        width: 100%;
+        max-width: 300px;
+        justify-content: center;
+    }
 }

@@ -3,32 +3,50 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sign In - Hisaab Pro</title>
-    <link rel="stylesheet" href="login.css">
+    <title>Sign In</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="login.css">
 </head>
 <body>
-    <div class="login-page-container">
-        <div class="login-form-card">
+    <div class="login-container">
+        <div class="login-box">
             <h2>Sign in</h2>
             <p>Welcome back! Please enter your details.</p>
-            <form class="login-form">
             <div class="form-group">
-                    <label for="phone">Phone Number</label>
-                    <div style="display: flex; align-items: center;">
-                        <span style="margin-right: 5px;">🇮🇳</span>
-                        <input type="text" id="country-code" value="+91" style="width: 50px; margin-right: 5px;" readonly>
-                        <input type="text" id="phone" placeholder="Enter your phone number" style="flex-grow: 1;">
+                <label for="phone">Phone Number</label>
+                <div class="phone-input">
+                    <div class="country-code" id="country-code-dropdown-toggle">
+                        <img src="https://flagsapi.com/IN/flat/32.png" alt="India Flag" class="flag-icon" id="selected-flag">
+                        <span id="selected-country-code">+91</span>
+                        <i class="fas fa-chevron-down"></i>
                     </div>
+                    <input type="tel" id="phone" name="phone" placeholder="">
+                </div>
+                <span class="phone-hint">Enter your phone number with country code</span>
 
+                <!-- Country Dropdown -->
+                <div class="country-dropdown" id="country-dropdown">
+                    <div class="search-box">
+                        <i class="fas fa-search"></i>
+                        <input type="text" id="country-search" placeholder="search">
+                    </div>
+                    <ul class="country-list" id="country-list">
+                        <!-- Country list items will be added here by JavaScript -->
+                         <li data-code="+61" data-flag="🇦🇺">🇦🇺 Australia +61</li>
+                         <li data-code="+1" data-flag="🇨🇦">🇨🇦 Canada +1</li>
+                         <li data-code="+91" data-flag="🇮🇳">🇮🇳 India +91</li>
+                         <li data-code="+44" data-flag="🇬🇧">🇬🇧 United Kingdom +44</li>
+                         <!-- Add more countries as needed -->
+                    </ul>
+                </div>
             </div>
-                <button type="submit" class="btn login-btn">Send OTP</button>
-            <div class="or-separator">OR</div>
-            <p class="signup-link">Don't have an account? <a href="signup.html">Sign up</a></p>
-            </form>
+            <button class="send-otp-btn">Send OTP</button>
+            <div class="or-divider">OR</div>
+            <p>Don't have an account? <a href="signup.html">Sign up</a></p>
         </div>
     </div>
 </body>
+<script src="login.js"></script>
 </html> 

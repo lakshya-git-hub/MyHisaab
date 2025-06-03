@@ -153,99 +153,112 @@ document.addEventListener('DOMContentLoaded', function() {
     // Remove tooltip functionality as it doesn't match new design
     // Remove sticky navbar effect if not desired (navbar is fixed in new design)
 
-    // Testimonial Infinite Scroll
-    const testimonialsContainer = document.querySelector('.testimonials-container');
-    if (testimonialsContainer) {
-        // Duplicate the content for a seamless loop
-        const testimonialContent = testimonialsContainer.innerHTML;
-        testimonialsContainer.innerHTML += testimonialContent;
+    // Removed Testimonial Infinite Scroll
 
-        let scrollPosition = 0;
-        const scrollSpeed = 0.5; // Adjust speed as needed
-
-        // Calculate the width of a single testimonial card including its gap
-        const firstCard = testimonialsContainer.querySelector('.testimonial-card');
-        // Use clientWidth which excludes borders and scrollbars, offsetWidth includes border and padding
-        // Let's use offsetWidth as it's more likely to represent the full visual width including padding/border for flex items
-        const cardWidth = firstCard.offsetWidth;
-        // Get the computed gap value
-        const gap = parseFloat(window.getComputedStyle(testimonialsContainer).gap) || 30; // Default to 30px if gap is not set or parse fails
-        const cardAndGapWidth = cardWidth + gap;
-
-        // The point at which to reset the scroll: the total width of the original set of cards including gaps
-        // We have 5 original cards. The total width before duplication is 5 cards + 4 gaps.
-        // However, the container scrolls the full width including the last gap of the original set before the duplicated set starts.
-        // The total scrollable width before the duplicate starts is the width of the first 5 cards plus the 5 gaps *following* them in the flex layout.
-        // A simpler approach is to scroll the total width of the original content (5 cards and their gaps).
-        // Let's calculate based on the number of original children (which is half the total children after duplication).
-        const numberOfOriginalCards = testimonialsContainer.children.length / 2;
-        const originalContentWidth = cardAndGapWidth * numberOfOriginalCards;
-
-
-        function scrollTestimonials() {
-            scrollPosition += scrollSpeed;
-
-            // If the scroll position has moved past the original content width
-            if (scrollPosition >= originalContentWidth) {
-                // Instantly jump back to the start of the duplicated content
-                // This position is equivalent to scrollLeft = 0 of the entire container
-                scrollPosition = 0;
-            }
-
-            testimonialsContainer.scrollLeft = scrollPosition;
-
-            // Continue the animation loop
-            requestAnimationFrame(scrollTestimonials);
-        }
-
-        // Start scrolling animation after a small delay to ensure elements are rendered and widths are calculated correctly
-        setTimeout(scrollTestimonials, 100); // 100ms delay
+    // Mobile App Promotion Section Animations
+    const particlesContainer = document.querySelector('.particles-container');
+    if (particlesContainer) {
+        createParticles();
+        initMobileAppAnimations();
     }
 });
 
-// Remove previous particle background script
-// Remove previous parallax effect script
-// Remove previous glitch text effect script
+function createParticles() {
+    const particlesContainer = document.querySelector('.particles-container');
+    const particleCount = 50;
 
-// Navbar Scroll Effect (Simplified)
-const navbar = document.querySelector('.navbar');
-if (navbar) {
-    window.addEventListener('scroll', () => {
-        if (window.scrollY > 0) { // Add 'scrolled' class as soon as user scrolls
-            navbar.classList.add('scrolled');
-        } else {
-            navbar.classList.remove('scrolled');
-        }
-    });
+    for (let i = 0; i < particleCount; i++) {
+        const particle = document.createElement('div');
+        particle.className = 'particle';
+        
+        // Random position
+        const posX = Math.random() * 100;
+        const posY = Math.random() * 100;
+
+        // Random size
+        const size = Math.random() * 3 + 1;
+        
+        // Random animation duration
+        const duration = Math.random() * 20 + 10;
+        
+        // Random delay
+        const delay = Math.random() * 5;
+        
+        particle.style.cssText = `
+            position: absolute;
+            left: ${posX}%;
+            top: ${posY}%;
+            width: ${size}px;
+            height: ${size}px;
+            background: rgba(255, 215, 0, ${Math.random() * 0.5});
+            border-radius: 50%;
+            pointer-events: none;
+            animation: floatParticle ${duration}s ease-in-out ${delay}s infinite;
+        `;
+        
+        particlesContainer.appendChild(particle);
+            }
 }
 
-// GSAP Animations (Simplified and adapted)
-gsap.registerPlugin(ScrollTrigger, ScrollToPlugin); // Ensure ScrollToPlugin is registered
-
-// Hero Section Animation (Adapted)
-gsap.from('.hero-title', {
-    duration: 1.2,
-    y: 50,
+function initMobileAppAnimations() {
+    // GSAP animations for the mobile app section
+    gsap.from('.phone-mockup', {
+        scrollTrigger: {
+            trigger: '.mobile-app-promo',
+            start: 'top center',
+            toggleActions: 'play none none reverse'
+        },
+        x: -100,
     opacity: 0,
-    ease: 'power4.out',
-    delay: 0.6
+        duration: 1,
+        ease: 'power3.out'
 });
 
-gsap.from('.hero-subtitle', {
-    duration: 1.2,
-    y: 50,
+    gsap.from('.app-info', {
+        scrollTrigger: {
+            trigger: '.mobile-app-promo',
+            start: 'top center',
+            toggleActions: 'play none none reverse'
+        },
+        x: 100,
     opacity: 0,
-    ease: 'power4.out',
-    delay: 0.8
+        duration: 1,
+        ease: 'power3.out'
 });
 
-gsap.from('.hero-promo', {
-    duration: 1.2,
-    y: 30,
-    opacity: 0,
-    ease: 'power4.out',
-    delay: 0.4
-});
+    // Removed GSAP animation for .store-btn to ensure they are visible immediately
+    // gsap.from('.store-btn', {
+    //     scrollTrigger: {
+    //         trigger: '.mobile-app-promo',
+    //         start: 'top bottom', // Start animation when the top of the section hits the bottom of the viewport
+    //         toggleActions: 'play none none reverse', // Play animation once, reverse on scroll up
+    //         // Ensure the initial state is applied immediately if already in view on load
+    //         immediateRender: true,
+    //     },
+    //     y: 30, // Animate from slightly lower position
+    //     opacity: 0, // Animate from invisible
+    //     duration: 0.8,
+    //     stagger: 0.15, // Slightly reduce stagger for potentially faster appearance
+    //     ease: 'power2.out' // Use a standard ease
+    // });
+}
 
-// Sections Animation (Applied to all sections)
-// Already handled in DOMContentLoaded
+// Add this to your existing CSS
+const style = document.createElement('style');
+style.textContent = `
+    @keyframes floatParticle {
+        0%, 100% {
+            transform: translate(0, 0);
+        }
+        25% {
+            transform: translate(100px, 50px);
+        }
+        50% {
+            transform: translate(50px, 100px);
+        }
+        75% {
+            transform: translate(-50px, 50px);
+        }
+    }
+`;
+document.head.appendChild(style);

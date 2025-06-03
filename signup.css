@@ -1,173 +1,269 @@
 body {
-    margin: 0;
-    padding: 0;
     font-family: 'Space Grotesk', sans-serif;
-    background-color: #f0f0f0; /* Light grey background */
-    color: #333; /* Dark text color */
+    background-color: #f0f0f0; /* Light gray background */
+    background-image: linear-gradient(to right, #e0e0e0 1px, transparent 1px), linear-gradient(to bottom, #e0e0e0 1px, transparent 1px);
+    background-size: 20px 20px;
     display: flex;
     justify-content: center;
     align-items: center;
     min-height: 100vh;
-    background-image: url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAiIGhlaWdodD0iNDAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PHBhdHRlcm4gaWQ9ImdyaWQiIHdpZHRoPSI0MCIgaGVpZ2h0PSI0MCIgcGF0dGVyblVuaXRzPSJ1c2VyU3BhY2VPblVzZSI+PHBhdGggZD0iTSAwIDQwIEwgNDAgMCBNIDAgMCBMIDQwIDQwIiBzdHJva2U9IiNhYWFhYWEiIHN0cm9rZS13aWR0aD0iMSI+PC9wYXR0ZXJuPjwvZGVmcz48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSJ1cmwoI2dyaWQpIi8+PC9zdmc+'); /* Grid background */
-    background-size: 40px 40px;
-}
-
-.signup-page-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
+    margin: 0;
     padding: 20px;
     box-sizing: border-box;
 }
 
-.signup-form-card {
-    background-color: #ffffff; /* White background */
-    padding: 30px;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+.signup-container {
+    background-color: #ffffff;
+    padding: 30px; /* Matches image padding */
+    border-radius: 8px; /* Matches image subtle rounding */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Matches image shadow depth */
     text-align: center;
-    max-width: 450px; /* Slightly wider for two columns */
+    max-width: 360px; /* Adjusted max-width to better match the image proportion */
     width: 100%;
+    box-sizing: border-box;
+    font-family: 'Space Grotesk', sans-serif;
 }
 
-.signup-form h2 {
+.signup-container h2 {
     margin-top: 0;
-    color: #333; /* Dark text */
-    font-weight: 600;
-    font-size: 24px;
-    margin-bottom: 10px;
+    margin-bottom: 6px; /* Adjusted margin */
+    color: #333;
+    font-size: 1.5em; /* Adjusted font size */
+    font-weight: bold; /* Set font weight to bold */
 }
 
-.signup-form p {
-    color: #666; /* Slightly lighter dark text */
-    margin-bottom: 20px;
-    font-size: 14px;
+.signup-container p {
+    color: #666;
+    margin-bottom: 20px; /* Adjusted margin */
+    font-size: 0.9em; /* Adjusted font size */
 }
 
 .form-row {
     display: flex;
-    gap: 20px; /* Space between columns */
-    margin-bottom: 20px;
+    gap: 15px; /* Adjusted space between first and last name fields */
+    margin-bottom: 15px; /* Adjusted margin below the row */
 }
 
 .form-row .form-group {
-    flex: 1; /* Make each column take equal width */
-    margin-bottom: 0; /* Remove bottom margin from form-group in form-row */
+    flex: 1;
+    margin-bottom: 0;
 }
 
 .form-group {
     text-align: left;
-    margin-bottom: 20px;
+    margin-bottom: 15px; /* Adjusted space below each form group */
+    position: relative;
 }
 
 .form-group label {
     display: block;
-    margin-bottom: 8px;
-    color: #333; /* Dark text */
+    margin-bottom: 4px; /* Adjusted margin */
+    color: #555;
     font-weight: 500;
-    font-size: 14px;
+    font-size: 0.85em; /* Adjusted label font size */
 }
 
 .form-group input[type="text"],
-.form-group input[type="password"] {
-    width: 100%; /* Make inputs take full width of their container */
-    padding: 10px;
-    border: 1px solid #ccc; /* Light grey border */
-    border-radius: 5px;
-    box-sizing: border-box; /* Include padding and border in element's total width and height */
-    font-size: 14px;
-    color: #333; /* Dark text */
+.form-group input[type="password"],
+.phone-input input[type="tel"] {
+    width: 100%;
+    padding: 8px 10px; /* Adjusted padding */
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    font-size: 1em;
+    color: #333;
+    outline: none;
+    transition: border-color 0.3s ease;
+}
+
+.form-group input[type="text"]:focus,
+.form-group input[type="password"]:focus,
+.phone-input input[type="tel"]:focus {
+    border-color: #007bff;
 }
 
 .phone-input {
     display: flex;
-    border: 1px solid #ccc; /* Light grey border */
-    border-radius: 5px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
     overflow: hidden;
     align-items: center;
+    background-color: #fff;
+    position: relative;
+    margin-bottom: 4px;
+    box-shadow: inset 0 1px 3px rgba(0,0,0,0.08);
 }
 
-.phone-input select {
-    padding: 10px;
-    border: none;
-    border-right: 1px solid #ccc; /* Light grey separator */
-    background-color: #eee; /* Very light grey background */
-    outline: none;
-    font-size: 14px;
+.country-code {
+    display: flex;
+    align-items: center;
+    padding: 6px 10px; /* Adjusted padding */
+    border-right: 1px solid #ccc;
+    background-color: #eee;
+    color: #333;
+    font-size: 1em;
+    font-weight: 500;
     cursor: pointer;
-    -webkit-appearance: none;
-    -moz-appearance: none;
-    appearance: none;
-    border-radius: 5px 0 0 5px; /* Rounded corners on one side */
 }
 
-.phone-input input[type="text"] {
-    flex-grow: 1;
-    padding: 10px;
-    border: none;
-    outline: none;
-    font-size: 14px;
-    color: #333; /* Dark text */
+.country-code .flag-icon {
+    width: 18px; /* Slightly smaller flag */
+    height: auto;
+    margin-right: 6px; /* Adjusted spacing */
+    border-radius: 1px;
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.country-code span {
+    font-weight: 500;
+    margin-right: 4px; /* Adjusted spacing */
+    font-size: 1em;
+    vertical-align: middle;
+}
+
+.country-code i {
+    font-size: 0.7em;
+    color: #777;
+    vertical-align: middle;
+}
+
+.phone-hint {
+    display: block;
+    text-align: left;
+    font-size: 0.75em; /* Slightly smaller font size */
+    color: #888; /* Adjusted color */
+    margin-top: 0;
+    padding-left: 5px;
 }
 
 .password-input {
     display: flex;
     align-items: center;
-    border: 1px solid #ccc; /* Light grey border */
-    border-radius: 5px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
     overflow: hidden;
+    background-color: #fff;
+    box-shadow: inset 0 1px 3px rgba(0,0,0,0.08);
 }
 
 .password-input input[type="password"] {
-     border: none;
-     padding: 10px;
-     padding-right: 0;
-     flex-grow: 1;
-     outline: none;
-     font-size: 14px;
-     color: #333; /* Dark text */
-}
-
-.password-input i {
-    padding: 0 10px;
-    color: #999; /* Grey icon color */
-    cursor: pointer;
-}
-
-.btn {
-    display: block;
-    width: 100%;
-    padding: 12px;
     border: none;
-    border-radius: 5px;
-    font-size: 16px;
+    flex-grow: 1;
+    padding: 8px 10px; /* Adjusted padding */
+    font-size: 1em;
+    outline: none;
+    color: #333;
+}
+
+.password-input .toggle-password {
+    padding: 0 10px;
     cursor: pointer;
-    transition: background-color 0.3s ease;
-    text-decoration: none;
+    color: #777;
 }
 
 .signup-btn {
-    background-color: #333; /* Dark button */
-    color: #fff; /* White text */
-    margin-top: 10px; /* Add some space above the button */
-    margin-bottom: 20px;
+    background: linear-gradient(to bottom, #444, #222);
+    color: white;
+    border: none;
+    padding: 10px 20px; /* Adjusted padding */
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1em; /* Adjusted font size */
+    font-weight: 600;
+    width: 100%;
+    margin-top: 10px; /* Added top margin to space from last input */
+    margin-bottom: 15px; /* Adjusted bottom margin */
+    transition: background 0.3s ease;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
 }
 
 .signup-btn:hover {
-    background-color: #555; /* Slightly lighter dark on hover */
+    background: linear-gradient(to bottom, #555, #333);
 }
 
-.login-link {
-    font-size: 14px;
-    color: #666; /* Slightly lighter dark text */
+.signup-container p:last-child {
+    margin-bottom: 0; /* Remove bottom margin from the last paragraph */
 }
 
-.login-link a {
-    color: #007bff; /* Blue link */
+.signup-container a {
+    color: #007bff;
     text-decoration: none;
+    font-weight: 500;
+    font-size: 0.9em;
 }
 
-.login-link a:hover {
+.signup-container a:hover {
     text-decoration: underline;
+}
+
+/* Explicitly style the dropdown if needed, though inheriting from login.css might be sufficient */
+.phone-input .country-dropdown {
+    position: absolute; /* Position relative to the parent .phone-input */
+    top: 100%; /* Position directly below the .phone-input */
+    left: 0;
+    right: 0;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-top: none;
+    border-radius: 0 0 4px 4px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    z-index: 10; /* Ensure it's above other content */
+    max-height: 150px;
+    overflow-y: auto;
+    display: none; /* Hidden by default */
+}
+
+.phone-input .country-dropdown .search-box {
+    padding: 8px 10px;
+    border-bottom: 1px solid #eee;
+    display: flex;
+    align-items: center;
+    background-color: #f8f8f8;
+}
+
+.phone-input .country-dropdown .search-box i {
+    color: #aaa;
+    margin-right: 8px;
+}
+
+.phone-input .country-dropdown .search-box input {
+    border: none;
+    outline: none;
+    flex-grow: 1;
+    padding: 5px 0;
+    font-size: 1em;
+    color: #333;
+    background-color: transparent;
+}
+
+.phone-input .country-dropdown .search-box input::placeholder {
+    color: #aaa;
+}
+
+.phone-input .country-dropdown .country-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.phone-input .country-dropdown .country-list li {
+    padding: 8px 10px; /* Adjusted padding */
+    cursor: pointer;
+    text-align: left;
+    font-size: 1em;
+    color: #333;
+    display: flex;
+    align-items: center;
+}
+
+.phone-input .country-dropdown .country-list li:hover {
+    background-color: #f0f0f0;
+}
+
+.phone-input .country-dropdown .country-list li .flag-icon {
+     width: 20px; /* Flag size in list */
+    margin-right: 10px; /* Spacing after flag */
+    border-radius: 2px;
 } 

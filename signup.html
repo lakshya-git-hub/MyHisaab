@@ -3,55 +3,76 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sign Up - Hisaab Pro</title>
-    <link rel="stylesheet" href="signup.css">
+    <title>Create an Account</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="signup.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
-    <div class="signup-page-container">
-        <div class="signup-form-card">
+    <div class="signup-container">
+        <div class="signup-box">
             <h2>Create an Account</h2>
             <p>Get started with your ecommerce journey</p>
+
             <div class="form-row">
                 <div class="form-group">
-                    <label for="first-name">First Name</label>
-                    <input type="text" id="first-name">
+                    <label for="firstName">First Name</label>
+                    <input type="text" id="firstName" name="firstName">
                 </div>
                 <div class="form-group">
-                    <label for="last-name">Last Name</label>
-                    <input type="text" id="last-name">
+                    <label for="lastName">Last Name</label>
+                    <input type="text" id="lastName" name="lastName">
                 </div>
             </div>
+
             <div class="form-group">
                 <label for="phone">Phone Number</label>
                 <div class="phone-input">
-                    <select>
-                        <option value="+91">+91</option>
-                        <!-- Add more country codes as needed -->
-                    </select>
-                    <input type="text" id="phone" placeholder="Enter your phone number with country code">
+                     <div class="country-code" id="country-code-dropdown-toggle">
+                        <img src="https://flagsapi.com/IN/flat/32.png" alt="India Flag" class="flag-icon" id="selected-flag">
+                        <span id="selected-country-code">+91</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <input type="tel" id="phone" name="phone" placeholder="">
+                    <!-- Country Dropdown will be added here by JavaScript -->
+                    <div class="country-dropdown" id="country-dropdown">
+                       <div class="search-box">
+                           <i class="fas fa-search"></i>
+                           <input type="text" id="country-search" placeholder="search">
+                       </div>
+                       <ul class="country-list" id="country-list">
+                           <!-- Country list items will be added here by JavaScript -->
+                       </ul>
+                    </div>
                 </div>
+                 <span class="phone-hint">Enter your phone number with country code</span>
             </div>
+
             <div class="form-group">
                 <label for="password">Password</label>
                 <div class="password-input">
-                     <input type="password" id="password">
-                     <i class="fas fa-eye"></i>
-                 </div>
+                    <input type="password" id="password" name="password">
+                    <i class="fas fa-eye toggle-password"></i>
+                </div>
             </div>
+
             <div class="form-group">
-                <label for="confirm-password">Confirm Password</label>
+                <label for="confirmPassword">Confirm Password</label>
                  <div class="password-input">
-                    <input type="password" id="confirm-password">
-                    <i class="fas fa-eye"></i>
-                 </div>
+                    <input type="password" id="confirmPassword" name="confirmPassword">
+                    <i class="fas fa-eye toggle-password"></i>
+                </div>
             </div>
-            <button class="btn signup-btn">Sign up</button>
-            <p class="login-link">Already have an account? <a href="login.html">Sign in</a></p>
+
+            <button class="signup-btn">Sign up</button>
+
+            <p>Already have an account? <a href="login.html">Sign in</a></p>
         </div>
     </div>
+
+    <script src="login.js"></script> <!-- Reuse login.js for country dropdown -->
+    <script src="signup.js"></script> <!-- New script for signup page -->
 </body>
 </html> 

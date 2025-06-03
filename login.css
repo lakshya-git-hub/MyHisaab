@@ -1,131 +1,248 @@
 body {
-    margin: 0;
-    padding: 0;
     font-family: 'Space Grotesk', sans-serif;
-    background-color: #f0f0f0; /* Light grey background */
-    color: #333; /* Dark text color */
+    background-color: #f0f0f0; /* Light gray background */
+    background-image: linear-gradient(to right, #e0e0e0 1px, transparent 1px), linear-gradient(to bottom, #e0e0e0 1px, transparent 1px);
+    background-size: 20px 20px;
     display: flex;
     justify-content: center;
     align-items: center;
     min-height: 100vh;
-    background-image: url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAiIGhlaWdodD0iNDAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PHBhdHRlcm4gaWQ9ImdyaWQiIHdpZHRoPSI0MCIgaGVpZ2h0PSI0MCIgcGF0dGVyblVuaXRzPSJ1c2VyU3BhY2VPblVzZSI+PHBhdGggZD0iTSAwIDQwIEwgNDAgMCBNIDAgMCBMIDQwIDQwIiBzdHJva2U9IiNhYWFhYWEiIHN0cm9rZS13aWR0aD0iMSI+PC9wYXR0ZXJuPjwvZGVmcz48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSJ1cmwoI2dyaWQpIi8+PC9zdmc+'); /* Grid background */
-    background-size: 40px 40px;
-}
-
-.login-page-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
+    margin: 0;
     padding: 20px;
     box-sizing: border-box;
 }
 
-.login-form-card {
-    background-color: #ffffff; /* White background */
-    padding: 30px;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+.login-container {
+    background-color: #ffffff;
+    padding: 30px; /* Matches image padding */
+    border-radius: 8px; /* Matches image subtle rounding */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Matches image shadow depth */
     text-align: center;
-    max-width: 400px;
+    max-width: 360px; /* Adjusted max-width to better match the image proportion */
     width: 100%;
+    box-sizing: border-box;
+    font-family: 'Space Grotesk', sans-serif;
 }
 
-.login-form h2 {
+.login-container h2 {
     margin-top: 0;
-    color: #333; /* Dark text */
-    font-weight: 600;
-    font-size: 24px;
-    margin-bottom: 10px;
+    margin-bottom: 8px; /* Matches spacing */
+    color: #333;
+    font-size: 1.6em; /* Matches heading size */
+    font-weight: bold; /* Set font weight to bold */
 }
 
-.login-form p {
-    color: #666; /* Slightly lighter dark text */
-    margin-bottom: 20px;
-    font-size: 14px;
-}
-
-.login-form {
-    width: 100%;
+.login-container p {
+    color: #666;
+    margin-bottom: 25px; /* Matches spacing below text */
+    font-size: 0.95em; /* Matches font size */
 }
 
 .form-group {
-    margin-bottom: 1.5rem;
+    text-align: left;
+    margin-bottom: 20px; /* Matches spacing below form group */
+    position: relative;
 }
 
 .form-group label {
     display: block;
-    margin-bottom: 0.5rem;
+    margin-bottom: 5px; /* Matches spacing below label */
+    color: #555;
     font-weight: 500;
+    font-size: 0.9em; /* Matches label font size */
 }
 
-.form-group input {
-    width: 100%;
-    padding: 0.75rem;
-    border: 1px solid var(--border);
-    border-radius: 8px;
-    font-size: 1rem;
-    transition: border-color 0.3s ease;
+.phone-input {
+    display: flex;
+    border: 1px solid #ccc; /* Matches border color */
+    border-radius: 4px; /* Matches input rounding */
+    overflow: hidden;
+    align-items: center; /* Ensures vertical centering */
+    background-color: #fff;
+    position: relative;
+    margin-bottom: 4px; /* Matches spacing to hint text */
+    box-shadow: inset 0 1px 3px rgba(0,0,0,0.08); /* Matches inner shadow */
 }
 
-.form-group input:focus {
+.country-code {
+    display: flex;
+    align-items: center; /* Ensures vertical centering */
+    padding: 7px 10px; /* Fine-tuned padding to match vertical size */
+    border-right: 1px solid #ccc; /* Matches separator line */
+    background-color: #eee; /* Matches background color */
+    color: #333;
+    font-size: 1em;
+    font-weight: 500;
+    cursor: pointer;
+}
+
+.country-code .flag-icon {
+    width: 20px; /* Matches flag size */
+    height: auto;
+    margin-right: 7px; /* Matches spacing */
+    border-radius: 1px;
+    display: inline-block;
+    vertical-align: middle; /* Ensures vertical alignment */
+}
+
+.country-code span {
+    font-weight: 500;
+    margin-right: 5px; /* Matches spacing */
+    font-size: 1em;
+    vertical-align: middle; /* Ensures vertical alignment */
+}
+
+.country-code i {
+    font-size: 0.7em;
+    color: #777;
+    vertical-align: middle; /* Ensures vertical alignment */
+}
+
+.phone-input input[type="tel"] {
+    border: none;
+    padding: 10px; /* Matches height of country code part */
+    flex-grow: 1;
+    font-size: 1em;
     outline: none;
-    border-color: var(--accent);
+    color: #333;
 }
 
-.login-btn {
-    width: 100%;
-    padding: 0.75rem;
-    background-color: var(--accent);
+.phone-hint {
+    display: block;
+    text-align: left;
+    font-size: 0.8em; /* Matches font size */
+    color: #777; /* Matches color */
+    margin-top: 0;
+    padding-left: 5px; /* Matches indentation */
+}
+
+.country-dropdown {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-top: none;
+    border-radius: 0 0 4px 4px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    z-index: 10;
+    max-height: 150px;
+    overflow-y: auto;
+    display: none;
+}
+
+.country-dropdown .search-box {
+    padding: 8px 10px;
+    border-bottom: 1px solid #eee;
+    display: flex;
+    align-items: center;
+    background-color: #f8f8f8;
+}
+
+.country-dropdown .search-box i {
+    color: #aaa;
+    margin-right: 8px;
+}
+
+.country-dropdown .search-box input {
+    border: none;
+    outline: none;
+    flex-grow: 1;
+    padding: 5px 0;
+    font-size: 1em;
+    color: #333;
+    background-color: transparent;
+}
+
+.country-dropdown .search-box input::placeholder {
+    color: #aaa;
+}
+
+.country-dropdown .country-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.country-dropdown .country-list li {
+    padding: 8px 10px; /* Matches padding */
+    cursor: pointer;
+    text-align: left;
+    font-size: 1em;
+    color: #333;
+    display: flex;
+    align-items: center;
+}
+
+.country-dropdown .country-list li:hover {
+    background-color: #f0f0f0;
+}
+
+.country-dropdown .country-list li .flag-icon {
+     width: 20px; /* Flag size in list */
+    margin-right: 10px; /* Spacing after flag */
+    border-radius: 2px;
+}
+
+.send-otp-btn {
+    background: linear-gradient(to bottom, #444, #222); /* Matches button gradient */
     color: white;
     border: none;
-    border-radius: 8px;
-    font-size: 1rem;
-    font-weight: 600;
+    padding: 12px 20px; /* Matches button size */
+    border-radius: 5px; /* Matches button rounding */
     cursor: pointer;
-    transition: background-color 0.3s ease;
+    font-size: 1em; /* Matches button text size */
+    font-weight: 600;
+    width: 100%;
+    margin-bottom: 20px; /* Matches spacing below button */
+    transition: background 0.3s ease;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Matches button shadow */
 }
 
-.login-btn:hover {
-    background-color: var(--accent-hover);
+.send-otp-btn:hover {
+    background: linear-gradient(to bottom, #555, #333);
 }
 
-.or-separator {
-    margin: 20px 0;
-    color: #aaa; /* Light grey text */
-    position: relative;
+.or-divider {
     text-align: center;
-    font-size: 12px;
+    margin: 20px 0; /* Matches vertical spacing */
+    color: #aaa;
+    position: relative;
+    font-size: 0.9em; /* Matches font size */
 }
 
-.or-separator::before,
-.or-separator::after {
+.or-divider::before,
+.or-divider::after {
     content: '';
     position: absolute;
     top: 50%;
-    width: 40%;
+    width: 40%; /* Matches line length */
     height: 1px;
-    background-color: #eee; /* Very light grey line */
+    background-color: #eee; /* Matches line color */
 }
 
-.or-separator::before {
+.or-divider::before {
     left: 0;
 }
 
-.or-separator::after {
+.or-divider::after {
     right: 0;
 }
 
-.signup-link {
-    font-size: 14px;
-    color: #666; /* Slightly lighter dark text */
+.login-container p:last-child {
+    margin-bottom: 0; /* Remove bottom margin from the last paragraph */
 }
 
-.signup-link a {
-    color: #007bff; /* Blue link */
+.login-container a {
+    color: #007bff; /* Matches link color */
     text-decoration: none;
+    font-weight: 500;
+    font-size: 0.9em; /* Matches font size */
 }
 
-.signup-link a:hover {
+.login-container a:hover {
     text-decoration: underline;
-} 
+}
+
+@import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css'); 

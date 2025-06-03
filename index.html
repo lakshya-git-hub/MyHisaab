@@ -23,13 +23,12 @@
         </div>
     </div>
 
-    <!-- Top Announcement Bar -->
-    <div class="announcement-bar top-announcement-bar">
-        We're now rolling out beta version to our pre-registered customers.
-    </div>
-
     <!-- Header (Sticky Navbar) -->
     <header class="navbar">
+        <!-- Top Announcement Bar - Moved inside header -->
+        <div class="announcement-bar top-announcement-bar">
+            We're now rolling out beta version to our pre-registered customers.
+        </div>
         <div class="container">
             <a href="#" class="logo">hisaab<span>.</span></a>
 
@@ -38,28 +37,18 @@
                     <li><a href="#hero">Home</a></li>
                     <li><a href="#divisions">Divisions</a></li>
                     <li><a href="#features">Features</a></li>
-                    <li><a href="#integrations">Integrations</a></li>
+                    
                     <li><a href="#pricing">Pricing</a></li>
                     <li><a href="#testimonials">Testimonials</a></li>
-                    <li><a href="#contact">Contact</a></li>
+                    
                 </ul>
             </nav>
-
+            
             <div class="auth-buttons">
                 <a href="login.html" class="login-btn">Login</a>
                 <a href="login.html" class="btn primary-cta">Start Free Trial</a>
 
-                <!-- Language Selector Placeholder -->
-                <div class="language-selector">
-                    <select>
-                        <option value="en">EN</option>
-                        <option value="es">ES</option>
-                        <option value="fr">FR</option>
-                        <!-- Add more languages as needed -->
-                    </select>
-                </div>
-
-                <!-- Dark/Light Mode Toggle Placeholder -->
+                <!-- Dark/Light Mode Toggle -->
                 <div class="theme-toggle">
                     <input type="checkbox" id="theme-switch">
                     <label for="theme-switch" class="switch-label">
@@ -103,9 +92,37 @@
         </div>
     </section>
 
-    <!-- Dashboard Preview Section -->
-    <!-- Removing as per new structure -->
-    <!-- <section class="dashboard-preview-section">...</section> -->
+    <!-- Mobile App Promotion Section -->
+    <section id="mobile-app" class="mobile-app-promo">
+        <div class="container">
+            <div class="mobile-app-content">
+                <div class="phone-mockup">
+                    <div class="phone-frame">
+                        <div class="phone-screen">
+                            <img src="assets/Screenshot_2025-06-02_124650-removebg-preview (2).png" alt="Hisaab Mobile App">
+                            <div class="interaction-dot"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="app-info">
+                    <h2 class="app-title">Stay Connected. Anytime, Anywhere.</h2>
+                    <p class="app-subtitle">Track attendance, manage teams, and streamline your workforce — all in one powerful mobile app.</p>
+                    <div class="store-buttons">
+                        <a href="#" class="store-btn play-store">
+                            <i class="fab fa-google-play"></i>
+                            <span>Get it on Google Play</span>
+                        </a>
+                        <a href="#" class="store-btn app-store">
+                            <i class="fab fa-apple"></i>
+                            <span>Download on App Store</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="ambient-glow"></div>
+        <div class="particles-container"></div>
+    </section>
 
     <!-- Divisions Section -->
     <section id="divisions" class="divisions">
@@ -121,7 +138,7 @@
                     <p class="micro-headline">Grow Your Store</p>
                     <h3>Commerce<span>.</span></h3>
                     <p>Complete e-commerce suite with POS, product & inventory tools, payment integrations.</p>
-                    <a href="#" class="btn">Learn More</a>
+                    <a href="login.html" class="btn">Learn More</a>
                 </div>
 
                 <!-- Agency Division Card -->
@@ -130,7 +147,7 @@
                     <p class="micro-headline">Market Smarter</p>
                     <h3>Agency<span>.</span></h3>
                     <p>AI-powered marketing automation, ad campaign management, SEO + influencer tools.</p>
-                    <a href="#" class="btn">Learn More</a>
+                    <a href="login.html" class="btn">Learn More</a>
                 </div>
 
                 <!-- Delivery Division Card -->
@@ -139,7 +156,7 @@
                     <p class="micro-headline">Ship Faster</p>
                     <h3>Delivery<span>.</span></h3>
                     <p>Real-time logistics dashboard, partner APIs (Delhivery, Shadowfax, Shiprocket, etc.).</p>
-                    <a href="#" class="btn">Learn More</a>
+                    <a href="login.html" class="btn">Learn More</a>
                 </div>
             </div>
         </div>
