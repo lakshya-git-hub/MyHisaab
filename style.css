@@ -689,25 +689,51 @@ section {
 /* Mobile Responsive Adjustments */
 @media (max-width: 768px) {
     .navbar .container {
-        padding: 10px 0; /* Vertical padding only on mobile */
+        padding: 10px 15px; /* Add back horizontal padding for mobile container */
+        flex-wrap: wrap;
+        justify-content: space-between;
+        align-items: center;
     }
 
     .logo {
-        padding-left: 15px; /* Maintain padding on logo */
+        padding-left: 0; /* Remove extra left padding on mobile logo */
+        font-size: 1.5rem; /* Reduce logo font size on mobile */
+    }
+
+    .nav-links {
+        display: none; /* Hide nav links by default on mobile */
+        /* Existing mobile menu styles will show it when active */
     }
 
     .auth-buttons {
-        padding-right: 15px; /* Maintain padding on auth buttons */
+        display: flex;
+        gap: 10px; /* Adjust gap for mobile buttons */
+        align-items: center;
+        padding-right: 0; /* Remove extra right padding on mobile auth buttons */
+    }
+
+    .auth-buttons .primary-cta { /* Target the Start Free Trial button */
+        display: none; /* Hide the Start Free Trial button on mobile */
+    }
+
+    .auth-buttons .login-btn {
+        font-size: 0.9rem; /* Adjust login button font size */
+        padding: 5px 10px; /* Adjust login button padding */
     }
 
     /* Adjust padding for smaller mobile screens */
     @media (max-width: 480px) {
-        .logo {
-            padding-left: 10px;
+        .navbar .container {
+             padding: 10px 10px; /* Further reduce padding on very small screens */
         }
 
-        .auth-buttons {
-            padding-right: 10px;
+        .logo {
+            font-size: 1.3rem; /* Further reduce logo size */
+        }
+
+        .auth-buttons .login-btn {
+             font-size: 0.8rem; /* Further reduce login button font size */
+             padding: 4px 8px; /* Further reduce login button padding */
         }
     }
 
