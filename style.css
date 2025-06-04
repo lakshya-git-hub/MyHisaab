@@ -691,969 +691,6 @@ section {
 
 /* Mobile Responsive Adjustments */
 @media (max-width: 768px) {
-    .navbar .container {
-        padding: 10px 15px; /* Add back horizontal padding for mobile container */
-        flex-wrap: wrap;
-        justify-content: space-between;
-        align-items: center;
-    }
-
-    .logo {
-        padding-left: 0; /* Remove extra left padding on mobile logo */
-        font-size: 1.5rem; /* Reduce logo font size on mobile */
-    }
-
-    .nav-links {
-        display: none; /* Hide nav links by default on mobile */
-        /* Existing mobile menu styles will show it when active */
-    }
-
-    .auth-buttons {
-        display: flex;
-        gap: 10px; /* Adjust gap for mobile buttons */
-        align-items: center;
-        padding-right: 0; /* Remove extra right padding on mobile auth buttons */
-    }
-
-    .auth-buttons .primary-cta { /* Target the Start Free Trial button */
-        display: none; /* Hide the Start Free Trial button on mobile */
-    }
-
-    .auth-buttons .login-btn {
-        font-size: 0.9rem; /* Adjust login button font size */
-        padding: 5px 10px; /* Adjust login button padding */
-    }
-
-    /* Adjust padding for smaller mobile screens */
-    @media (max-width: 480px) {
-        .navbar .container {
-             padding: 10px 10px; /* Further reduce padding on very small screens */
-        }
-
-        .logo {
-            font-size: 1.3rem; /* Further reduce logo size */
-        }
-
-        .auth-buttons .login-btn {
-             font-size: 0.8rem; /* Further reduce login button font size */
-             padding: 4px 8px; /* Further reduce login button padding */
-        }
-    }
-
-    /* Ensure mobile menu nav links are aligned correctly when active */
-    .nav-links.active {
-        align-items: flex-start;
-        text-align: left;
-    }
-
-    .nav-links.active ul {
-        justify-content: flex-start;
-    }
-}
-
-/* Remove previous scrolled state styles if they are still present */
-.navbar.scrolled {
-    box-shadow: var(--shadow-md); /* Add shadow when scrolled */
-}
-
-/* REMOVE the duplicate/conflicting .navbar .container rule below this line */
-
-.logo {
-    font-family: var(--font-secondary); /* Use heading font */
-    font-size: 1.8rem;
-    font-weight: 700; /* Bold font weight */
-    color: var(--text); /* White color */
-    position: relative;
-    text-decoration: none;
-}
-
-.logo span {
-    color: var(--primary); /* Golden dot */
-}
-
-.nav-links {
-    /* Add styles to center the nav links */
-    flex-grow: 1; /* Allow nav links to take up available space */
-    text-align: center; /* Center the text within nav links */
-}
-
-.nav-links ul {
-    display: flex;
-    gap: 20px; /* Reduced gap between nav links */
-    justify-content: center; /* Center the list items within the nav links container */
-}
-
-.nav-links ul li a {
-    font-weight: 500;
-    transition: all 0.3s ease-in-out;
-    position: relative;
-    padding: 5px 0; /* Keep padding */
-    color: var(--text); /* White color for nav links */
-    text-decoration: none;
-}
-
-.nav-links ul li a::before {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    height: 2px;
-    background-color: var(--primary); /* Golden color */
-    transform: scaleX(0);
-    transform-origin: right;
-    transition: transform 0.3s ease;
-}
-
-.nav-links ul li a:hover {
-    color: var(--primary-light); /* Lighter golden on hover */
-}
-
-.nav-links ul li a:hover::before {
-    transform: scaleX(1);
-    transform-origin: left;
-}
-
-.auth-buttons {
-    display: flex;
-    gap: 15px; /* Adjusted gap */
-    align-items: center;
-    /* Prevent auth buttons from growing */
-    flex-grow: 0;
-    flex-shrink: 0;
-}
-
-.login-btn {
-    font-weight: 500;
-    transition: all 0.3s ease-in-out;
-    color: var(--text); /* White color for login link */
-    text-decoration: none;
-    padding: 5px 10px; /* Add some padding for hover effect */
-    border-radius: 4px; /* Subtle rounded corners */
-}
-
-.login-btn:hover {
-    color: var(--primary-light); /* Lighter golden on hover */
-    background-color: rgba(255, 193, 7, 0.1); /* Subtle golden background on hover */
-}
-
-/* Styling for the CTA button in the header */
-.navbar .primary-cta {
-     padding: 8px 15px; /* Adjusted padding for button */
-     font-weight: 600; /* Keep font weight */
-     border-radius: 5px; /* Adjusted rounded corners */
-     background: var(--primary); /* Solid golden background */
-     color: #333333; /* Dark text color */
-     text-decoration: none;
-     position: relative;
-     overflow: hidden;
-     box-shadow: none; /* Remove box shadow */
-     transition: all 0.3s ease-in-out;
-     animation: none; /* Remove animation */
-     border: none; /* Ensure no border */
-}
-
-.navbar .primary-cta:hover {
-     background: var(--primary-dark); /* Darker golden on hover */
-     box-shadow: none; /* Remove box shadow on hover */
-     transform: none; /* Remove transform on hover */
-     animation: none; /* Remove animation on hover */
-}
-
-/* Hamburger for Mobile */
-.hamburger {
-    display: none;
-    background: none;
-    border: none;
-    color: #ffffff; /* White color */
-    font-size: 1.5rem;
-    cursor: pointer;
-    z-index: 1001;
-}
-
-.hamburger.active {
-    color: var(--primary); /* Golden active color */
-}
-
-/* Hero Section */
-.hero {
-    position: relative;
-    padding: 40px 0; /* Reduce top/bottom padding even further */
-    overflow: hidden;
-    background-color: transparent; /* Make hero background transparent */
-    background-image: 
-        linear-gradient(to right, rgba(255, 255, 255, 0.04) 1px, transparent 1px),
-        linear-gradient(to bottom, rgba(255, 255, 255, 0.04) 1px, transparent 1px);
-    background-size: 40px 40px; /* Adjust grid size */
-    text-align: center; /* Center text content */
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center; /* Vertically center content if hero is viewport height */
-    min-height: auto; /* Allow height to be determined by content and padding */
-}
-
-.hero .container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    z-index: 1; /* Ensure content is above potential background effects */
-    max-width: 1000px; /* Increase max-width of container slightly in hero */
-}
-
-/* Remove previous hero-promo, hero-subtitle, hero-cta-button styles if they exist */
-.hero-promo, .hero-cta-button {
-    display: none;
-}
-
-.hero-subtitle {
-    font-size: 1.2rem; /* Adjust font size */
-    color: var(--text-secondary); /* Light grey color */
-    margin-bottom: 40px; /* Space between subtitle and button */
-    text-align: center; /* Center the text */
-    max-width: 700px; /* Limit width */
-    margin-left: auto;
-    margin-right: auto;
-    line-height: 1.5;
-}
-
-.hero-title {
-    font-size: 5rem; /* Increase font size significantly */
-    margin-bottom: 25px; /* Adjust margin */
-    line-height: 1.15;
-    color: var(--text); /* White color */
-    max-width: 1000px; /* Match container width */
-    margin-left: auto;
-    margin-right: auto;
-    font-weight: 700; /* Ensure bold font weight */
-}
-
-.hero-title span {
-    color: #ffc107; /* Golden color for the dot */
-}
-
-/* Styling for the new 'Explore Divisions' button in the hero */
-.hero .primary-cta {
-     margin-top: 30px; /* Increase margin above the button */
-     padding: 18px 35px; /* Increase button padding */
-     font-size: 1.1rem; /* Increase button font size */
-     font-weight: 600;
-     border-radius: 8px; /* More rounded corners */
-     background-color: var(--bg); /* White background */
-     color: #333333; /* Dark grey text */
-     box-shadow: var(--shadow-md); /* Add shadow */
-     transition: var(--transition);
-}
-
-.hero .primary-cta:hover {
-     background-color: #f0f0f0; /* Slightly darker white on hover */
-     /* Inherits .primary-cta base styles for background, color, glow, transition */
-}
-
-.hero-graphic-placeholder {
-    width: 100%;
-    max-width: 900px; /* Adjust max-width for the graphic */
-    margin: 80px auto 0; /* Increase margin above and center */
-    border-radius: 12px; /* Rounded corners */
-    overflow: hidden;
-    position: relative;
-    box-shadow: 0 0 15px rgba(255, 193, 7, 0.5); /* Add a default golden glow */
-    background-color: var(--dark-surface-light); /* Placeholder background */
-    border: 1px solid var(--border); /* Subtle border */
-    animation: goldenGlow 4s infinite alternate; /* Apply the golden glow animation */
-}
-
-.hero-graphic-placeholder img {
-    display: block;
-    width: 100%;
-    height: auto;
-    opacity: 0.8; /* Make placeholder image slightly more opaque */
-    border-radius: 12px; /* Match container border radius */
-}
-
-/* Dashboard Preview Section - Remove styles as per new structure */
-.dashboard-preview-section {
-    display: none;
-}
-
-/* Divisions Section */
-.divisions {
-     background-color: transparent; /* Make divisions background transparent */
-     padding: 80px 0; /* Adjust padding */
-     text-align: center; /* Center content within the section */
-}
-
-.divisions .container {
-    /* Ensure container properties are suitable for centering and grid */
-    text-align: center; /* Center text content within container */
-}
-
-.divisions .section-badge {
-    /* Inherits base .section-badge styles */
-    margin-bottom: 20px; /* Adjust margin below badge */
-}
-
-.divisions .section-title {
-    /* Inherits base .section-title styles */
-    margin-bottom: 15px; /* Adjust margin below title */
-}
-
-.divisions .section-subtitle {
-    /* Inherits base .section-subtitle styles */
-    margin-bottom: 40px; /* Adjust margin below subtitle */
-}
-
-.divisions-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* Adjust minmax for cards to allow more flexibility */
-    gap: 30px; /* Adjust gap between grid items */
-    margin-top: 40px; /* Adjust margin above the grid */
-    text-align: left; /* Align text left within grid items */
-}
-
-/* Remove glowing border animation for division items */
-@keyframes glowingBorder {
-    /* Removed */
-}
-
-.division-item {
-    /* Inherits .card styles for background, border, rounded corners, shadow */
-    padding: 30px; /* Padding inside the card */
-    display: flex; /* Use flexbox for internal layout */
-    flex-direction: column; /* Stack content vertically */
-    align-items: flex-start; /* Align items to the start */
-    transition: var(--transition); /* Add transition for hover effects */
-    position: relative; /* Needed for potential pseudo-elements */
-    overflow: hidden; /* Needed for potential overflow effects */
-    background: linear-gradient(180deg, #0a0a0f 0%, #1a1a1f 100%); /* Deep gradient background */
-    border: 1px solid rgba(255, 193, 7, 0.1); /* Very subtle golden border */
-    box-shadow: 0 0 10px rgba(255, 193, 7, 0.2); /* Subtle default golden glow */
-    z-index: 1; /* Ensure content is above pseudo-elements */
-}
-
-.division-item:hover {
-    transform: translateY(-5px); /* Keep the slight upward lift on hover */
-    animation: goldenGlow 1s infinite alternate; /* Apply the pulsing golden glow animation on hover */
-    box-shadow: 0 0 25px rgba(255, 193, 7, 0.6); /* More pronounced glow on hover */
-}
-
-.division-item i {
-    font-size: 3rem; /* Adjust icon size */
-    color: var(--primary); /* Golden color for icons */
-    margin-bottom: 20px; /* Adjust margin below icon */
-}
-
-.division-item .micro-headline {
-    font-size: 0.9rem; /* Smaller font size for micro-headline */
-    font-weight: 600;
-    color: var(--accent-orange); /* Changed from --accent-blue to --accent-orange */
-    margin-bottom: 10px;
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
-}
-
-.division-item h3 {
-    font-size: 1.8rem; /* Adjust font size */
-    margin-bottom: 15px; /* Adjust margin */
-    color: var(--text); /* White color */
-}
-
-.division-item h3 span {
-    color: var(--primary); /* Golden color for dot */
-}
-
-.division-item p {
-    color: var(--text-secondary); /* Secondary text color */
-    font-size: 1rem; /* Adjust font size */
-    line-height: 1.6;
-    margin-bottom: 25px; /* Margin below description */
-    flex-grow: 1; /* Allow description to take up available space */
-}
-
-.division-item .btn {
-    margin-top: auto; /* Push button to the bottom */
-    /* Inherits .btn styles */
-}
-
-/* Remove previous vertical separator lines if they exist */
-.divisions-grid .division-item:not(:last-child)::after {
-    content: none;
-}
-
-/* Integrations Section */
-.integrations {
-     background: transparent; /* Make integrations background transparent */
-     padding: 80px 0; /* Adjust padding */
-     text-align: center; /* Center content */
-}
-
-.integrations .container {
-    text-align: center; /* Center text within container */
-}
-
-.integrations .section-badge {
-    /* Inherits base .section-badge styles */
-    margin-bottom: 20px; /* Adjust margin */
-}
-
-.integrations .section-title {
-    /* Inherits base .section-title styles */
-    margin-bottom: 15px; /* Adjust margin */
-}
-
-.integrations .section-subtitle {
-    /* Inherits base .section-subtitle styles */
-    margin-bottom: 40px; /* Adjust margin */
-}
-
-.integration-diagram {
-    text-align: center;
-    margin: 60px auto; /* Center the block */
-    position: relative; /* Keep relative for potential future enhancements */
-    width: 100%;
-    max-width: 600px; /* Set max-width for the image container */
-    height: auto; /* Allow height to adjust */
-    display: block; /* Ensure it takes up its own line */
-    border-radius: 15px; /* Add rounded corners to the container */
-    overflow: hidden; /* Keep overflow hidden to respect border-radius */
-    /* Remove any animated border or pseudo-element styles */
-    border: none;
-    padding: 0;
-    background-color: transparent;
-    box-shadow: 0 0 15px rgba(255, 193, 7, 0.3); /* Add a static golden glow */
-}
-
-.integration-diagram:hover {
-    animation: goldenGlow 1s infinite alternate; /* Apply the pulsing golden glow animation on hover */
-}
-
-.integration-diagram img {
-    display: block; /* Ensure image is displayed */
-    max-width: 100%; /* Ensure image fits within container */
-    height: auto; /* Maintain aspect ratio */
-    margin: 0 auto; /* Center the image */
-    border: none; /* Remove any image border */
-}
-
-/* Remove any pseudo-element styles for animated border */
-.integration-diagram::before {
-    content: none;
-    display: none;
-}
-
-/* Remove keyframes specifically for the integration diagram animation if they exist */
-@keyframes borderAnimation {
-    /* Removed */
-}
-
-.integration-features-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr); /* Arrange in 3 equal columns */
-    gap: 30px;
-    margin-top: 60px;
-}
-
-.integration-feature-item {
-    background-color: var(--surface); /* Default card background */
-    padding: 30px;
-    border-radius: 8px;
-    border: 1px solid var(--border);
-    text-align: center;
-    transition: var(--transition);
-    position: relative; /* Needed for pseudo-elements or complex hover effects */
-    overflow: hidden; /* Needed for background animations/gradients */
-    /* Set initial background for gradient hover */
-    background: var(--surface); /* Initial solid background */
-    box-shadow: 0 0 15px rgba(255, 193, 7, 0.3); /* Add a static golden glow */
-}
-
-.integration-feature-item:hover {
-    transform: translateY(-5px);
-    /* Enhance the golden glow on hover */
-    box-shadow: 0 0 25px rgba(255, 193, 7, 0.6),
-                0 0 40px rgba(255, 193, 7, 0.4),
-                0 0 60px rgba(255, 193, 7, 0.2);
-    /* Keep the initial solid background */
-    background: var(--surface);
-    /* Remove gradient animation on hover */
-    animation: none;
-    /* Apply the pulsing golden glow animation on hover */
-    animation: goldenGlow 1s infinite alternate;
-}
-
-/* New section for Feature Grid (Enhanced) */
-.features-enhanced {
-    background-color: transparent; /* Make feature grid background transparent */
-    padding: 80px 0; /* Standard section padding */
-    text-align: center; /* Center content */
-}
-
-.features-enhanced .container {
-    text-align: center; /* Center text within container */
-}
-
-/* Remove old integration feature item styles that might conflict */
-/* If .integration-feature-item is also used elsewhere with different styles, 
-   consider creating a new class for these enhanced feature cards */
-
-/* Define example keyframes for gradient shift animation */
-@keyframes gradientShift {
-    0% {
-        background-position: 0% 0%;
-    }
-    100% {
-        background-position: 100% 100%;
-    }
-}
-
-.integration-feature-item i {
-    font-size: 2.5rem;
-    color: var(--primary);
-    margin-bottom: 20px;
-}
-
-.integration-feature-item h3 {
-    font-size: 1.4rem;
-    margin-bottom: 10px;
-}
-
-.integration-feature-item p {
-    color: var(--text-secondary);
-    font-size: 0.95rem;
-}
-
-/* Pricing Section */
-.pricing {
-    background: transparent; /* Make pricing background transparent */
-}
-
-.pricing-cards {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* Adjust minmax for cards */
-    gap: 30px;
-    margin-top: 60px;
-}
-
-.price-card {
-    background-color: var(--surface);
-    padding: 40px 30px;
-    border-radius: 8px;
-    border: 1px solid var(--border);
-    transition: var(--transition);
-    text-align: center;
-    display: flex;
-    flex-direction: column;
-    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2); /* Add subtle default shadow */
-}
-
-.price-card:hover {
-    animation: goldenGlow 1s infinite alternate; /* Apply the glowing animation on hover */
-}
-
-.price-card.featured {
-    border-color: var(--primary);
-    background: linear-gradient(180deg, var(--surface) 0%, rgba(255, 193, 7, 0.05) 100%);
-}
-
-.price-card h3 {
-    font-size: 1.5rem;
-    margin-bottom: 10px;
-    color: var(--text);
-}
-
-.price {
-    font-size: 2.5rem;
-    font-weight: 700;
-    margin-bottom: 10px;
-    color: var(--primary);
-}
-
-.price span {
-    font-size: 1rem;
-    font-weight: 400;
-    color: var(--text-secondary);
-}
-
-.price-card p {
-    color: var(--text-secondary);
-    margin-bottom: 25px;
-    font-size: 0.9rem;
-}
-
-.price-card ul {
-    margin-bottom: 30px;
-    text-align: left;
-    flex-grow: 1;
-}
-
-.price-card ul li {
-    margin-bottom: 15px;
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    color: var(--text);
-}
-
-.price-card ul li i {
-    color: var(--primary);
-}
-
-.price-card .btn {
-    margin-top: auto;
-    width: 100%;
-    justify-content: center;
-}
-
-/* Testimonials Section */
-.testimonials {
-    background: transparent; /* Make testimonials background transparent */
-    padding: 80px 0; /* Standard section padding */
-    text-align: center; /* Center content */
-}
-
-.testimonials .container {
-     text-align: center; /* Center text within container */
-}
-
-.testimonials .section-badge {
-    /* Inherits base .section-badge styles */
-     margin-bottom: 20px; /* Adjust margin below badge */
-}
-
-.testimonials .section-title {
-    /* Inherits base .section-title styles */
-    margin-bottom: 15px; /* Adjust margin below title */
-}
-
-.testimonials .section-subtitle {
-    /* Inherits base .section-subtitle styles */
-    margin-bottom: 40px; /* Adjust margin below subtitle */
-}
-
-/* Styles for the new testimonial container and cards */
-.testimonials-container {
-    /* Basic styles for the container, slider library will add more */
-    margin-top: 40px; /* Adjust margin above the container */
-    display: flex; /* Use flexbox for horizontal layout */
-    overflow-x: auto; /* Enable horizontal scrolling if needed */
-    -webkit-overflow-scrolling: touch; /* Smooth scrolling on touch devices */
-    gap: 30px; /* Space between testimonial cards */
-    padding-bottom: 20px; /* Add some padding for potential scrollbar */
-    /* Hide scrollbar for a cleaner look */
-    scrollbar-width: none; /* Firefox */
-    -ms-overflow-style: none;  /* Internet Explorer 10+ */
-}
-
-.testimonials-container::-webkit-scrollbar {
-    display: none; /* Safari and Chrome */
-}
-
-.testimonial-card {
-    /* Inherits .card styles for background, border, rounded corners, shadow */
-    padding: 30px; /* Padding inside the card */
-    display: flex; /* Use flexbox for internal layout */
-    flex-direction: column; /* Stack content vertically */
-    align-items: flex-start; /* Align items to the start */
-    text-align: left; /* Align text left within the card */
-    flex: 0 0 350px; /* Set a fixed width for cards and prevent shrinking */
-    max-width: 100%; /* Ensure cards don't exceed container width on small screens */
-}
-
-.testimonial-card:hover {
-    transform: translateY(-5px); /* Slight upward lift on hover */
-    box-shadow: var(--shadow-lg); /* More pronounced shadow on hover */
-}
-
-.author-info {
-    display: flex;
-    align-items: center;
-    gap: 15px;
-    margin-bottom: 20px;
-}
-
-.author-avatar {
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
-    background-color: var(--dark-surface-light); /* Placeholder background */
-    flex-shrink: 0; /* Prevent shrinking */
-    /* Add a subtle border or outline if desired */
-    /* border: 2px solid var(--primary); */
-}
-
-.author-details strong {
-    display: block;
-    font-weight: 600;
-    color: var(--text); /* White color for name */
-}
-
-.author-details span {
-    color: var(--text-secondary); /* Secondary text color for handle */
-    font-size: 0.9rem;
-}
-
-.testimonial-card blockquote {
-    font-size: 1rem;
-    font-style: italic;
-    color: var(--text); /* Light text color for quote */
-    line-height: 1.6;
-    margin: 0; /* Remove default blockquote margin */
-}
-
-/* Add CSS animation for continuous scrolling */
-@keyframes scrollTestimonials {
-    0% { transform: translateX(0); }
-    100% { transform: translateX(calc(-350px * 5 - (30px * 5))); /* Scroll the width of the original 5 cards + 5 gaps */ }
-}
-
-.testimonials-container {
-    /* Existing styles */
-    /* Remove CSS animation, will be handled by JavaScript */
-    /* Consider adding animation-play-state: paused; on hover if needed */
-}
-
-/* Style for placeholder elements if needed */
-.brand-logo-placeholder, .video-thumbnail-placeholder {
-    /* Add styles if you want visible placeholders */
-    margin-top: 20px;
-    width: 100%; /* Example width */
-    height: 50px; /* Example height */
-    background-color: var(--dark-surface-light); /* Placeholder background */
-    border-radius: 8px;
-}
-
-/* Bottom CTA Section */
-.cta-section-bottom {
-    background-color: transparent; /* Make CTA background transparent */
-    text-align: center;
-    color: var(--surface);
-    padding: 80px 20px;
-    position: relative; /* Needed for positioning the pseudo-element */
-    overflow: hidden; /* Hide overflowing light effect */
-}
-
-/* Spotlight effect */
-.cta-section-bottom::before {
-    content: '';
-    position: absolute;
-    top: 0; /* Position at the very top */
-    left: 50%; /* Center horizontally */
-    transform: translateX(-50%); /* Adjust for exact centering */
-    width: 100%; /* Can adjust width to control spread */
-    max-width: 800px; /* Max width of the light source */
-    height: 300px; /* Height of the light effect */
-    background: radial-gradient(circle at center top, rgba(255, 193, 7, 0.6) 0%, transparent 70%); /* Yellow glow from top center */
-    pointer-events: none; /* Ensure clicks pass through */
-    z-index: 0; /* Place behind content */
-    animation: glowingSpotlight 4s ease-in-out infinite alternate; /* Apply glowing animation */
-}
-
-@keyframes glowingSpotlight {
-    0% {
-        opacity: 0.7; /* Start with slightly less opacity */
-        transform: translateX(-50%) scaleY(0.95); /* Subtle pulsation effect */
-    }
-    50% {
-        opacity: 1; /* Full opacity at peak glow */
-        transform: translateX(-50%) scaleY(1); /* Subtle pulsation effect */
-    }
-    100% {
-        opacity: 0.7; /* Return to lower opacity */
-        transform: translateX(-50%) scaleY(0.95); /* Subtle pulsation effect */
-    }
-}
-
-.cta-section-bottom h2 {
-    font-size: 3rem;
-    margin-bottom: 20px;
-    color: var(--text); /* Ensure headline is white */
-    font-weight: 700; /* Ensure headline is bold */
-    position: relative; /* Needed to ensure text is above pseudo-element */
-    z-index: 1; /* Ensure text is above the spotlight */
-}
-
-.cta-section-bottom p {
-    font-size: 1.1rem;
-    margin-bottom: 40px;
-    max-width: 700px;
-    margin-left: auto;
-    margin-right: auto;
-    color: var(--text-secondary); /* Adjust paragraph color for dark background */
-    position: relative; /* Needed to ensure text is above pseudo-element */
-    z-index: 1; /* Ensure text is above the spotlight */
-}
-
-.cta-section-bottom .btn {
-    background-color: var(--primary); /* Yellow background */
-    color: var(--surface); /* Dark text */
-    font-weight: 600; /* Bold font weight */
-    padding: 15px 30px; /* Match hero button size */
-    border-radius: 8px; /* Match hero button border radius */
-    display: inline-flex; /* Use flex to align text and icon */
-    align-items: center; /* Vertically align items */
-    gap: 10px; /* Space between text and icon */
-    position: relative; /* Needed for goldenGlow animation */
-    overflow: hidden; /* Needed for goldenGlow animation */
-    animation: goldenGlow 2s infinite; /* Apply the golden glow animation */
-}
-
-.cta-section-bottom .btn:hover {
-    background-color: var(--primary-dark); /* Darker yellow on hover */
-    animation: goldenGlow 1s infinite; /* Faster glow on hover */
-}
-
-/* Footer */
-footer {
-    background-color: var(--surface);
-    padding: 60px 0 20px;
-    border-top: 1px solid var(--border);
-}
-
-.footer-content {
-    display: flex;
-    justify-content: space-between;
-    gap: 40px;
-    margin-bottom: 40px;
-    flex-wrap: wrap;
-}
-
-.footer-brand {
-    flex-basis: 250px;
-}
-
-.footer-brand .logo {
-    margin-bottom: 10px;
-}
-
-.footer-brand p {
-    color: var(--text-secondary);
-    font-size: 0.9rem;
-    margin-bottom: 5px;
-}
-
-.footer-brand i {
-     color: #e57373;
-}
-
-.footer-links {
-    display: flex;
-    gap: 40px;
-    flex-wrap: wrap;
-}
-
-.footer-col h4 {
-    font-size: 1.1rem;
-    margin-bottom: 15px;
-    color: var(--text);
-}
-
-.footer-col ul {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-}
-
-.footer-col ul li a {
-    color: var(--text-secondary);
-    transition: var(--transition);
-    font-size: 0.9rem;
-}
-
-.footer-col ul li a:hover {
-    color: var(--primary);
-}
-
-/* Styles for Social Links */
-.footer-col .social-links {
-    display: flex;
-    gap: 15px; /* Gap between social icons */
-}
-
-.footer-col .social-links a {
-    color: var(--text-secondary); /* Social icon color */
-    font-size: 1.2rem; /* Adjust icon size */
-    transition: var(--transition);
-}
-
-.footer-col .social-links a:hover {
-    color: var(--primary);
-}
-
-/* Styles for Contact Info */
-.footer-col p {
-    color: var(--text-secondary); /* Contact text color */
-    font-size: 0.9rem;
-    margin-bottom: 10px; /* Margin between contact lines */
-    display: flex;
-    align-items: center;
-    gap: 10px; /* Gap between icon and text */
-}
-
-.footer-col p i {
-    color: var(--primary); /* Golden color for contact icons */
-}
-
-.footer-subscribe {
-     flex-basis: 300px;
-}
-
-.footer-subscribe h4 {
-     font-size: 1.1rem;
-    margin-bottom: 15px;
-    color: var(--text);
-}
-
-.footer-subscribe p {
-     color: var(--text-secondary);
-    font-size: 0.9rem;
-    margin-bottom: 15px;
-}
-
-.subscribe-form {
-    display: flex;
-}
-
-.subscribe-form input {
-    flex: 1;
-    padding: 10px 15px;
-    border: 1px solid var(--border);
-    border-radius: 4px 0 0 4px;
-    background-color: var(--surface);
-    color: var(--text);
-    outline: none;
-    font-size: 0.9rem;
-}
-
-.subscribe-form input::placeholder {
-    color: var(--text-secondary);
-}
-
-.subscribe-form button {
-    background-color: var(--primary);
-    color: var(--surface);
-    border: none;
-    padding: 0 20px;
-    border-radius: 0 4px 4px 0;
-    cursor: pointer;
-    transition: var(--transition);
-    font-size: 0.9rem;
-    font-weight: 500;
-}
-
-.subscribe-form button:hover {
-    background-color: var(--primary-dark);
-}
-
-.footer-bottom {
-    padding: 20px 0 0;
-    border-top: 1px solid var(--border);
-    text-align: center;
-    color: var(--text-secondary);
-    font-size: 0.9rem;
-}
-
-/* Mobile Responsive Adjustments */
-@media (max-width: 768px) {
     section {
         padding: 60px 0; /* Reduce section padding on smaller screens */
     }
@@ -1665,11 +702,11 @@ footer {
     .section-title {
         font-size: 2rem; /* Adjust section title font size */
     }
-    
+
     .hero-title {
         font-size: 3rem; /* Further adjust hero title font size for 768px */
     }
-    
+
     .hero-subtitle {
         font-size: 1rem; /* Adjust hero subtitle font size for 768px */
     }
@@ -1693,109 +730,211 @@ footer {
          padding: 20px; /* Uniform padding for grid items */
     }
 
-    /* Adjust header padding */
+    /* Adjust header container for mobile layout */
     .navbar .container {
-         padding: 10px 20px; /* Adjust header padding to match container */
-         flex-wrap: wrap; /* Allow items to wrap to the next line */
-         justify-content: space-between; /* Distribute space between main items */
-         align-items: center; /* Vertically align items */
+        padding: 10px 15px; /* Adjust padding */
+        flex-direction: column; /* Stack items vertically */
+        align-items: flex-start; /* Align items to the start (left) */
+        /* Remove justify-content: space-between; */
     }
 
-    .navbar .logo {
-        flex-basis: auto; /* Allow logo to take necessary space */
-        margin-right: auto; /* Push other items to the right */
-        flex-shrink: 0; /* Prevent logo from shrinking */
+    .logo {
+        padding-left: 0; /* Remove extra left padding on mobile logo */
+        font-size: 1.5rem; /* Adjust logo font size */
+        margin-bottom: 10px; /* Add space below logo */
     }
 
-    /* Style for auth buttons container in the header when mobile menu is NOT active */
-    .navbar .container .auth-buttons:not(.active) {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 8px;
-        align-items: center;
-        margin-left: 10px;
-        justify-content: flex-end;
-        flex-grow: 1;
-        flex-shrink: 1;
-        min-width: 0;
+    /* Ensure hamburger is visible and aligned below logo */
+    .hamburger {
+        display: block; /* Show hamburger on mobile */
+        margin-bottom: 10px; /* Add space below hamburger */
     }
 
-    .auth-buttons .login-btn, .auth-buttons .primary-cta {
-        flex-shrink: 1;
-        min-width: 0;
-        padding: 8px 15px;
-        font-size: 0.9rem;
-    }
-
-    .auth-buttons .language-selector, .auth-buttons .theme-toggle {
-         flex-shrink: 0;
-         min-width: auto;
-    }
-
-    /* Mobile menu (sidebar) styles for Nav Links */
     .nav-links {
-        position: fixed;
-        top: 0;
-        right: -250px;
-        width: 250px;
-        height: 100vh;
-        background-color: var(--surface);
-        padding: 80px 20px;
-        transition: right 0.3s ease-in-out;
-        z-index: 999; /* Below hamburger (1100) */
-        flex-direction: column; /* Stack links vertically */
-        gap: 20px;
-        align-items: flex-start;
-        display: none; /* Explicitly hide by default on mobile */
-         /* Initial display state handled by :not(.active) and .active rules */
+        display: none; /* Keep nav links hidden by default on mobile */
+        /* Existing mobile menu styles will show it when active */
     }
 
-    /* Style for Auth Buttons when mobile menu IS active (integrate into sidebar) */
-    .auth-buttons.active {
-        display: flex; /* Show auth buttons when mobile menu is active */
-        flex-direction: column; /* Stack auth buttons vertically */
-        gap: 15px;
-        align-items: flex-start;
-        margin-top: 30px;
-        border-top: 1px solid var(--border);
-        padding-top: 20px;
-        width: 100%;
+    .auth-buttons {
+        display: flex; /* Keep auth buttons as flex */
+        flex-direction: row; /* Arrange login and toggle horizontally */
+        gap: 10px; /* Adjust gap */
+        align-items: center; /* Vertically align items within auth buttons */
+        padding-right: 0; /* Remove extra right padding */
+        margin-left: auto; /* Push auth buttons to the right */
     }
 
-    /* Show and slide in Nav Links when active */
+    /* Hide the Start Free Trial button on mobile */
+    .auth-buttons .primary-cta {
+        display: none;
+    }
+
+    /* Ensure mobile menu nav links are aligned correctly when active */
     .nav-links.active {
-        right: 0; /* Slide into view */
-        display: flex; /* Ensure it's displayed as flex when active */
+        align-items: flex-start;
+        text-align: left;
     }
 
-    /* Adjust main content margin when mobile menu is active */
-    body.mobile-menu-active .content-sections {
-        margin-left: 250px;
+    .nav-links.active ul {
+        justify-content: flex-start;
     }
 
-     /* Further refine for very small screens if needed */
+    /* Further refine for very small screens if needed */
     @media (max-width: 480px) {
-         .navbar .container {
-             padding: 10px 15px;
-         }
-        .navbar .container .auth-buttons:not(.active) {
-            justify-content: center;
-            width: 100%;
-            margin-top: 10px;
-            margin-left: 0;
-             gap: 5px;
-    }
-
-         .auth-buttons .login-btn, .auth-buttons .primary-cta {
-            padding: 6px 12px;
-            font-size: 0.85rem;
+        .section-title {
+            font-size: 1.6rem; /* Further adjust section title font size for 480px */
         }
+
+        .hero-title {
+            font-size: 2.2rem; /* Further adjust hero title font size for 480px */
+        }
+
+        /* Further adjust font sizes for very small screens */
+        h1 {
+            font-size: 2rem;
+        }
+        h2 {
+            font-size: 1.6rem;
+        }
+        h3 {
+            font-size: 1.2rem;
+        }
+        p {
+            font-size: 0.9rem;
+        }
+
+        /* Further adjust padding and margins for very small screens */
+        section {
+            padding: 30px 0; /* Even further reduce section padding */
+        }
+
+        .container {
+            padding: 0 8px; /* Even further reduce horizontal container padding */
+        }
+
+        .card, .item, .module {
+            padding: 10px;
+        }
+
+        .division-item {
+            padding: 10px;
+        }
+
+        .integration-feature-item {
+            padding: 10px;
+        }
+
+        .price-card {
+            padding: 15px 10px;
+        }
+
+        .testimonial-card {
+            padding: 10px;
+        }
+
+        .btn {
+            padding: 6px 12px;
+        }
+
+        .subscribe-form input {
+            padding: 5px 6px;
+        }
+
+        .subscribe-form button {
+            padding: 0 8px;
+        }
+
+        /* Adjustments for Hero Section on 480px */
+        .hero-title {
+            font-size: 2rem; /* Adjust hero title for 480px */
+        }
+
+        .hero-subtitle {
+            font-size: 0.9rem; /* Adjust hero subtitle for 480px */
+            margin-bottom: 30px; /* Adjust margin */
+        }
+
+        .hero .primary-cta {
+            padding: 12px 25px; /* Adjust hero button padding */
+            font-size: 1rem; /* Adjust hero button font size */
+        }
+
+        .hero-graphic-placeholder {
+            margin: 30px auto 0; /* Adjust margin above graphic */
+        }
+
+        /* Adjustments for Footer on 480px */
+        footer {
+            padding: 20px 0 10px; /* Further adjust footer padding */
+        }
+
+        footer .footer-content {
+             gap: 20px; /* Adjust footer gap */
+             flex-direction: column; /* Stack footer columns vertically */
+             align-items: center; /* Center the stacked columns */
+        }
+
+        footer .footer-brand,
+        footer .footer-subscribe,
+        footer .footer-col {
+            width: 100%;
+            text-align: left; /* Ensure text is left-aligned */
+        }
+
+        footer .footer-col ul {
+            align-items: flex-start; /* Ensure list items are left-aligned */
+        }
+
+         footer .subscribe-form {
+            justify-content: flex-start; /* Ensure subscribe form is left-aligned */
+         }
+          footer .footer-col h4 {
+            text-align: left; /* Ensure footer titles are left-aligned */
+         }
+
+
+        /* Ensure images and other media scale correctly */
+        img {
+            max-width: 100%;
+            height: auto;
+        }
+
+        /* General adjustments for text alignment and spacing */
+        .text-center-mobile {
+            text-align: center;
+        }
+
+        .mb-mobile-15 {
+            margin-bottom: 15px;
+        }
+
+        .mt-mobile-15 {
+            margin-top: 15px;
+        }
+
+        .py-mobile-30 {
+            padding-top: 30px;
+            padding-bottom: 30px;
+        }
+         .navbar .container {
+             padding: 10px 10px; /* Further reduce padding on very small screens */
+         }
+
+         .logo {
+             font-size: 1.3rem; /* Further reduce logo size */
+         }
+
+         .auth-buttons .login-btn {
+              font-size: 0.8rem; /* Further reduce login button font size */
+              padding: 4px 8px; /* Further reduce login button padding */
+         }
 
          .auth-buttons .language-selector select, .theme-toggle .switch-label {
              transform: scale(0.9);
              transform-origin: center right;
          }
     }
+
 }
 
 @media (max-width: 480px) {
@@ -2040,7 +1179,7 @@ footer {
             margin-top: 10px;
             margin-left: 0;
              gap: 5px;
-        }
+    }
 
          .auth-buttons .login-btn, .auth-buttons .primary-cta {
             padding: 6px 12px;
