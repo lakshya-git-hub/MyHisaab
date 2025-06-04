@@ -1888,34 +1888,28 @@ footer {
 
     .footer-content {
         gap: 20px; /* Adjust footer gap */
-    }
-
-    .footer-col h4 {
-        margin-bottom: 10px; /* Adjust margin below footer titles */
-    }
-
-    .footer-col ul {
-        gap: 10px; /* Adjust footer list item gap */
-    }
-
-    .subscribe-form input,
-    .subscribe-form button {
-        font-size: 0.85rem; /* Adjust subscribe form font size */
+        flex-direction: column; /* Stack footer columns vertically */
+        align-items: center; /* Center the stacked columns */
     }
 
     .footer-brand,
     .footer-subscribe,
     .footer-col {
-        text-align: center; /* Center footer columns on very small screens */
         width: 100%; /* Allow footer columns to take full width */
+        text-align: left; /* Left align text within columns */
     }
 
     .footer-col ul {
-        align-items: center; /* Center footer list items */
+        align-items: flex-start; /* Left align list items */
     }
 
     .subscribe-form {
-        justify-content: center; /* Center subscribe form */
+        justify-content: flex-start; /* Left align subscribe form content */
+    }
+
+     .footer-col h4 {
+        margin-bottom: 10px; /* Adjust margin below footer titles */
+        text-align: left; /* Ensure titles are left-aligned */
     }
 
     /* Ensure images and other media scale correctly */
