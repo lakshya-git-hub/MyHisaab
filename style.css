@@ -694,9 +694,9 @@ section {
     .navbar .container {
         padding: 10px 15px; /* Add back horizontal padding for mobile container */
         flex-wrap: wrap;
-        justify-content: space-between;
-        align-items: center;
-    }
+    justify-content: space-between;
+    align-items: center;
+}
 
     .logo {
         padding-left: 0; /* Remove extra left padding on mobile logo */
@@ -1779,7 +1779,7 @@ footer {
              padding: 10px 15px;
          }
         .navbar .container .auth-buttons:not(.active) {
-            justify-content: center;
+        justify-content: center;
             width: 100%;
             margin-top: 10px;
             margin-left: 0;
@@ -2712,4 +2712,46 @@ footer {
         max-width: 300px;
         justify-content: center;
     }
+}
+
+/* Scroll to Top Button Styles */
+.scroll-to-top {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: var(--primary); /* Golden background */
+    color: var(--surface); /* Dark icon color */
+    border: none;
+    border-radius: 50%; /* Circular shape */
+    width: 50px;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.2rem;
+    cursor: pointer;
+    box-shadow: var(--shadow-md); /* Add a shadow */
+    transition: opacity 0.3s ease, visibility 0.3s ease, transform 0.3s ease; /* Smooth transition */
+    opacity: 0; /* Initially hidden */
+    visibility: hidden; /* Initially not visible to pointer events */
+    z-index: 999; /* Ensure it's above most content */
+}
+
+.scroll-to-top:hover {
+    background-color: var(--primary-dark); /* Darker golden on hover */
+    box-shadow: var(--shadow-lg); /* More pronounced shadow */
+    transform: translateY(-3px); /* Subtle lift on hover */
+}
+
+.scroll-to-top.show {
+    opacity: 1; /* Show when active */
+    visibility: visible; /* Make visible to pointer events */
+}
+
+
+/* Remove smooth scroll behavior from body if it was added previously */
+/* Ensure no conflicting smooth scroll properties */
+body {
+    /* Existing styles */
+    /* scroll-behavior: auto !important; /* Ensure no smooth behavior from CSS */
 }

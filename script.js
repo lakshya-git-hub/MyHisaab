@@ -74,6 +74,44 @@ document.addEventListener('DOMContentLoaded', function() {
     // Scroll reveal animation using GSAP ScrollTrigger
     gsap.registerPlugin(ScrollTrigger);
     
+    // Initialize ScrollSmoother (Requires GSAP Business or Club GreenSock) *
+    // Check if ScrollSmoother is available
+    if (ScrollSmoother) {
+        const smoother = ScrollSmoother.create({
+            wrapper: '#smooth-wrapper',
+            content: '#smooth-content',
+            smooth: 1.2, // How long it takes to "catch up" to the native scroll position
+            effects: true, // Enables data-speed and data-lag attributes
+            // normalizeScroll: true, // Optional: Helps prevent issues on some devices
+            // ignoreMobileDelegate: true, // Optional: Improve performance on mobile
+        });
+
+        // Scroll to Top Button Logic
+        const scrollToTopButton = document.getElementById('scroll-to-top');
+
+        // Show/hide button based on scroll position
+        smoother.addEventListener('scrollEnd', () => {
+            // Show button after scrolling down a certain distance (e.g., 400px)
+            if (smoother.scrollTop() > 400) {
+                scrollToTopButton.classList.add('show');
+            } else {
+                scrollToTopButton.classList.remove('show');
+            }
+        });
+
+        // Smooth scroll to top on button click
+        scrollToTopButton.addEventListener('click', () => {
+            smoother.scrollTo(0, true); // Scroll to top instantly using smoother
+            // Or, for a different smooth effect:
+            // gsap.to(smoother, {duration: 1.2, scrollTop: 0, ease: "power2.inOut"});
+        });
+
+    } else {
+        console.warn("GSAP ScrollSmoother not loaded. Please ensure you have the correct script tag and license.");
+        // Fallback for basic smooth scrolling if ScrollSmoother is not available
+        // You might keep scroll-behavior: smooth in CSS as a fallback.
+    }
+    
     // Animate sections on scroll
     gsap.utils.toArray('section').forEach(section => {
         gsap.from(section, {
@@ -161,6 +199,9 @@ document.addEventListener('DOMContentLoaded', function() {
         createParticles();
         initMobileAppAnimations();
     }
+
+    // Initial load: Load history but keep chat window closed
+    loadChatHistory();
 });
 
 function createParticles() {

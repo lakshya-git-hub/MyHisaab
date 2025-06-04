@@ -268,36 +268,53 @@
 /* Responsive Adjustments */
 @media (max-width: 480px) {
     #chatbot-container {
-        bottom: 20px;
-        right: 20px;
+        /* Keep default positioning for the icon container */
+        bottom: 30px;
+        right: 30px;
+        left: auto;
+        width: auto;
+        align-items: flex-end;
+        position: fixed;
     }
 
     .chatbot-icon {
         width: 50px;
         height: 50px;
         font-size: 1.5rem;
+        margin-bottom: 10px; /* Keep space below icon */
     }
 
-    .chatbot-window {
-        width: 95%;
-        height: 60vh;
-        bottom: 70px; /* Reduced gap for mobile */
-        right: 2.5%;
+    #chatbot-container .chatbot-window { /* Increased specificity */
+        width: 95%; /* Set width relative to viewport */
+        /* Removed height and max-height properties to use top/bottom for height */
+        position: fixed; /* Ensure positioning is fixed to viewport */
+        top: 20px; /* Set top distance from viewport */
+        bottom: 150px; /* Increased bottom distance further to avoid input cutoff on iOS Safari */
         left: 2.5%;
+        right: 2.5%;
         max-width: none;
+        /* Ensure flex properties for internal layout */
+        display: flex;
+        flex-direction: column;
+        overflow: hidden; /* Hide overflowing content initially */
+        border-radius: 15px; /* Keep border radius */
+        background-color: rgba(17, 17, 17, 0.95); /* Keep background */
+        box-shadow: 0 0 30px rgba(255, 193, 7, 0.6); /* More prominent shadow */
+        z-index: 1001; /* Ensure it's above the icon */
     }
 
     .chat-messages {
         padding: 10px;
         gap: 8px;
-    }
-
-    .message {
-        max-width: 85%; /* Allow messages to be slightly wider */
+        flex-grow: 1; /* Ensure messages area takes available space */
+        overflow-y: auto; /* Ensure messages area is scrollable */
     }
 
     .chat-input {
         padding: 10px;
+        flex-shrink: 0; /* Prevent input from shrinking */
+        background-color: rgba(30, 30, 30, 0.9); /* Match header background */
+        border-top: 1px solid rgba(255, 193, 7, 0.2); /* Keep border */
     }
 
     .chat-input input[type="text"] {
