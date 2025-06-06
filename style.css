@@ -2040,7 +2040,7 @@ footer {
             margin-top: 10px;
             margin-left: 0;
              gap: 5px;
-        }
+    }
 
          .auth-buttons .login-btn, .auth-buttons .primary-cta {
             padding: 6px 12px;
@@ -2714,44 +2714,69 @@ footer {
     }
 }
 
-/* Scroll to Top Button Styles */
-.scroll-to-top {
-    position: fixed;
-    bottom: 20px;
-    right: 20px;
-    background-color: var(--primary); /* Golden background */
-    color: var(--surface); /* Dark icon color */
-    border: none;
-    border-radius: 50%; /* Circular shape */
-    width: 50px;
-    height: 50px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 1.2rem;
-    cursor: pointer;
-    box-shadow: var(--shadow-md); /* Add a shadow */
-    transition: opacity 0.3s ease, visibility 0.3s ease, transform 0.3s ease; /* Smooth transition */
-    opacity: 0; /* Initially hidden */
-    visibility: hidden; /* Initially not visible to pointer events */
-    z-index: 999; /* Ensure it's above most content */
-}
+@media (max-width: 768px) {
+    /* Ensure auth buttons are always visible and clickable */
+    .auth-buttons {
+        display: flex !important;
+        gap: 10px;
+        align-items: center;
+        position: relative;
+        z-index: 1002; /* Higher than nav-links */
+        pointer-events: auto !important;
+    }
 
-.scroll-to-top:hover {
-    background-color: var(--primary-dark); /* Darker golden on hover */
-    box-shadow: var(--shadow-lg); /* More pronounced shadow */
-    transform: translateY(-3px); /* Subtle lift on hover */
-}
+    /* Ensure the login button is visible and clickable */
+    .auth-buttons .login-btn {
+        display: inline-flex !important;
+        padding: 8px 15px;
+        font-size: 0.9rem;
+        pointer-events: auto !important;
+        position: relative;
+        z-index: 1002;
+    }
 
-.scroll-to-top.show {
-    opacity: 1; /* Show when active */
-    visibility: visible; /* Make visible to pointer events */
-}
+    /* Ensure primary CTA button is clickable */
+    .auth-buttons .primary-cta {
+        pointer-events: auto !important;
+        position: relative;
+        z-index: 1002;
+    }
 
+    /* Ensure theme toggle is visible and clickable */
+    .theme-toggle {
+        display: flex !important;
+        position: relative;
+        z-index: 1002;
+        pointer-events: auto !important;
+    }
 
-/* Remove smooth scroll behavior from body if it was added previously */
-/* Ensure no conflicting smooth scroll properties */
-body {
-    /* Existing styles */
-    /* scroll-behavior: auto !important; /* Ensure no smooth behavior from CSS */
+    /* Remove the mobile menu integration for auth buttons */
+    .auth-buttons.active {
+        display: flex !important;
+        flex-direction: row;
+        gap: 10px;
+        margin-top: 0;
+        border-top: none;
+        padding-top: 0;
+        pointer-events: auto !important;
+    }
+
+    /* Adjust nav-links positioning to not overlap buttons */
+    .nav-links {
+        top: 60px;
+        height: calc(100vh - 60px);
+        z-index: 1001;
+    }
+
+    /* Ensure hamburger button is clickable */
+    .hamburger {
+        z-index: 1002;
+        pointer-events: auto !important;
+    }
+
+    /* Ensure container doesn't block clicks */
+    .navbar .container {
+        position: relative;
+        z-index: 1000;
+    }
 }

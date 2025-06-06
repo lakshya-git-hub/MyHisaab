@@ -13,7 +13,6 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollToPlugin.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollSmoother.min.js"></script>
 </head>
 <body>
     <!-- Loading Animation (Optional - can be removed if not desired) -->
@@ -23,11 +22,6 @@
             <div class="loader-text">Loading<span class="dot">.</span><span class="dot">.</span><span class="dot">.</span></div>
         </div>
     </div>
-
-    <!-- ScrollSmoother Wrapper -->
-    <div id="smooth-wrapper">
-        <!-- ScrollSmoother Content -->
-        <div id="smooth-content">
 
     <!-- Header (Sticky Navbar) -->
     <header class="navbar">
@@ -43,29 +37,24 @@
                     <li><a href="#hero">Home</a></li>
                     <li><a href="#divisions">Divisions</a></li>
                     <li><a href="#features">Features</a></li>
-                    
                     <li><a href="#pricing">Pricing</a></li>
                     <li><a href="#testimonials">Testimonials</a></li>
-                    
                 </ul>
             </nav>
             
             <div class="auth-buttons">
                 <a href="login.html" class="login-btn">Login</a>
                 <a href="login.html" class="btn primary-cta">Start Free Trial</a>
-
-                <!-- Dark/Light Mode Toggle -->
                 <div class="theme-toggle">
                     <input type="checkbox" id="theme-switch">
                     <label for="theme-switch" class="switch-label">
-                        <i class="fas fa-sun"></i> <!-- Sun icon for light mode -->
-                        <i class="fas fa-moon"></i> <!-- Moon icon for dark mode -->
+                        <i class="fas fa-sun"></i>
+                        <i class="fas fa-moon"></i>
                         <span class="slider round"></span>
                     </label>
                 </div>
             </div>
 
-            <!-- Hamburger for mobile menu - Keeping for responsiveness -->
             <button class="hamburger">
                 <i class="fas fa-bars"></i>
             </button>
@@ -235,7 +224,7 @@
             
             <div class="attendance-cards-grid">
                 <!-- Basic Plan Card -->
-                <div class="attendance-price-card card">
+                <div class="attendance-price-card card featured">
                     <h3>Basic</h3>
                     <p>Essential attendance tracking for small teams</p>
                     <ul>
@@ -558,9 +547,6 @@
         </div>
     </footer>
 
-        </div> <!-- End smooth-content -->
-    </div> <!-- End smooth-wrapper -->
-
     <!-- AI Chatbot System -->
     <div id="chatbot-container">
         <!-- Chatbot Icon (Floating Bubble) -->
@@ -586,11 +572,6 @@
             </div>
         </div>
     </div>
-
-    <!-- Scroll to Top Button -->
-    <button id="scroll-to-top" class="scroll-to-top">
-        <i class="fas fa-arrow-up"></i>
-    </button>
 
     <script src="script.js"></script>
     <!-- New Chatbot Script -->
