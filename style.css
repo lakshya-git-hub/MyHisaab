@@ -1331,21 +1331,21 @@ section {
 }
 
 /* Styles for the new testimonial container and cards */
-.testimonials-container {
-    /* Basic styles for the container, slider library will add more */
-    margin-top: 40px; /* Adjust margin above the container */
-    display: flex; /* Use flexbox for horizontal layout */
-    overflow-x: auto; /* Enable horizontal scrolling if needed */
-    -webkit-overflow-scrolling: touch; /* Smooth scrolling on touch devices */
-    gap: 30px; /* Space between testimonial cards */
-    padding-bottom: 20px; /* Add some padding for potential scrollbar */
-    /* Hide scrollbar for a cleaner look */
-    scrollbar-width: none; /* Firefox */
-    -ms-overflow-style: none;  /* Internet Explorer 10+ */
+.testimonials-slider-wrapper {
+    overflow: hidden; /* Hide overflowing cards */
+    mask-image: linear-gradient(to right, transparent 0%, black 5%, black 95%, transparent 100%); /* Fade effect at edges */
 }
 
-.testimonials-container::-webkit-scrollbar {
-    display: none; /* Safari and Chrome */
+.testimonials-container {
+    display: flex; /* Arrange cards horizontally */
+    gap: 30px; /* Space between testimonial cards */
+    padding-bottom: 20px; /* Add some padding for potential scrollbar */
+    width: fit-content; /* Allow container to be wider than viewport */
+    animation: scrollTestimonials 40s linear infinite; /* Apply continuous scrolling animation */
+}
+
+.testimonials-container:hover {
+    animation-play-state: paused; /* Pause animation on hover */
 }
 
 .testimonial-card {
@@ -1356,7 +1356,21 @@ section {
     align-items: flex-start; /* Align items to the start */
     text-align: left; /* Align text left within the card */
     flex: 0 0 350px; /* Set a fixed width for cards and prevent shrinking */
-    max-width: 100%; /* Ensure cards don't exceed container width on small screens */
+    max-width: calc(100vw - 60px); /* Adjust max-width for mobile responsiveness */
+}
+
+/* Add CSS animation for continuous scrolling */
+@keyframes scrollTestimonials {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(calc(-350px * 5 - (30px * 5))); /* Scroll the width of the original 5 cards + 5 gaps */ }
+}
+
+/* Ensure responsiveness for the animation distance if card width changes */
+@media (max-width: 768px) {
+    @keyframes scrollTestimonials {
+        0% { transform: translateX(0); }
+        100% { transform: translateX(calc( -(100vw - 60px) * 5 - (30px * 5) )); /* Recalculate scroll distance based on responsive width */ }
+    }
 }
 
 .testimonial-card:hover {
@@ -1381,6 +1395,13 @@ section {
     /* border: 2px solid var(--primary); */
 }
 
+.author-avatar img {
+    width: 100%; /* Make the image take the full width of its container */
+    height: 100%; /* Make the image take the full height of its container */
+    object-fit: cover; /* Crop the image to cover the area without distorting aspect ratio */
+    border-radius: 50%; /* Apply border-radius to the image itself */
+}
+
 .author-details strong {
     display: block;
     font-weight: 600;
@@ -1398,18 +1419,6 @@ section {
     color: var(--text); /* Light text color for quote */
     line-height: 1.6;
     margin: 0; /* Remove default blockquote margin */
-}
-
-/* Add CSS animation for continuous scrolling */
-@keyframes scrollTestimonials {
-    0% { transform: translateX(0); }
-    100% { transform: translateX(calc(-350px * 5 - (30px * 5))); /* Scroll the width of the original 5 cards + 5 gaps */ }
-}
-
-.testimonials-container {
-    /* Existing styles */
-    /* Remove CSS animation, will be handled by JavaScript */
-    /* Consider adding animation-play-state: paused; on hover if needed */
 }
 
 /* Style for placeholder elements if needed */
@@ -2040,7 +2049,7 @@ footer {
             margin-top: 10px;
             margin-left: 0;
              gap: 5px;
-    }
+        }
 
          .auth-buttons .login-btn, .auth-buttons .primary-cta {
             padding: 6px 12px;
