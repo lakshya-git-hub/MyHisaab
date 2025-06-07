@@ -11,26 +11,7 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
     
-    // Mobile menu toggle
-    const hamburger = document.querySelector('.hamburger');
-    const navLinks = document.querySelector('.nav-links');
-    
-    if (hamburger && navLinks) {
-        hamburger.addEventListener('click', function() {
-            this.classList.toggle('active');
-            navLinks.classList.toggle('active');
-        });
-        
-        // Close mobile menu when clicking on a link
-        document.querySelectorAll('.nav-links a').forEach(link => {
-            link.addEventListener('click', function() {
-                if (window.innerWidth <= 768) {
-                    hamburger.classList.remove('active');
-                    navLinks.classList.remove('active');
-                }
-            });
-        });
-    }
+    // Mobile menu toggle functionality removed
     
     // Pricing tabs toggle - REMOVED as per new design
     
@@ -57,12 +38,6 @@ document.addEventListener('DOMContentLoaded', function() {
                     },
                     ease: 'power2.inOut'
                 });
-                
-                // Close mobile menu after clicking a link
-                if (window.innerWidth <= 768) {
-                    hamburger.classList.remove('active');
-                    navLinks.classList.remove('active');
-                }
             }
         });
     });
@@ -258,3 +233,119 @@ style.textContent = `
     }
 `;
 document.head.appendChild(style);
+
+// Testimonial Slider JavaScript for continuous loop
+const testimonialsSliderWrapper = document.querySelector('.testimonials-slider-wrapper');
+const testimonialsContainer = document.querySelector('.testimonials-container');
+
+if (testimonialsSliderWrapper && testimonialsContainer) {
+    let animationFrameId = null;
+    let currentScrollPosition = 0;
+    let totalOriginalWidth = 0;
+    let isPaused = false;
+
+    // Function to calculate the total width of one set of testimonials
+    function calculateTotalWidth() {
+        const testimonialCards = testimonialsContainer.querySelectorAll('.testimonial-card');
+        if (testimonialCards.length === 0) {
+             console.warn('calculateTotalWidth: No testimonial cards found.');
+            return 0;
+        }
+
+        // Assuming the original set is the first half of the duplicated cards
+        const originalCardCount = testimonialCards.length / 2;
+        let calculatedWidth = 0;
+        // Get the gap style, accounting for different units (e.g., px)
+        const gapStyle = getComputedStyle(testimonialsContainer).gap;
+        // Attempt to parse the pixel value of the gap
+        const gapMatch = gapStyle ? gapStyle.match(/(\d+(\.\d+)?)(px)/) : null;
+        const gap = gapMatch ? parseFloat(gapMatch[1]) : 0;
+
+        for (let i = 0; i < originalCardCount; i++) {
+            if (testimonialCards[i]) {
+                calculatedWidth += testimonialCards[i].offsetWidth;
+                if (i < originalCardCount - 1) {
+                    calculatedWidth += gap;
+                }
+            } else {
+                 console.warn(`calculateTotalWidth: Card element at index ${i} not found in DOM.`);
+                 // Stop calculation if a card is unexpectedly missing
+                 return 0;
+            }
+        }
+
+        console.log('Calculated total original width:', calculatedWidth, 'Gap (px):', gap, 'Original card count:', originalCardCount);
+        return calculatedWidth;
+    }
+
+    function smoothScroll() {
+        if (isPaused) return; // Stop animation if paused
+
+        if (totalOriginalWidth === 0) {
+             console.warn('smoothScroll: totalOriginalWidth is 0. Recalculating...');
+             totalOriginalWidth = calculateTotalWidth();
+             if (totalOriginalWidth === 0) {
+                 animationFrameId = requestAnimationFrame(smoothScroll); // Try again if width is 0
+                 return;
+             }
+        }
+
+        // Move the container to the left
+        currentScrollPosition -= 1; // Adjust scroll speed here (smaller value = slower scroll)
+
+        // Check if the current position has scrolled past the end of the original set
+        if (currentScrollPosition <= -totalOriginalWidth) {
+            // Reset position to the start of the duplicated set (which is translateX(0)))
+            currentScrollPosition = 0; // This should create a seamless loop
+            console.log('Resetting scroll position. New position:', currentScrollPosition);
+        }
+
+        testimonialsContainer.style.transform = `translateX(${currentScrollPosition}px)`;
+
+        animationFrameId = requestAnimationFrame(smoothScroll);
+    }
+
+    // Start scrolling animation when the window loads and on resize
+    const startScrolling = () => {
+         console.log('Starting scrolling...');
+         totalOriginalWidth = calculateTotalWidth(); // Calculate initial width
+         if (totalOriginalWidth > 0) {
+             currentScrollPosition = 0; // Ensure starting from the beginning on load/resize
+             isPaused = false; // Ensure not paused initially
+             if (animationFrameId) cancelAnimationFrame(animationFrameId); // Cancel any existing animation frame
+             smoothScroll(); // Start the animation loop
+              console.log('Scrolling started successfully.');
+         } else {
+              console.error("Testimonial cards not found or have zero width after layout settle. Cannot start scrolling.");
+         }
+    };
+
+    // Start on window load
+    window.addEventListener('load', startScrolling);
+
+    // Recalculate width and restart animation on window resize
+    window.addEventListener('resize', startScrolling);
+
+    // Pause on hover
+    testimonialsSliderWrapper.addEventListener('mouseenter', () => {
+        isPaused = true;
+        cancelAnimationFrame(animationFrameId);
+         console.log('Scrolling paused on hover.');
+    });
+
+    // Resume on mouse leave
+    testimonialsSliderWrapper.addEventListener('mouseleave', () => {
+         isPaused = false;
+         // Recalculate width before resuming in case of resize during hover
+         totalOriginalWidth = calculateTotalWidth();
+         if (totalOriginalWidth > 0) {
+             smoothScroll();
+              console.log('Scrolling resumed.');
+         } else {
+              console.error("Testimonial cards not found or have zero width on mouse leave. Cannot resume scrolling.");
+         }
+    });
+
+     // Add logging for debugging
+     console.log('Testimonials slider script loaded and event listeners added.');
+}

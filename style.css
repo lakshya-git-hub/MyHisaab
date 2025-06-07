@@ -1341,11 +1341,11 @@ section {
     gap: 30px; /* Space between testimonial cards */
     padding-bottom: 20px; /* Add some padding for potential scrollbar */
     width: fit-content; /* Allow container to be wider than viewport */
-    animation: scrollTestimonials 40s linear infinite; /* Apply continuous scrolling animation */
+    /* Removed CSS animation, will be handled by JavaScript */
 }
 
 .testimonials-container:hover {
-    animation-play-state: paused; /* Pause animation on hover */
+    /* Animation play state handled by JavaScript */
 }
 
 .testimonial-card {
@@ -1357,20 +1357,6 @@ section {
     text-align: left; /* Align text left within the card */
     flex: 0 0 350px; /* Set a fixed width for cards and prevent shrinking */
     max-width: calc(100vw - 60px); /* Adjust max-width for mobile responsiveness */
-}
-
-/* Add CSS animation for continuous scrolling */
-@keyframes scrollTestimonials {
-    0% { transform: translateX(0); }
-    100% { transform: translateX(calc(-350px * 5 - (30px * 5))); /* Scroll the width of the original 5 cards + 5 gaps */ }
-}
-
-/* Ensure responsiveness for the animation distance if card width changes */
-@media (max-width: 768px) {
-    @keyframes scrollTestimonials {
-        0% { transform: translateX(0); }
-        100% { transform: translateX(calc( -(100vw - 60px) * 5 - (30px * 5) )); /* Recalculate scroll distance based on responsive width */ }
-    }
 }
 
 .testimonial-card:hover {
@@ -1677,6 +1663,9 @@ footer {
     
     .hero-title {
         font-size: 3rem; /* Further adjust hero title font size for 768px */
+        display: block; /* Ensure title is a block element */
+        margin-bottom: 20px; /* Add some space below the title */
+        z-index: 10; /* Ensure title is above other elements */
     }
     
     .hero-subtitle {
@@ -1814,6 +1803,9 @@ footer {
     
     .hero-title {
         font-size: 2.2rem; /* Further adjust hero title font size for 480px */
+        display: block; /* Ensure title is a block element */
+        margin-bottom: 15px; /* Add some space below the title */
+        z-index: 10; /* Ensure title is above other elements */
     }
 
     /* Further adjust font sizes for very small screens */
@@ -2049,7 +2041,7 @@ footer {
             margin-top: 10px;
             margin-left: 0;
              gap: 5px;
-        }
+    }
 
          .auth-buttons .login-btn, .auth-buttons .primary-cta {
             padding: 6px 12px;
@@ -2724,14 +2716,42 @@ footer {
 }
 
 @media (max-width: 768px) {
+    .navbar {
+        z-index: 1050; /* Ensure navbar is above most content on mobile */
+        position: fixed; /* Make navbar fixed on mobile for better control */
+        width: 100%;
+        top: 0;
+        left: 0;
+        background-color: var(--surface); /* Ensure background color is set */
+        box-shadow: var(--shadow-sm); /* Add a subtle shadow */
+    }
+
+    .navbar .container {
+        flex-wrap: wrap;
+        justify-content: space-between;
+        align-items: center;
+        padding: 10px 20px;
+        position: relative; /* Needed for z-index stacking */
+        z-index: 2; /* Ensure container content is above navbar background */
+    }
+
+    .navbar .logo {
+        flex-basis: auto;
+        margin-right: auto;
+        flex-shrink: 0;
+        position: relative; /* Needed for z-index */
+        z-index: 3; /* Ensure logo is clickable */
+    }
+
     /* Ensure auth buttons are always visible and clickable */
     .auth-buttons {
         display: flex !important;
         gap: 10px;
         align-items: center;
         position: relative;
-        z-index: 1002; /* Higher than nav-links */
+        z-index: 1002; /* Higher than nav-links but below hamburger/logo */
         pointer-events: auto !important;
+        flex-shrink: 0; /* Prevent shrinking */
     }
 
     /* Ensure the login button is visible and clickable */
@@ -2741,51 +2761,145 @@ footer {
         font-size: 0.9rem;
         pointer-events: auto !important;
         position: relative;
-        z-index: 1002;
+        z-index: 1003; /* Explicitly higher */
     }
 
     /* Ensure primary CTA button is clickable */
     .auth-buttons .primary-cta {
         pointer-events: auto !important;
         position: relative;
-        z-index: 1002;
+        z-index: 1003; /* Explicitly higher */
     }
 
     /* Ensure theme toggle is visible and clickable */
     .theme-toggle {
         display: flex !important;
         position: relative;
-        z-index: 1002;
+        z-index: 1003; /* Explicitly higher */
         pointer-events: auto !important;
+        flex-shrink: 0; /* Prevent shrinking */
     }
 
-    /* Remove the mobile menu integration for auth buttons */
+    .theme-toggle .switch-label, .theme-toggle input[type="checkbox"] {
+        pointer-events: auto !important; /* Ensure switch elements are clickable */
+    }
+
+    /* Style for auth buttons container in the header when mobile menu is NOT active */
+    .navbar .container .auth-buttons:not(.active) {
+        /* Ensure pointer-events are auto for children if flex-wrap causes issues */
+         pointer-events: auto;
+         flex-wrap: nowrap; /* Prevent wrapping in the header bar */
+         width: auto; /* Allow width based on content */
+    }
+
+     /* Style for Auth Buttons when mobile menu IS active (integrate into sidebar) */
     .auth-buttons.active {
-        display: flex !important;
-        flex-direction: row;
-        gap: 10px;
-        margin-top: 0;
-        border-top: none;
-        padding-top: 0;
-        pointer-events: auto !important;
+        display: flex; /* Show auth buttons when mobile menu is active */
+        flex-direction: column; /* Stack auth buttons vertically */
+        gap: 15px;
+        align-items: flex-start;
+        margin-top: 30px;
+        border-top: 1px solid var(--border);
+        padding-top: 20px;
+        width: 100%;
+        position: relative; /* Ensure correct stacking context in sidebar */
+        z-index: 1001; /* Ensure they are above the nav links in the sidebar */
     }
 
-    /* Adjust nav-links positioning to not overlap buttons */
+    /* Mobile menu (sidebar) styles for Nav Links */
     .nav-links {
-        top: 60px;
-        height: calc(100vh - 60px);
-        z-index: 1001;
+        position: fixed;
+        top: 0;
+        right: -250px;
+        width: 250px;
+        height: 100vh;
+        background-color: var(--surface);
+        padding: 80px 20px;
+        transition: right 0.3s ease-in-out;
+        z-index: 999; /* Below hamburger (1004) and header elements */
+        flex-direction: column; /* Stack links vertically */
+         gap: 20px;
+         align-items: flex-start;
+        display: none; /* Explicitly hide by default on mobile */
+         /* Initial display state handled by :not(.active) and .active rules */
+         overflow-y: auto; /* Add scrolling for long menus */
+    }
+
+    /* Show and slide in Nav Links when active */
+    .nav-links.active {
+        right: 0; /* Slide into view */
+        display: flex; /* Ensure it's displayed as flex when active */
+        z-index: 1000; /* Ensure it's above main content */
     }
 
     /* Ensure hamburger button is clickable */
     .hamburger {
-        z-index: 1002;
+        display: flex; /* Ensure hamburger is displayed on mobile */
+        z-index: 1004; /* Highest z-index for hamburger */
         pointer-events: auto !important;
+        position: relative; /* Needed for z-index */
+        align-items: center;
+        justify-content: center;
     }
 
-    /* Ensure container doesn't block clicks */
-    .navbar .container {
-        position: relative;
-        z-index: 1000;
+    /* Adjust main content margin when mobile menu is active - consider removing if using overlay */
+    /* body.mobile-menu-active .content-sections { */
+    /*    margin-left: 250px; */
+    /* } */
+    
+    /* Add an overlay when mobile menu is active */
+     body.mobile-menu-active::before {
+         content: '';
+         position: fixed;
+         top: 0;
+         left: 0;
+         right: 0;
+         bottom: 0;
+         background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent dark overlay */
+         z-index: 990; /* Below nav-links and header */
+         pointer-events: auto; /* Intercept clicks on content below */
+     }
+
+    /* Adjustments for very small screens */
+    @media (max-width: 480px) {
+        .navbar .container {
+            padding: 10px 15px;
+        }
+        .navbar .container .auth-buttons:not(.active) {
+            justify-content: center;
+        width: 100%;
+            margin-top: 10px;
+            margin-left: 0;
+             gap: 5px;
+    }
+
+         .auth-buttons .login-btn, .auth-buttons .primary-cta, .auth-buttons .theme-toggle {
+              padding: 6px 12px;
+              font-size: 0.85rem;
+              pointer-events: auto !important; /* Reiterate pointer-events for safety */
+         }
+
+         .auth-buttons .language-selector select, .theme-toggle .switch-label {
+             transform: scale(0.9);
+             transform-origin: center right;
+         }
     }
 }
+
+/* Add CSS animation for continuous scrolling */
+@keyframes scrollTestimonials {
+    0% { transform: translateX(0); }
+    /* Correct calculation: width of 5 cards (350px each) + 4 gaps (30px each) */
+    100% { transform: translateX(calc(-350px * 5 - 30px * 4)); }
+}
+
+/* Ensure responsiveness for the animation distance if card width changes */
+@media (max-width: 768px) {
+    @keyframes scrollTestimonials {
+        0% { transform: translateX(0); }
+        /* Correct calculation for mobile: width of 5 cards (100vw - 60px each) + 4 gaps (30px each) */
+        100% { transform: translateX(calc( -(100vw - 60px) * 5 - 30px * 4 )); }
+    }
+}
+
+
